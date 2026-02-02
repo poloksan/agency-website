@@ -48,8 +48,8 @@ const companyLogos = [
 
 export default function Hero() {
     return (
-        <section>
-            <div>
+        <section className="w-full">
+            <div className="w-full max-w-360 mx-auto px-8 sm:px-30 py-11 bg-custom-primary">
                 <h1>Hero</h1>
             </div>
         </section>
