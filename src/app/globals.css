@@ -1,26 +1,48 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --custom-black: #050505;
+    --custom-white: whitesmoke;
+    --custom-primary: #c5fb67;
+    --custom-secondary: #1c1c1c;
+    --custom-light-gray: #eeeeee;
+    --custom-dark-gray: #404040;
+    --custom-drop-shadow: #c5fb6733;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+    --color-custom-black: var(--custom-black);
+    --color-custom-white: var(--custom-white);
+    --color-custom-light-gray: var(--custom-light-gray);
+    --color-custom-dark-gray: var(--custom-dark-gray);
+    --color-custom-primary: var(--custom-primary);
+    --color-custom-secondary: var(--custom-secondary);
+    --color-custom-drop-shadow: var(--custom-drop-shadow);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--color-custom-black);
+    color: var(--color-custom-white);
+}
+
+.my-text {
+    font-weight: 600; /* font-semibold */
+    letter-spacing: -1px; /* tracking-[-1px] */
+    text-transform: uppercase; /* uppercase */
+
+    padding-top: 1rem; /* pt-4 */
+    margin-left: -1rem; /* -ml-4 */
+
+    color: transparent; /* text-transparent */
+    transform: translateY(-10px); /* -translate-y-2.5 */
+
+    -webkit-text-stroke: 1px rgba(197, 251, 103, 1);
+}
+
+/* md breakpoint */
+@media (min-width: 768px) {
+    .my-text {
+        font-size: 192px; /* md:text-[192px] */
+        line-height: 33.75rem; /* md:leading-33.75 */
+    }
 }
