@@ -4,85 +4,62 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import { MdOutlineArrowOutward } from 'react-icons/md';
-import learnMore from '@/assets/icons/learn-more-btn.png';
-import corner from '@/assets/images/hero-big-corner-img.png';
-import heroBigImg from '@/assets/images/hero-big-img.png';
-import companyLogoOne from '@/assets/images/company-logo-one.png';
-import companyLogoTwo from '@/assets/images/company-logo-two.png';
-import companyLogoThree from '@/assets/images/company-logo-three.png';
-import companyLogoFour from '@/assets/images/company-logo-four.png';
+import heroBg from '@/assets/images/hero-bg-img.jpg';
+import RotateText from '@/components/rotateText/page';
+import glowBg from '@/assets/icons/bg-circle-icon.png';
+import circleImg from '@/assets/images/hero-circle-img.png';
 
-const companyLogos = [
-    {
-        id: 1,
-        src: companyLogoOne,
-        alt: 'company logo',
-    },
-    {
-        id: 2,
-        src: companyLogoTwo,
-        alt: 'company logo',
-    },
-    {
-        id: 3,
-        src: companyLogoThree,
-        alt: 'company logo',
-    },
-    {
-        id: 4,
-        src: companyLogoFour,
-        alt: 'company logo',
-    },
-    {
-        id: 5,
-        src: companyLogoOne,
-        alt: 'company logo',
-    },
-    {
-        id: 6,
-        src: companyLogoTwo,
-        alt: 'company logo',
-    },
-];
+import Marquee from 'react-fast-marquee';
 
 export default function Hero() {
     return (
-        <section className="w-full max-w-360 mx-auto px-8 sm:px-30 py-11">
-            <div className="relative w-full h-[80vh] flex flex-col items-center justify-center text-center lg:gap-20 bg-custom-primary rounded-4xl">
-                <div className="lg:space-y-16">
-                    <p className="mb-4 font-semibold text-2xl uppercase leading-6 tracking-wider text-custom-black">
-                        Welcome <span className="">to</span>
-                    </p>
-                    <h1 className="font-bold text-[152px] leading-32 tracking-[1px] capitalize text-custom-black">
-                        create design <span className="">agency</span>
+        <section className="w-full h-screen relative">
+            <Image
+                src={heroBg}
+                alt="hero background"
+                draggable="false"
+                fill
+                priority
+                className="object-cover -z-999 pointer-events-none"
+            />
+
+            <Image
+                src={glowBg}
+                alt="glow blob"
+                draggable="false"
+                className="absolute top-0 right-0 pointer-events-none animate-pulse"
+            />
+
+            <div className="w-full h-screen max-w-360 mx-auto px-8 sm:px-16 pb-11 pt-30 flex flex-col items-center justify-center xl:gap-12 relative">
+                <h1 className="w-full tracking-[-2px] font-light lg:text-[100px] xl:text-[150px] xl:leading-10 flex items-center lg:gap-8 xl:gap-10 text-center">
+                    Creating
+                    <Marquee className="lg:text-[90px] xl:text-[140px] bg-[#C9F31D] w-full lg:max-w-110 xl:max-w-170 select-none lg:h-28 xl:h-40 rounded-full text-custom-black flex items-center gap-10 overflow-hidden">
+                        brands brands
+                    </Marquee>
+                </h1>
+                <div className="w-full flex items-center justify-between">
+                    <h1 className="w-full lg:text-[100px] xl:text-[150px] tracking-[-2px] font-light xl:leading-10 flex items-center gap-10 text-center">
+                        and digital
                     </h1>
-                    <p className="text-2xl w-full max-w-220 mx-auto text-custom-dark-gray">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, minima!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ab
+                    <p className="w-full max-w-100 text-lg xl:text-[22px]">
+                        We design exceptional brands, products, web apps, mobile apps,websites for
+                        startups aand enterprises.
                     </p>
                 </div>
 
-                <Link href={'/'}>
-                    <motion.button
-                        animate={{ rotate: 360 }}
-                        transition={{
-                            ease: 'linear',
-                            duration: 8,
-                            repeat: Infinity,
-                        }}
-                        type="button"
-                        className="border-12 border-solid border-custom-black bg-custom-primary rounded-full cursor-pointer"
-                    >
-                        <Image
-                            src={learnMore}
-                            alt="learn more"
-                            draggable="false"
-                            width={120}
-                            height={120}
-                        />
-                    </motion.button>
-                </Link>
+                <div className="w-full flex items-center justify-end gap-14 ">
+                    <div className="flex items-center lg:gap-8 xl:gap-15">
+                        <Marquee
+                            className="w-full lg:text-[90px] xl:text-[140px] xl:leading-10 tracking-[-2px] font-light text-center bg-[#C9F31D] lg
+                        max-w-110 xl:max-w-170 select-none lg:h-28 xl:h-40 rounded-full text-custom-black  overflow-hidden"
+                        >
+                            solutions solutions
+                        </Marquee>
+                    </div>
+                    <div>
+                        <RotateText />
+                    </div>
+                </div>
             </div>
         </section>
     );

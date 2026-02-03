@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
     --custom-black: #050505;
@@ -25,24 +25,46 @@ body {
     color: var(--color-custom-white);
 }
 
-.my-text {
-    font-weight: 600; /* font-semibold */
-    letter-spacing: -1px; /* tracking-[-1px] */
-    text-transform: uppercase; /* uppercase */
+/* .my-text {
+    font-weight: 600;
+    letter-spacing: -1px;
+    text-transform: uppercase;
 
-    padding-top: 1rem; /* pt-4 */
-    margin-left: -1rem; /* -ml-4 */
+    padding-top: 1rem;
+    margin-left: -1rem;
 
-    color: transparent; /* text-transparent */
-    transform: translateY(-10px); /* -translate-y-2.5 */
+    color: transparent;
+    transform: translateY(-10px);
 
     -webkit-text-stroke: 1px rgba(197, 251, 103, 1);
+} */
+
+.go-down-btn svg {
+    position: relative;
+    z-index: -1;
+}
+
+.rotate-text {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    transform-origin: center;
+    animation: rotate-btn 20s linear infinite;
+}
+
+.go-down-btn:hover .rotate-text {
+    animation-play-state: paused;
+}
+
+@keyframes rotate-btn {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* md breakpoint */
 @media (min-width: 768px) {
     .my-text {
-        font-size: 192px; /* md:text-[192px] */
-        line-height: 33.75rem; /* md:leading-33.75 */
+        font-size: 192px;
+        line-height: 33.75rem;
     }
 }
