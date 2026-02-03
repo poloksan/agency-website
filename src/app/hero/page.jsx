@@ -48,9 +48,23 @@ const companyLogos = [
 
 export default function Hero() {
     return (
-        <section className="w-full">
-            <div className="w-full max-w-360 mx-auto px-8 sm:px-30 py-11 bg-custom-primary">
-                <h1>Hero</h1>
+        <section className="w-full max-w-360 mx-auto px-8 sm:px-30 py-11 rounded-4xl">
+            <div className="w-full h-[80vh] bg-custom-primary border-50 border-custom-white rounded-4xl text-custom-black">
+                <div>
+                    <h1>
+                        create <span>design</span> agency
+                    </h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Suscipit, minima!
+                    </p>
+                </div>
+
+                <div>
+                    <button>
+                        <MdOutlineArrowOutward />
+                    </button>
+                </div>
             </div>
         </section>
     );
