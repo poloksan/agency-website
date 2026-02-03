@@ -1,48 +1,48 @@
-"use client";
+'use client';
 
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "motion/react";
-import { MdOutlineArrowOutward } from "react-icons/md";
-import learnMore from "@/assets/icons/learn-more-btn.png";
-import corner from "@/assets/images/hero-big-corner-img.png";
-import heroBigImg from "@/assets/images/hero-big-img.png";
-import companyLogoOne from "@/assets/images/company-logo-one.png";
-import companyLogoTwo from "@/assets/images/company-logo-two.png";
-import companyLogoThree from "@/assets/images/company-logo-three.png";
-import companyLogoFour from "@/assets/images/company-logo-four.png";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'motion/react';
+import { MdOutlineArrowOutward } from 'react-icons/md';
+import learnMore from '@/assets/icons/learn-more-btn.png';
+import corner from '@/assets/images/hero-big-corner-img.png';
+import heroBigImg from '@/assets/images/hero-big-img.png';
+import companyLogoOne from '@/assets/images/company-logo-one.png';
+import companyLogoTwo from '@/assets/images/company-logo-two.png';
+import companyLogoThree from '@/assets/images/company-logo-three.png';
+import companyLogoFour from '@/assets/images/company-logo-four.png';
 
 const companyLogos = [
     {
         id: 1,
         src: companyLogoOne,
-        alt: "company logo",
+        alt: 'company logo',
     },
     {
         id: 2,
         src: companyLogoTwo,
-        alt: "company logo",
+        alt: 'company logo',
     },
     {
         id: 3,
         src: companyLogoThree,
-        alt: "company logo",
+        alt: 'company logo',
     },
     {
         id: 4,
         src: companyLogoFour,
-        alt: "company logo",
+        alt: 'company logo',
     },
     {
         id: 5,
         src: companyLogoOne,
-        alt: "company logo",
+        alt: 'company logo',
     },
     {
         id: 6,
         src: companyLogoTwo,
-        alt: "company logo",
+        alt: 'company logo',
     },
 ];
 
@@ -80,7 +80,7 @@ export default function Hero() {
                     transition={{
                         duration: 0.5,
                         delay: 0.2,
-                        ease: "easeInOut",
+                        ease: 'easeInOut',
                     }}
                     className="relative text-center leading-[0.9] mb-6 cursor-default"
                 >
@@ -93,10 +93,10 @@ export default function Hero() {
 
                     <h2
                         className={[
-                            "font-semibold tracking-[-1px] uppercase text-[56px] md:text-[160px] lg:text-[192px] md:leading-33.75 pt-4 md:-ml-18 lg:-ml-4",
-                            " text-transparent -translate-y-2.5",
-                            "[-webkit-text-stroke:1px_rgba(197,251,103,1)] [text-stroke:px_rgba(197,251,103,1)]",
-                        ].join(" ")}
+                            'font-semibold tracking-[-1px] uppercase text-[56px] md:text-[160px] lg:text-[192px] md:leading-33.75 pt-4 md:-ml-18 lg:-ml-4',
+                            ' text-transparent -translate-y-2.5',
+                            '[-webkit-text-stroke:1px_rgba(197,251,103,1)] [text-stroke:px_rgba(197,251,103,1)]',
+                        ].join(' ')}
                     >
                         AGENCY
                     </h2>
@@ -115,7 +115,7 @@ export default function Hero() {
                     transition={{
                         duration: 0.5,
                         delay: 0.3,
-                        ease: "easeInOut",
+                        ease: 'easeInOut',
                     }}
                     className="mt-4 flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-16 lg:gap-0"
                 >
@@ -160,11 +160,11 @@ export default function Hero() {
                                 />
                             </div>
 
-                            <Link href={"/"}>
+                            <Link href={'/'}>
                                 <motion.button
                                     animate={{ rotate: 360 }}
                                     transition={{
-                                        ease: "linear",
+                                        ease: 'linear',
                                         duration: 8,
                                         repeat: Infinity,
                                     }}
