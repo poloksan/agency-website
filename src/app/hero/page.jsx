@@ -50,7 +50,7 @@ export default function Hero() {
     return (
         <section className="w-full max-w-360 mx-auto px-8 sm:px-30 py-11">
             <div className="relative w-full h-[80vh] flex flex-col items-center justify-center text-center lg:gap-20 bg-custom-primary rounded-4xl">
-                <div className="lg:space-y-16 -mt-30">
+                <div className="lg:space-y-16">
                     <p className="mb-4 font-semibold text-2xl uppercase leading-6 tracking-wider text-custom-black">
                         Welcome <span className="">to</span>
                     </p>
@@ -63,18 +63,25 @@ export default function Hero() {
                     </p>
                 </div>
 
-                <Link
-                    href={'/'}
-                    className=" w-full max-w-50 h-15.5 flex items-center justify-center border-2 border-custom-black bg-custom-black rounded-full absolute bottom-0 right-0 hover:bg-transparent group"
-                >
-                    <div className="flex items-center lg:gap-4 lg:text-xl">
-                        <button className="capitalize cursor-pointer text-custom-primary group-hover:text-custom-black">
-                            read more
-                        </button>
-                        <span className="p-2 rounded-full group-hover:bg-custom-black -mr-3">
-                            <MdOutlineArrowOutward className="text-custom-primary font-semibold leading-8 tracking-wide text-2xl" />
-                        </span>
-                    </div>
+                <Link href={'/'}>
+                    <motion.button
+                        animate={{ rotate: 360 }}
+                        transition={{
+                            ease: 'linear',
+                            duration: 8,
+                            repeat: Infinity,
+                        }}
+                        type="button"
+                        className="border-12 border-solid border-custom-black bg-custom-primary rounded-full cursor-pointer"
+                    >
+                        <Image
+                            src={learnMore}
+                            alt="learn more"
+                            draggable="false"
+                            width={120}
+                            height={120}
+                        />
+                    </motion.button>
                 </Link>
             </div>
         </section>
