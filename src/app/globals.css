@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 :root {
     --custom-black: #050505;
@@ -38,6 +38,13 @@ body {
 
     -webkit-text-stroke: 1px rgba(197, 251, 103, 1);
 } */
+
+.rfm-marquee {
+    overflow: visible !important;
+}
+.rfm-initial-child-container {
+    overflow: visible !important;
+}
 
 .go-down-btn svg {
     position: relative;
