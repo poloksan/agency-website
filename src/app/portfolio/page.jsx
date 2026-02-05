@@ -1,15 +1,13 @@
-'use client';
+"use client";
+import React from "react";
 
-import React from 'react';
-import { RiArrowRightDoubleFill } from 'react-icons/ri';
-
-import HeadingBorderText from '@/components/headingBorderText/page';
-import workOne from '@/assets/images/work-one.png';
-import workTwo from '@/assets/images/work-two.png';
-import workThree from '@/assets/images/work-three.png';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'motion/react';
+import { RiArrowRightDoubleFill } from "react-icons/ri";
+import HeadingBorderText from "@/components/headingBorderText/page";
+import workOne from "@/assets/images/work-one.png";
+import workTwo from "@/assets/images/work-two.png";
+import workThree from "@/assets/images/work-three.png";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function PortfolioSection() {
     return (
@@ -17,7 +15,7 @@ export default function PortfolioSection() {
             <div className="w-full h-500 max-w-360 mx-auto px-8 flex flex-col items-start justify-center xl:gap-24 relative overflow-hidden">
                 {/* under text */}
                 <div className="text-center -z-999">
-                    <HeadingBorderText text={'featured'} />
+                    <HeadingBorderText text={"featured"} />
 
                     <h2 className="uppercase text-[192px] font-semibold tracking-tight -mt-16 pointer-events-none">
                         works
@@ -30,8 +28,8 @@ export default function PortfolioSection() {
 
                 {/* image */}
 
-                <div className="w-full flex flex-col items-center gap-16 z-50 border absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <Link href={'/'}>
+                <div className="w-full flex flex-col items-center gap-16 z-50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <Link href={"/"}>
                         <div className="w-full inline-block max-w-180 relative object-cover group overflow-hidden rounded-lg">
                             <Image
                                 src={workOne}
@@ -56,7 +54,7 @@ export default function PortfolioSection() {
                             </div>
                         </div>
                     </Link>
-                    <Link href={'/'}>
+                    <Link href={"/"}>
                         <div className="w-full inline-block max-w-180 relative object-cover group overflow-hidden rounded-lg">
                             <Image
                                 src={workOne}
@@ -81,7 +79,7 @@ export default function PortfolioSection() {
                             </div>
                         </div>
                     </Link>
-                    <Link href={'/'}>
+                    <Link href={"/"}>
                         <div className="w-full inline-block max-w-180 relative object-cover group overflow-hidden rounded-lg">
                             <Image
                                 src={workOne}
