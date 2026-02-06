@@ -12,7 +12,7 @@ import Link from "next/link";
 export default function PortfolioSection() {
     return (
         <section className="w-full">
-            <div className="w-full h-500 max-w-360 mx-auto px-8 flex flex-col items-start justify-center xl:gap-24 relative overflow-hidden">
+            <div className="w-full max-w-360 mx-auto px-8 flex flex-col items-start justify-center relative border">
                 {/* under text */}
                 <div className="text-center -z-999">
                     <HeadingBorderText text={"featured"} />
@@ -28,9 +28,10 @@ export default function PortfolioSection() {
 
                 {/* image */}
 
-                <div className="w-full flex flex-col items-center gap-16 z-50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div className="w-full flex flex-col items-center gap-16 z-999">
+                    {/* card 1 */}
                     <Link href={"/"}>
-                        <div className="w-full inline-block max-w-180 relative object-cover group overflow-hidden rounded-lg">
+                        <div className="w-full inline-block max-w-180 relative bottom-100 left-76 object-cover group overflow-hidden rounded-lg">
                             <Image
                                 src={workOne}
                                 alt="portfolio work"
@@ -54,8 +55,10 @@ export default function PortfolioSection() {
                             </div>
                         </div>
                     </Link>
+
+                    {/* card 2 */}
                     <Link href={"/"}>
-                        <div className="w-full inline-block max-w-180 relative object-cover group overflow-hidden rounded-lg">
+                        <div className="w-full inline-block max-w-180 relative bottom-100 right-76 object-cover group overflow-hidden rounded-lg">
                             <Image
                                 src={workOne}
                                 alt="portfolio work"
@@ -79,8 +82,10 @@ export default function PortfolioSection() {
                             </div>
                         </div>
                     </Link>
+
+                    {/* card 3 */}
                     <Link href={"/"}>
-                        <div className="w-full inline-block max-w-180 relative object-cover group overflow-hidden rounded-lg">
+                        <div className="w-full inline-block max-w-180 relative bottom-100 object-cover group overflow-hidden rounded-lg">
                             <Image
                                 src={workOne}
                                 alt="portfolio work"
