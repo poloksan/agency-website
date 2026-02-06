@@ -12,7 +12,7 @@ import Link from "next/link";
 export default function PortfolioSection() {
     return (
         <section className="w-full">
-            <div className="w-full max-w-360 mx-auto px-8 flex flex-col items-start justify-center relative border">
+            <div className="w-full max-w-360 mx-auto px-8 flex flex-col items-start justify-center relative">
                 {/* under text */}
                 <div className="text-center -z-999">
                     <HeadingBorderText text={"featured"} />
