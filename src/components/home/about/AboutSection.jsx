@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { useState } from 'react';
+import { motion } from 'motion/react';
 import aboutImg from '@/assets/images/about-img.png';
 import arrowIcon from '@/assets/icons/arrow-icon.svg';
 import AboutImage from '@/components/aboutImage/AboutImage';
@@ -28,26 +29,88 @@ export default function AboutPage() {
         <section className="w-full bg-custom-black">
             <div className="w-full max-w-360 mx-auto px-8 sm:px-16 py-10 xl:py-30 flex flex-col lg:flex-row items-start justify-center lg:gap-12 xl:gap-24 relative">
                 {/* left side */}
-                <div className="hidden lg:block">
+                <motion.div
+                    initial={{
+                        y: 100,
+                        opacity: 0,
+                    }}
+                    whileInView={{
+                        y: 0,
+                        opacity: 1,
+                        transition: { duration: 1, ease: 'easeOut' },
+                    }}
+                    viewport={{
+                        once: true,
+                        amount: 0.3,
+                    }}
+                    className="hidden lg:block"
+                >
                     <AboutImage />
-                </div>
+                </motion.div>
 
                 {/* right side */}
-                <div className="mt-10 lg:max-w-100 xl:max-w-160">
-                    <ul className="list-disc pl-6">
-                        <li className="text-base lg:text-xl tracking-wider text-custom-white/80">
-                            Who we are?
-                        </li>
-                    </ul>
-                    <h3 className="text-4xl lg:text-[40px] tracking-normal leading-9 lg:leading-12 font-normal text-custom-white mt-4">
-                        Elevating brands globally with innovative strategies and visionary design
-                    </h3>
+                <motion.div className="mt-10 lg:max-w-100 xl:max-w-160">
+                    <motion.div
+                        initial={{
+                            y: 100,
+                            opacity: 0,
+                        }}
+                        whileInView={{
+                            y: 0,
+                            opacity: 1,
+                            transition: { duration: 1, ease: 'easeOut' },
+                        }}
+                        viewport={{
+                            once: true,
+                            amount: 0.3,
+                        }}
+                    >
+                        <ul className="list-disc pl-6">
+                            <li className="text-base lg:text-xl tracking-wider text-custom-white/80">
+                                Who we are?
+                            </li>
+                        </ul>
+                        <h3 className="text-4xl lg:text-[40px] tracking-normal leading-9 lg:leading-12 font-normal text-custom-white mt-4">
+                            Elevating brands globally with innovative strategies and visionary
+                            design
+                        </h3>
+                    </motion.div>
 
-                    <div className="lg:hidden mt-8">
+                    <motion.div
+                        initial={{
+                            y: 100,
+                            opacity: 0,
+                        }}
+                        whileInView={{
+                            y: 0,
+                            opacity: 1,
+                            transition: { duration: 1, ease: 'easeOut' },
+                        }}
+                        viewport={{
+                            once: true,
+                            amount: 0.3,
+                        }}
+                        className="lg:hidden mt-8"
+                    >
                         <AboutImage />
-                    </div>
+                    </motion.div>
 
-                    <div className="flex gap-3 flex-col w-full max-w-130 lg:mt-12">
+                    <motion.div
+                        initial={{
+                            y: 100,
+                            opacity: 0,
+                        }}
+                        whileInView={{
+                            y: 0,
+                            opacity: 1,
+                            transition: { duration: 1, ease: 'easeOut' },
+                        }}
+                        viewport={{
+                            once: true,
+                            amount: 0.3,
+                        }}
+                        className="flex gap-3 flex-col w-full max-w-130 lg:mt-12"
+                    >
                         {accordingData?.map((according, index) => (
                             <article
                                 key={index}
@@ -101,8 +164,8 @@ export default function AboutPage() {
                                 </div>
                             </article>
                         ))}
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </div>
         </section>
     );
