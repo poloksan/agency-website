@@ -1,14 +1,14 @@
+import AboutSection from '@/components/home/about/AboutSection';
+import HeroSection from '@/components/home/hero/HeroSection';
+import PortfolioSection from '@/components/home/portfolio/Portfolio';
+import ServicesSection from '@/components/home/services/ServicesSection';
+import TestimonialsSection from '@/components/home/testimonials/TestimonialsSection';
 import Image from 'next/image';
-import Hero from './hero/page';
-import ServicesSection from './services/page';
-import AboutSection from './about/page';
-import PortfolioSection from './portfolio/page';
-import TestimonialsSection from './testimonials/page';
 
 export default function Home() {
     return (
-        <main>
-            <Hero />
+        <main className="overflow-hidden">
+            <HeroSection />
             <ServicesSection />
             <AboutSection />
             <PortfolioSection />

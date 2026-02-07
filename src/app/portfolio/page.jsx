@@ -1,13 +1,35 @@
-"use client";
-import React from "react";
+'use client';
+import React from 'react';
+import { motion } from 'motion/react';
 
-import { RiArrowRightDoubleFill } from "react-icons/ri";
-import HeadingBorderText from "@/components/headingBorderText/page";
-import workOne from "@/assets/images/work-one.png";
-import workTwo from "@/assets/images/work-two.png";
-import workThree from "@/assets/images/work-three.png";
-import Image from "next/image";
-import Link from "next/link";
+import { RiArrowRightDoubleFill } from 'react-icons/ri';
+import HeadingBorderText from '@/components/headingBorderText/HeadingBorderText';
+import workOne from '@/assets/images/work-one.png';
+import workTwo from '@/assets/images/work-two.png';
+import workThree from '@/assets/images/work-three.png';
+import Image from 'next/image';
+import Link from 'next/link';
+
+const worksImgs = [
+    {
+        id: 1,
+        src: workOne,
+        title: 'Website Redesign',
+        subTitle: 'design',
+    },
+    {
+        id: 2,
+        src: workTwo,
+        title: 'brand identify',
+        subTitle: 'branding',
+    },
+    {
+        id: 3,
+        src: workThree,
+        title: 'development',
+        subTitle: 'prototype',
+    },
+];
 
 export default function PortfolioSection() {
     return (
@@ -15,7 +37,7 @@ export default function PortfolioSection() {
             <div className="w-full max-w-360 mx-auto px-8 flex flex-col items-start justify-center relative">
                 {/* under text */}
                 <div className="text-center -z-999">
-                    <HeadingBorderText text={"featured"} />
+                    <HeadingBorderText text={'featured'} />
 
                     <h2 className="uppercase text-[192px] font-semibold tracking-tight -mt-16 pointer-events-none">
                         works
@@ -30,85 +52,68 @@ export default function PortfolioSection() {
 
                 <div className="w-full flex flex-col items-center gap-16 z-999">
                     {/* card 1 */}
-                    <Link href={"/"}>
-                        <div className="w-full inline-block max-w-180 relative bottom-100 left-76 object-cover group overflow-hidden rounded-lg">
-                            <Image
-                                src={workOne}
-                                alt="portfolio work"
-                                className="object-cover bg-center bg-cover rounded-lg brightness-90 group-hover:scale-110 duration-500"
-                            />
+                    {worksImgs.map((work, i) => {
+                        const { id, title, subTitle, src } = work;
+                        return (
+                            <Link key={i} href={'/'}>
+                                <motion.div
+                                    initial="rest"
+                                    animate="rest"
+                                    whileHover="hover"
+                                    className={`w-full inline-block max-w-180 relative ${
+                                        i === 0 ? 'left-76' : i === 1 ? 'right-76' : ''
+                                    } bottom-100 object-cover overflow-hidden rounded-lg`}
+                                >
+                                    {/* image scale */}
+                                    <motion.div
+                                        variants={{ rest: { scale: 1 }, hover: { scale: 1.1 } }}
+                                        transition={{ duration: 0.5, ease: 'easeInOut' }}
+                                        className="rounded-lg"
+                                    >
+                                        <Image
+                                            src={src}
+                                            alt="portfolio work"
+                                            className="object-cover bg-center bg-cover rounded-lg brightness-90"
+                                        />
+                                    </motion.div>
 
-                            <div className="w-full text-center absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                                <h2 className="w-full text-center uppercase font-bold text-5xl">
-                                    Website Redesign
-                                </h2>
+                                    {/* text wrapper (FIXED, no motion here) */}
+                                    <div className="w-full text-center absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                        {/* only title moves */}
+                                        <motion.h2 className="relative h-12 overflow-hidden cursor-pointer">
+                                            <motion.div
+                                                variants={{
+                                                    rest: { y: 0 },
+                                                    hover: { y: 'calc(-3rem - 0.5rem)' }, // h-12 + gap-2
+                                                }}
+                                                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                                className="flex flex-col items-center gap-2"
+                                            >
+                                                <span className="block h-12 leading-12 w-full text-center uppercase font-bold text-5xl tracking-[2px]">
+                                                    {title}
+                                                </span>
 
-                                <div className="flex items-center justify-center gap-4 text-sm uppercase">
-                                    <h6 className="bg-custom-black/80 px-4 py-1 font-bold rounded-full">
-                                        design
-                                    </h6>
-                                    <p className="flex items-center gap-2">
-                                        View Details
-                                        <RiArrowRightDoubleFill className="text-2xl text-custom-primary" />
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </Link>
+                                                <span className="block h-12 leading-12 w-full text-center uppercase font-bold text-5xl tracking-[2px]">
+                                                    {title}
+                                                </span>
+                                            </motion.div>
+                                        </motion.h2>
 
-                    {/* card 2 */}
-                    <Link href={"/"}>
-                        <div className="w-full inline-block max-w-180 relative bottom-100 right-76 object-cover group overflow-hidden rounded-lg">
-                            <Image
-                                src={workOne}
-                                alt="portfolio work"
-                                className="object-cover bg-center bg-cover rounded-lg brightness-90 group-hover:scale-110 duration-500"
-                            />
-
-                            <div className="w-full text-center absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                                <h2 className="w-full text-center uppercase font-bold text-5xl">
-                                    Website Redesign
-                                </h2>
-
-                                <div className="flex items-center justify-center gap-4 text-sm uppercase">
-                                    <h6 className="bg-custom-black/80 px-4 py-1 font-bold rounded-full">
-                                        design
-                                    </h6>
-                                    <p className="flex items-center gap-2">
-                                        View Details
-                                        <RiArrowRightDoubleFill className="text-2xl text-custom-primary" />
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </Link>
-
-                    {/* card 3 */}
-                    <Link href={"/"}>
-                        <div className="w-full inline-block max-w-180 relative bottom-100 object-cover group overflow-hidden rounded-lg">
-                            <Image
-                                src={workOne}
-                                alt="portfolio work"
-                                className="object-cover bg-center bg-cover rounded-lg brightness-90 group-hover:scale-110 duration-500"
-                            />
-
-                            <div className="w-full text-center absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                                <h2 className="w-full text-center uppercase font-bold text-5xl">
-                                    Website Redesign
-                                </h2>
-
-                                <div className="flex items-center justify-center gap-4 text-sm uppercase">
-                                    <h6 className="bg-custom-black/80 px-4 py-1 font-bold rounded-full">
-                                        design
-                                    </h6>
-                                    <p className="flex items-center gap-2">
-                                        View Details
-                                        <RiArrowRightDoubleFill className="text-2xl text-custom-primary" />
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </Link>
+                                        {/* subtitle + view details stays fixed */}
+                                        <div className="mt-2 flex items-center justify-center gap-4 text-sm uppercase">
+                                            <h6 className="bg-custom-black/80 px-4 py-1 font-bold rounded-full">
+                                                {subTitle}
+                                            </h6>
+                                            <p className="flex items-center gap-2">
+                                                View Details
+                                                <RiArrowRightDoubleFill className="text-2xl text-custom-primary" />
+                                            </p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            </Link>
+                        );
+                    })}
                 </div>
             </div>
         </section>

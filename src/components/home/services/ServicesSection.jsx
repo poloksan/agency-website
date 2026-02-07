@@ -58,7 +58,7 @@ export default function ServicesSection() {
                                 {/* card */}
                                 <div className="relative group">
                                     {/* under card */}
-                                    <div className="border-[0.5px] rounded-3xl w-86 h-86 lg:w-110 lg:h-110 relative">
+                                    <div className="border-[0.5px] rounded-3xl w-80 h-80 lg:w-110 lg:h-110 relative">
                                         {/* blob */}
                                         <div className="h-40 w-40 bg-custom-primary/30 rounded-full blur-[90px] absolute top-10 right-10 animate-pulse"></div>
                                         <div className="absolute bottom-10 left-10 space-y-3 lg:space-y-5 pointer-events-none">
@@ -71,12 +71,12 @@ export default function ServicesSection() {
                                         </div>
                                     </div>
                                     {/* over card */}
-                                    <div className="w-full h-full rounded-3xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-custom-black bg-custom-primary opacity-0 scale-0 origin-bottom-left group-hover:scale-100 group-hover:opacity-100 duration-600 transition-all ">
-                                        <div className="absolute top-10 right-10 space-y-5 pointer-events-none">
+                                    <div className="w-full h-full rounded-3xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-custom-black bg-custom-primary lg:opacity-0 lg:scale-0 origin-bottom-left group-hover:scale-100 group-hover:opacity-100 duration-600 transition-all">
+                                        <div className="absolute top-7 right-9 md:top-10 md:right-10 space-y-3 md:space-y-5 pointer-events-none">
                                             <h4 className="text-5xl lg:text-7xl font-semibold capitalize">
                                                 {title}
                                             </h4>
-                                            <h6 className="text-base lg:text-lg uppercase">
+                                            <h6 className="text-sm lg:text-lg uppercase">
                                                 {subTitle}
                                             </h6>
                                         </div>
@@ -84,7 +84,7 @@ export default function ServicesSection() {
                                         <Link href={'/'}>
                                             <button
                                                 type="button"
-                                                className="border-2 px-6 py-2 text-2xl font-medium rounded-xl absolute bottom-10 left-10 cursor-pointer hover:bg-custom-black hover:text-custom-white hover:border-custom-black duration-300"
+                                                className="border-2 px-4 py-1 md:px-6 md:py-2 text-2xl font-medium rounded-xl absolute bottom-7 left-7 md:bottom-10 md:left-10 cursor-pointer hover:bg-custom-black hover:text-custom-white hover:border-custom-black duration-300"
                                             >
                                                 Show More
                                             </button>

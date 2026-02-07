@@ -1,25 +1,25 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import React from "react";
-import { useState } from "react";
+import Image from 'next/image';
+import React from 'react';
+import { useState } from 'react';
 
-import aboutImg from "@/assets/images/about-img.png";
-import arrowIcon from "@/assets/icons/arrow-icon.svg";
+import aboutImg from '@/assets/images/about-img.png';
+import arrowIcon from '@/assets/icons/arrow-icon.svg';
 
 const accordingData = [
     {
-        title: "What’s Our mission?",
+        title: 'What’s Our mission?',
         description:
-            "How quick is quick? For most design, we’re talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly.",
+            'How quick is quick? For most design, we’re talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly.',
     },
     {
-        title: "Our Culture & Our Studio",
+        title: 'Our Culture & Our Studio',
         description:
-            "How quick is quick? For most design, we’re talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly",
+            'How quick is quick? For most design, we’re talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly',
     },
 ];
-export default function AboutSection() {
+export default function AboutPage() {
     const [bgAccording, setBgAccording] = useState(null);
 
     const handleBgAccording = (index) =>
@@ -72,13 +72,10 @@ export default function AboutSection() {
                 {/* right side */}
                 <div className="mt-10 max-w-160">
                     <ul className="list-disc pl-6">
-                        <li className="text-xl tracking-wider text-custom-white/80">
-                            Who we are?
-                        </li>
+                        <li className="text-xl tracking-wider text-custom-white/80">Who we are?</li>
                     </ul>
                     <h3 className="text-[40px] tracking-normal leading-12 font-normal text-custom-white mt-4">
-                        Elevating brands globally with innovative strategies and
-                        visionary design
+                        Elevating brands globally with innovative strategies and visionary design
                     </h3>
 
                     <div className="flex gap-3 flex-col w-full max-w-130 mt-12">
@@ -91,9 +88,7 @@ export default function AboutSection() {
                                     className={` flex gap-2 cursor-pointer items-center justify-between w-full  `}
                                     onClick={() => handleBgAccording(index)}
                                 >
-                                    <h2
-                                        className={`text-custom-white font-bold text-2xl`}
-                                    >
+                                    <h2 className={`text-custom-white font-bold text-2xl`}>
                                         {according.title}
                                     </h2>
                                     <svg
@@ -108,8 +103,7 @@ export default function AboutSection() {
                                             height="2"
                                             rx="1"
                                             className={`transform origin-center transition duration-200 ease-out ${
-                                                bgAccording === index &&
-                                                "rotate-180"
+                                                bgAccording === index && 'rotate-180'
                                             }`}
                                         />
                                         <rect
@@ -118,8 +112,7 @@ export default function AboutSection() {
                                             height="2"
                                             rx="1"
                                             className={`transform origin-center rotate-90 transition duration-200 ease-out ${
-                                                bgAccording === index &&
-                                                "rotate-180"
+                                                bgAccording === index && 'rotate-180'
                                             }`}
                                         />
                                     </svg>
@@ -127,8 +120,8 @@ export default function AboutSection() {
                                 <div
                                     className={`grid transition-all duration-500 dark:bg-transparent overflow-hidden ease-in-out ${
                                         bgAccording === index
-                                            ? "grid-rows-[1fr] opacity-100 px-3 py-3"
-                                            : "grid-rows-[0fr] opacity-0 px-3"
+                                            ? 'grid-rows-[1fr] opacity-100 px-3 py-3'
+                                            : 'grid-rows-[0fr] opacity-0 px-3'
                                     }`}
                                 >
                                     <div className="text-custom-dark-gray text-base overflow-hidden">

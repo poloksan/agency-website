@@ -40,9 +40,9 @@ export default function Footer() {
 
     return (
         <footer className="bg-black text-white">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl px-8 sm:px-16 py-8 md:py-11">
                 {/* Top */}
-                <div className="flex items-start justify-between mb-14">
+                <div className="flex flex-col md:flex-row items-center text-center md:text-start md:items-start justify-between gap-10 mb-14">
                     {/* Brand */}
                     <div>
                         <Link href="/" className="inline-flex items-center gap-1">
@@ -54,24 +54,27 @@ export default function Footer() {
 
                     {/* Link groups */}
                     {groups.map((group) => (
-                        <div key={group.title}>
+                        <div key={group.title} className="flex flex-col">
                             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-custom-white">
                                 {group.title}
                             </p>
 
-                            <ul className="mt-5 space-y-4">
-                                {group.links.map((link) => {
+                            <ul className="mt-5 space-y-3 md:space-y-4">
+                                {group.links.map((link, i) => {
                                     const isActive =
                                         link.href === '/'
                                             ? pathname === '/'
                                             : pathname?.startsWith(link.href);
 
                                     return (
-                                        <li key={link.href}>
+                                        <li
+                                            key={i}
+                                            className="text-base transition-all duration-400 hover:translate-x-2 cursor-pointer"
+                                        >
                                             <Link
                                                 href={link.href}
                                                 className={[
-                                                    'text-base transition-colors duration-200',
+                                                    '',
                                                     isActive
                                                         ? 'text-custom-primary'
                                                         : 'text-custom-light-gray hover:text-custom-primary',
@@ -91,8 +94,8 @@ export default function Footer() {
                 <div className="h-px w-full bg-custom-primary/80" />
 
                 {/* Bottom */}
-                <div className="flex flex-col gap-4 py-7 text-lg text-white/70 sm:flex-row sm:items-center sm:justify-between">
-                    <p>© 2024 AGENCFIRE. All Rights Reserved.</p>
+                <div className="flex flex-col gap-2 md:gap-4 py-7 text-sm text-white/70 sm:flex-row sm:items-center sm:justify-between items-center">
+                    <p>&copy; 2025 AGENCFIRE. All Rights Reserved.</p>
 
                     <div className="flex flex-wrap gap-x-6 gap-y-2">
                         <Link href="#" className="hover:text-white transition-colors">
