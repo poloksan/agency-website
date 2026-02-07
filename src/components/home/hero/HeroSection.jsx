@@ -24,11 +24,11 @@ export default function HeroSection() {
                 src={glowBg}
                 alt="glow blob"
                 draggable="false"
-                className="absolute top-0 right-0 pointer-events-none animate-pulse"
+                className="hidden lg:block absolute top-0 right-0 pointer-events-none animate-pulse"
             />
 
-            <div className="w-full h-screen max-w-360 mx-auto px-8 sm:px-16 pb-11 pt-30 flex flex-col items-center justify-center xl:gap-12 relative">
-                <h1 className="w-full tracking-[-2px] font-light lg:text-[100px] xl:text-[150px] xl:leading-10 flex items-center lg:gap-8 xl:gap-10 text-center">
+            <div className="w-full h-[80vh] lg:h-screen max-w-360 mx-auto px-8 sm:px-16 pb-11 pt-28 lg:pt-30 flex flex-col items-center justify-center gap-6 xl:gap-12 relative">
+                <h1 className="w-full tracking-[-2px] font-light text-4xl lg:text-[100px] xl:text-[150px] xl:leading-10 flex lg:flex-row items-center gap-4 lg:gap-8 xl:gap-10 text-center">
                     Creating
                     <Marquee
                         direction="right"
@@ -39,30 +39,30 @@ export default function HeroSection() {
                         className="w-full lg:text-[90px] xl:text-[140px] xl:leading-10 tracking-[-2px] font-light text-center bg-custom-primary lg
                         max-w-110 xl:max-w-170 select-none lg:h-28 xl:h-40 rounded-full text-custom-black  overflow-hidden"
                     >
-                        <span className="mx-5">brands</span>
+                        <span className="mx-2 lg:mx-5">brands</span>
                     </Marquee>
                 </h1>
                 <div className="w-full flex items-center justify-between">
-                    <h1 className="w-full lg:text-[100px] xl:text-[150px] tracking-[-2px] font-light xl:leading-10 flex items-center gap-10 text-center">
+                    <h1 className="w-full text-4xl lg:text-[100px] xl:text-[150px] tracking-[-2px] font-light xl:leading-10 flex items-center gap-4 lg:gap-10 text-center">
                         and digital
                     </h1>
-                    <p className="w-full max-w-100 text-lg xl:text-[22px]">
+                    <p className="w-full max-w-100 text-sm leading-4 lg:text-lg xl:text-[22px] text-right lg:text-start">
                         We design exceptional brands, products, web apps, mobile apps,websites for
                         startups aand enterprises.
                     </p>
                 </div>
 
-                <div className="w-full flex items-center justify-end gap-14 ">
+                <div className="w-full flex flex-col items-center justify-end gap-14 ">
                     <div className="flex items-center lg:gap-8 xl:gap-15">
                         <Marquee
                             loop={0}
                             speed={45}
                             autoFill
                             pauseOnHover
-                            className="w-full lg:text-[90px] xl:text-[140px] xl:leading-10 tracking-[-2px] font-light text-center bg-custom-primary lg
-                        max-w-110 xl:max-w-170 select-none lg:h-28 xl:h-40 rounded-full text-custom-black  overflow-hidden"
+                            className="w-full max-w-60 text-4xl lg:text-[90px] xl:text-[140px] xl:leading-10 tracking-[-2px] font-light text-center bg-custom-primary lg
+                        lg:max-w-110 xl:max-w-170 select-none lg:h-28 xl:h-40 rounded-full text-custom-black  overflow-hidden"
                         >
-                            <span className="mx-5">solutions</span>
+                            <span className="mx-2 lg:mx-5">solutions</span>
                         </Marquee>
                     </div>
                     <div>
