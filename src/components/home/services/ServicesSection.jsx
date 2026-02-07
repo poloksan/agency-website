@@ -30,12 +30,12 @@ export default function ServicesSection() {
                 <div className="w-full max-w-360 mx-auto px-8 sm:px-16 py-20 flex flex-col items-center space-y-5">
                     <HeadingBorderText text="services" />
 
-                    <div className="w-full flex items-start lg:items-center justify-between">
-                        <h1 className="max-w-120 text-4xl md:text-[40px] lg:text-7xl font-bold leading-10 lg:leading-20 tracking-tight">
+                    <div className="w-full flex flex-col md:flex-row items-center justify-center sm:justify-between text-center gap-5">
+                        <h1 className="w-full max-w-120 text-5xl md:text-[40px] lg:text-7xl font-bold leading-12 lg:leading-20 tracking-tight text-center sm:text-start">
                             Lorem ipsum dolor sit.
                         </h1>
 
-                        <p className="w-full max-w-80 lg:max-w-95 text-sm lg:text-xl text-custom-white/70 leading-5 lg:leading-8 text-right">
+                        <p className="w-full max-w-80 lg:max-w-95 text-sm lg:text-xl text-custom-white/70 leading-5 lg:leading-8 text-center sm:text-end">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quas
                             exercitationem quaerat esse, iusto dignissimos nihil eaque id minima
                             accusamus!
@@ -72,7 +72,6 @@ export default function ServicesSection() {
                                     </div>
                                     {/* over card */}
                                     <div className="w-full h-full rounded-3xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-custom-black bg-custom-primary opacity-0 scale-0 origin-bottom-left group-hover:scale-100 group-hover:opacity-100 duration-600 transition-all ">
-                                        {/* <div className="h-40 w-40 bg-custom-primary/30 rounded-full blur-[90px] absolute top-0 right-0 animate-pulse"></div> */}
                                         <div className="absolute top-10 right-10 space-y-5 pointer-events-none">
                                             <h4 className="text-5xl lg:text-7xl font-semibold capitalize">
                                                 {title}

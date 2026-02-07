@@ -42,10 +42,10 @@ export default function HeroSection() {
                     </Marquee>
                 </h1>
                 <div className="w-full flex items-center justify-between">
-                    <h1 className="w-full text-4xl md:text-7xl lg:text-[100px] xl:text-[150px] tracking-[-2px] font-light xl:leading-10 flex items-center gap-4 lg:gap-10 text-center">
+                    <h1 className="w-full text-4xl md:text-7xl lg:text-[100px] xl:text-[150px] tracking-[-2px] font-light xl:leading-10 flex items-center gap-4 lg:gap-10 text-center -mt-16 sm:mt-0">
                         and digital
                     </h1>
-                    <p className="text-custom-white/70 w-full md:max-w-56 lg:max-w-100 text-sm md:text-lg xl:text-[22px] leading-4 md:leading-5 text-right lg:text-start">
+                    <p className="text-custom-white/70 w-full md:max-w-56 lg:max-w-100 text-xs md:text-lg xl:text-[22px] leading-4 md:leading-5 text-right lg:text-start -mt-4">
                         We design exceptional brands, products, web apps, mobile apps,websites for
                         startups aand enterprises.
                     </p>

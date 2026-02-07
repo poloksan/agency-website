@@ -61,7 +61,11 @@ export default function PortfolioSection() {
                                     animate="rest"
                                     whileHover="hover"
                                     className={`w-full inline-block max-w-180 relative ${
-                                        i === 0 ? 'lg:left-76' : i === 1 ? 'lg:right-76' : ''
+                                        i === 0
+                                            ? 'lg:left-22 xl:left-76'
+                                            : i === 1
+                                              ? 'lg:right-22 xl:right-76'
+                                              : ''
                                     } lg:bottom-100 object-cover overflow-hidden rounded-lg`}
                                 >
                                     {/* image scale */}
