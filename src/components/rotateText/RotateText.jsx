@@ -9,9 +9,9 @@ export default function RotateText() {
             aria-label="Scroll"
             className="
         relative inline-block
-        w-[120px] h-[120px]
-        sm:w-[140px] sm:h-[140px]
-        md:w-[180px] md:h-[180px]
+        w-30 h-30
+        sm:w-35 sm:h-35
+        md:w-45 md:h-45
         go-down-btn
       "
         >

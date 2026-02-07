@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import heroBg from '@/assets/images/hero-bg-img.jpg';
-import RotateText from '@/components/rotateText/page';
+import RotateText from '@/components/rotateText/RotateText';
 import glowBg from '@/assets/icons/bg-circle-icon.png';
 
 import Marquee from 'react-fast-marquee';

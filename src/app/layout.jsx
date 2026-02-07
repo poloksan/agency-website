@@ -1,7 +1,7 @@
 import { Archivo } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/navbar/Navbar';
-import Footer from '@/components/footer/page';
+import Footer from '@/components/footer/Footer';
 
 const archivo = Archivo({
     variable: '--font-archivo',
