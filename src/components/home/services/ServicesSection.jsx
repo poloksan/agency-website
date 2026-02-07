@@ -30,12 +30,12 @@ export default function ServicesSection() {
                 <div className="w-full max-w-360 mx-auto px-8 sm:px-16 py-20 flex flex-col items-center space-y-5">
                     <HeadingBorderText text="services" />
 
-                    <div className="w-full flex items-start lg:text-center justify-between">
-                        <h1 className="max-w-120 text-4xl lg:text-7xl font-bold leading-10 lg:leading-20 tracking-tight">
+                    <div className="w-full flex items-start lg:items-center justify-between">
+                        <h1 className="max-w-120 text-4xl md:text-[40px] lg:text-7xl font-bold leading-10 lg:leading-20 tracking-tight">
                             Lorem ipsum dolor sit.
                         </h1>
 
-                        <p className="w-full max-w-95 text-sm xl:text-xl text-custom-white/70 leading-5 lg:leading-8 text-right">
+                        <p className="w-full max-w-80 lg:max-w-95 text-sm lg:text-xl text-custom-white/70 leading-5 lg:leading-8 text-right">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quas
                             exercitationem quaerat esse, iusto dignissimos nihil eaque id minima
                             accusamus!
@@ -58,7 +58,7 @@ export default function ServicesSection() {
                                 {/* card */}
                                 <div className="relative group">
                                     {/* under card */}
-                                    <div className="border-[0.5px] rounded-3xl w-86 h-86 lg:w-110 lg:h-110 relative ">
+                                    <div className="border-[0.5px] rounded-3xl w-86 h-86 lg:w-110 lg:h-110 relative">
                                         {/* blob */}
                                         <div className="h-40 w-40 bg-custom-primary/30 rounded-full blur-[90px] absolute top-10 right-10 animate-pulse"></div>
                                         <div className="absolute bottom-10 left-10 space-y-3 lg:space-y-5 pointer-events-none">

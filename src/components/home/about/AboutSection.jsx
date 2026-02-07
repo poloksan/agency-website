@@ -26,16 +26,16 @@ export default function AboutPage() {
         setBgAccording((prevIndex) => (prevIndex === index ? null : index));
     return (
         <section className="w-full bg-custom-black">
-            <div className="w-full max-w-360 mx-auto px-8 sm:px-16 py-10 xl:py-30 flex flex-col lg:flex-row items-start justify-center xl:gap-24 relative">
+            <div className="w-full max-w-360 mx-auto px-8 sm:px-16 py-10 xl:py-30 flex flex-col lg:flex-row items-start justify-center lg:gap-12 xl:gap-24 relative">
                 {/* left side */}
                 <div className="relative">
-                    <div className="absolute bottom-20 -left-5 lg:-left-10 h-32 lg:h-36 max-w-26 lg:max-w-30 p-5 text-custom-primary/80 backdrop-blur-md bg-transparent border-2 border-custom-primary rounded-2xl">
+                    <div className="absolute bottom-20 -left-5 lg:-left-10 h-32 md:h-36 max-w-26 md:max-w-30 p-5 text-custom-primary/80 backdrop-blur-md bg-transparent border-2 border-custom-primary rounded-2xl flex flex-col items-start justify-center">
                         <h2 className="text-4xl lg:text-[46px] font-bold -ml-1">7k+</h2>
                         <p className=" uppercase text-[10px] tracking-[0.5px] leading-3 lg:leading-5 mt-2 lg:-mt-2 -ml-1">
                             Satisfaction Clients
                         </p>
                     </div>
-                    <div className="w-36 lg:w-60 h-10 absolute top-0 left-0 bg-custom-black rounded-br-2xl">
+                    <div className="w-36 md:w-60 h-10 absolute top-0 left-0 bg-custom-black rounded-br-2xl">
                         <Image
                             src={arrowIcon}
                             alt="arrow icon"
@@ -51,7 +51,7 @@ export default function AboutPage() {
                             className="absolute -bottom-4.5 left-0"
                         />
                     </div>
-                    <div className="w-36 lg:w-60 h-10 absolute bottom-0 right-0 bg-custom-black rounded-tl-2xl rounded-br-2xl">
+                    <div className="w-36 md:w-60 h-10 absolute bottom-0 right-0 bg-custom-black rounded-tl-2xl rounded-br-2xl">
                         <Image
                             src={arrowIcon}
                             alt="arrow icon"
@@ -77,7 +77,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* right side */}
-                <div className="mt-10 max-w-160">
+                <div className="mt-10 lg:max-w-100 xl:max-w-160">
                     <ul className="list-disc pl-6">
                         <li className="text-base lg:text-xl tracking-wider text-custom-white/80">
                             Who we are?
@@ -94,7 +94,7 @@ export default function AboutPage() {
                                 className="border-b border-custom-white/20 lg:mx-8 py-8"
                             >
                                 <div
-                                    className={` flex gap-2 cursor-pointer items-center justify-between w-full  `}
+                                    className={`flex gap-2 cursor-pointer items-center justify-between w-full  `}
                                     onClick={() => handleBgAccording(index)}
                                 >
                                     <h2
