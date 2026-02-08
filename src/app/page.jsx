@@ -1,3 +1,4 @@
+import CTA from '@/components/cta/CTA';
 import AboutSection from '@/components/home/about/AboutSection';
 import HeroSection from '@/components/home/hero/HeroSection';
 import PortfolioSection from '@/components/home/portfolio/Portfolio';
@@ -13,6 +14,7 @@ export default function Home() {
             <AboutSection />
             <PortfolioSection />
             <TestimonialsSection />
+            <CTA />
         </main>
     );
 }

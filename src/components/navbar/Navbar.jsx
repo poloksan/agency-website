@@ -137,7 +137,7 @@ export default function Navbar() {
                             className="inline-block uppercase text-2xl font-light leading-3.5 tracking-[2px] relative"
                         >
                             <PiShoppingCartSimpleFill />
-                            <span className="bg-custom-black rounded-full p-2 absolute -top-3 -right-2 text-xs">
+                            <span className="bg-custom-black rounded-full p-1 sm:p-2 absolute -top-3 -right-2 text-xs">
                                 0
                             </span>
                         </Link>

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion } from 'motion/react';
 import logo from '../../../public/logo.png';
 
 const groups = [
@@ -35,26 +36,45 @@ const groups = [
     },
 ];
 
+const container = {
+    hidden: {},
+    show: {
+        transition: {
+            delayChildren: 0.8,
+            staggerChildren: 1,
+        },
+    },
+};
+
+const item = {
+    hidden: { y: 100, opacity: 0 },
+    show: {
+        y: 0,
+        opacity: 1,
+        transition: { duration: 1 },
+    },
+};
+
 export default function Footer() {
     const pathname = usePathname();
 
     return (
-        <footer className="bg-black text-white">
-            <div className="mx-auto max-w-7xl px-8 sm:px-16 py-8 md:py-11">
+        <motion.footer variants={container} initial="hidden" whileInView="show" className="w-full">
+            <div className="py-8 md:py-11 w-full max-w-360 mx-auto px-8 sm:px-16">
                 {/* Top */}
                 <div className="flex flex-col md:flex-row items-center text-center md:text-start md:items-start justify-between gap-10 mb-14">
                     {/* Brand */}
-                    <div>
+                    <motion.div variants={item}>
                         <Link href="/" className="inline-flex items-center gap-1">
                             <span className="text-2xl font-extrabold tracking-tight">
-                                <Image src={logo} alt="logo" width={160} />
+                                <Image src={logo} alt="logo" draggable="false" width={160} />
                             </span>
                         </Link>
-                    </div>
+                    </motion.div>
 
                     {/* Link groups */}
                     {groups.map((group) => (
-                        <div key={group.title} className="flex flex-col">
+                        <motion.div variants={item} key={group.title} className="flex flex-col">
                             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-custom-white">
                                 {group.title}
                             </p>
@@ -86,7 +106,7 @@ export default function Footer() {
                                     );
                                 })}
                             </ul>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 
@@ -98,15 +118,11 @@ export default function Footer() {
                     <p>&copy; 2025 AGENCFIRE. All Rights Reserved.</p>
 
                     <div className="flex flex-wrap gap-x-6 gap-y-2">
-                        <Link href="#" className="hover:text-white transition-colors">
-                            Powered By Webflow
-                        </Link>
-                        <Link href="#" className="hover:text-white transition-colors">
-                            Built By Rick Mummery
-                        </Link>
+                        <p className="hover:text-white transition-colors">Powered By Webflow</p>
+                        <p className="hover:text-white transition-colors">Built By Rick Mummery</p>
                     </div>
                 </div>
             </div>
-        </footer>
+        </motion.footer>
     );
 }

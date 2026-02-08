@@ -30,7 +30,7 @@ export default function HeroSection() {
             await heroLastMarquee.start({
                 x: 0,
                 opacity: 1,
-                transition: { duration: 0.8 },
+                transition: { duration: 1 },
             });
         };
         run();
@@ -87,7 +87,7 @@ export default function HeroSection() {
                     </h1>
                     <p className="text-custom-white/70 w-full md:max-w-56 lg:max-w-100 text-xs md:text-lg xl:text-[22px] leading-4 md:leading-5 text-right lg:text-start -mt-4">
                         We design exceptional brands, products, web apps, mobile apps,websites for
-                        startups aand enterprises.
+                        startups and enterprises.
                     </p>
                 </motion.div>
 

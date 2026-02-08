@@ -1,11 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import React from 'react';
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import aboutImg from '@/assets/images/about-img.png';
-import arrowIcon from '@/assets/icons/arrow-icon.svg';
 import AboutImage from '@/components/aboutImage/AboutImage';
 
 const accordingData = [
@@ -20,51 +17,51 @@ const accordingData = [
             'How quick is quick? For most design, we’re talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly',
     },
 ];
+
+const container = {
+    hidden: {},
+    show: {
+        transition: {
+            delayChildren: 0.1,
+            staggerChildren: 1,
+        },
+    },
+};
+
+const item = {
+    hidden: { y: 100, opacity: 0 },
+    show: {
+        y: 0,
+        opacity: 1,
+        transition: { duration: 1 },
+    },
+};
+
 export default function AboutPage() {
     const [bgAccording, setBgAccording] = useState(null);
 
     const handleBgAccording = (index) =>
         setBgAccording((prevIndex) => (prevIndex === index ? null : index));
     return (
-        <section className="w-full bg-custom-black">
+        <motion.section
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{
+                once: true,
+                amount: 0.2,
+            }}
+            className="w-full bg-custom-black"
+        >
             <div className="w-full max-w-360 mx-auto px-8 sm:px-16 py-10 xl:py-30 flex flex-col lg:flex-row items-start justify-center lg:gap-12 xl:gap-24 relative">
                 {/* left side */}
-                <motion.div
-                    initial={{
-                        y: 100,
-                        opacity: 0,
-                    }}
-                    whileInView={{
-                        y: 0,
-                        opacity: 1,
-                        transition: { duration: 1, ease: 'easeOut' },
-                    }}
-                    viewport={{
-                        once: true,
-                        amount: 0.3,
-                    }}
-                    className="hidden lg:block"
-                >
+                <motion.div variants={item} className="hidden lg:block">
                     <AboutImage />
                 </motion.div>
 
                 {/* right side */}
-                <motion.div className="mt-10 lg:max-w-100 xl:max-w-160">
-                    <motion.div
-                        initial={{
-                            y: 100,
-                            opacity: 0,
-                        }}
-                        whileInView={{
-                            y: 0,
-                            opacity: 1,
-                            transition: { duration: 1, ease: 'easeOut' },
-                        }}
-                        viewport={{
-                            once: true,
-                            amount: 0.3,
-                        }}
-                    >
+                <motion.div variants={item} className="mt-10 lg:max-w-100 xl:max-w-160">
+                    <motion.div>
                         <ul className="list-disc pl-6">
                             <li className="text-base lg:text-xl tracking-wider text-custom-white/80">
                                 Who we are?
@@ -76,39 +73,12 @@ export default function AboutPage() {
                         </h3>
                     </motion.div>
 
-                    <motion.div
-                        initial={{
-                            y: 100,
-                            opacity: 0,
-                        }}
-                        whileInView={{
-                            y: 0,
-                            opacity: 1,
-                            transition: { duration: 1, ease: 'easeOut' },
-                        }}
-                        viewport={{
-                            once: true,
-                            amount: 0.3,
-                        }}
-                        className="lg:hidden mt-8"
-                    >
+                    <motion.div variants={item} className="lg:hidden mt-8">
                         <AboutImage />
                     </motion.div>
 
                     <motion.div
-                        initial={{
-                            y: 100,
-                            opacity: 0,
-                        }}
-                        whileInView={{
-                            y: 0,
-                            opacity: 1,
-                            transition: { duration: 1, ease: 'easeOut' },
-                        }}
-                        viewport={{
-                            once: true,
-                            amount: 0.3,
-                        }}
+                        variants={item}
                         className="flex gap-3 flex-col w-full max-w-130 lg:mt-12"
                     >
                         {accordingData?.map((according, index) => (
@@ -167,6 +137,6 @@ export default function AboutPage() {
                     </motion.div>
                 </motion.div>
             </div>
-        </section>
+        </motion.section>
     );
 }
