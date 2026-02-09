@@ -94,8 +94,14 @@ export default function PortfolioSection() {
                                 <Link href={'/'}>
                                     {/* image scale */}
                                     <motion.div
-                                        variants={{ rest: { scale: 1 }, hover: { scale: 1.1 } }}
-                                        transition={{ duration: 0.5, ease: 'easeInOut' }}
+                                        variants={{
+                                            rest: { scale: 1 },
+                                            hover: { scale: 1.1 },
+                                        }}
+                                        transition={{
+                                            duration: 0.5,
+                                            ease: 'easeInOut',
+                                        }}
                                         className="rounded-lg"
                                     >
                                         <Image
@@ -114,7 +120,6 @@ export default function PortfolioSection() {
                                                     rest: { y: 0 },
                                                     hover: { y: 'calc(-3rem - 0.5rem)' },
                                                 }}
-                                                transition={{ duration: 0.3, ease: 'easeInOut' }}
                                                 className="flex flex-col items-center lg:gap-2"
                                             >
                                                 <span className="block h-12 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl lg:text-5xl tracking-[2px]">
