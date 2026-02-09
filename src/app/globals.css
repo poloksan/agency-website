@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
     --custom-black: #050505;
@@ -24,20 +24,6 @@ body {
     background: var(--color-custom-black);
     color: var(--color-custom-white);
 }
-
-/* .my-text {
-    font-weight: 600;
-    letter-spacing: -1px;
-    text-transform: uppercase;
-
-    padding-top: 1rem;
-    margin-left: -1rem;
-
-    color: transparent;
-    transform: translateY(-10px);
-
-    -webkit-text-stroke: 1px rgba(197, 251, 103, 1);
-} */
 
 .rfm-marquee {
     overflow: visible !important;

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { IoIosStar } from 'react-icons/io';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
 import bgWorld from '@/assets/images/testimonials-bg-world.png';
@@ -39,7 +39,7 @@ const testimonials = [
     {
         id: 1,
         clientName: 'T. Morthy',
-        clientDisk: 'Marketing manager, OKG',
+        clientDesc: 'Marketing manager, OKG',
         clientComment:
             ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam animi omnis enim sit commodi sapiente in a dolor, ipsum obcaecati.',
         src: clientImgOne,
@@ -47,7 +47,7 @@ const testimonials = [
     {
         id: 2,
         clientName: 'B, Gordon',
-        clientDisk: 'CEO & Founder, Archin studio',
+        clientDesc: 'CEO & Founder, Archin studio',
         clientComment:
             ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam animi omnis enim sit commodi sapiente in a dolor, ipsum obcaecati.',
         src: clientImgTwo,
@@ -55,7 +55,7 @@ const testimonials = [
     {
         id: 3,
         clientName: 'T. Morthy',
-        clientDisk: 'Marketing manager, OKG',
+        clientDesc: 'Marketing manager, OKG',
         clientComment:
             ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam animi omnis enim sit commodi sapiente in a dolor, ipsum obcaecati.',
         src: clientImgThree,
@@ -63,7 +63,7 @@ const testimonials = [
     {
         id: 4,
         clientName: 'B, Gordon',
-        clientDisk: 'CEO & Founder, Archin studio',
+        clientDesc: 'CEO & Founder, Archin studio',
         clientComment:
             ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam animi omnis enim sit commodi sapiente in a dolor, ipsum obcaecati.',
         src: clientImgOne,
@@ -71,7 +71,7 @@ const testimonials = [
     {
         id: 5,
         clientName: 'T. Morthy',
-        clientDisk: 'Marketing manager, OKG',
+        clientDesc: 'Marketing manager, OKG',
         clientComment:
             ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam animi omnis enim sit commodi sapiente in a dolor, ipsum obcaecati.',
         src: clientImgTwo,
@@ -79,12 +79,39 @@ const testimonials = [
     {
         id: 6,
         clientName: 'B, Gordon',
-        clientDisk: 'CEO & Founder, Archin studio',
+        clientDesc: 'CEO & Founder, Archin studio',
         clientComment:
             ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam animi omnis enim sit commodi sapiente in a dolor, ipsum obcaecati.',
         src: clientImgThree,
     },
 ];
+
+const container = {
+    hidden: {},
+    show: {
+        transition: {
+            delayChildren: 1,
+            staggerChildren: 0.5,
+        },
+    },
+};
+
+const item = {
+    hidden: { y: 50, opacity: 0 },
+    show: {
+        y: 0,
+        opacity: 1,
+        transition: { duration: 0.8, visualDuration: 0.8 },
+    },
+};
+
+const animateScale = {
+    hidden: { scale: 0 },
+    show: {
+        scale: 1,
+        transition: { duration: 0.8, visualDuration: 0.8 },
+    },
+};
 
 export default function TestimonialsSection() {
     const containerRef = useRef(null);
@@ -107,15 +134,27 @@ export default function TestimonialsSection() {
     }, []);
 
     return (
-        <section className="w-full py-10 lg:py-20">
-            <div className="space-y-10 md:space-y-20 lg:space-y-28">
+        <motion.section
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="w-full pt-10 pb-5 lg:pb-10 lg:pt-20"
+        >
+            <div className="space-y-20 md:space-y-20 lg:space-y-28">
                 {/* heading */}
-                <div className="w-full max-w-360 mx-auto flex flex-col items-center gap-4 md:gap-7 lg:gap-12">
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-[2px] text-center">
+                <div className="w-full max-w-360 mx-auto flex flex-col items-center gap-4 md:gap-7 lg:gap-8 relative z-9999">
+                    <motion.h1
+                        variants={item}
+                        className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-[2px] text-center"
+                    >
                         Clients Review
-                    </h1>
+                    </motion.h1>
 
-                    <div className="flex items-center gap-3 md:gap-6 border border-custom-white/40 rounded-full py-2.5 px-6">
+                    <motion.div
+                        variants={item}
+                        className="flex items-center gap-3 md:gap-6 border border-custom-white/40 rounded-full py-2.5 px-6"
+                    >
                         <div className="w-10 h-10 bg-custom-primary/90 border-5 border-custom-white rounded-full"></div>
 
                         <div>
@@ -137,23 +176,28 @@ export default function TestimonialsSection() {
                                 Based on 24 reviews on Clutch
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
 
                 {/* card section */}
-                <div className="relative flex items-center justify-center">
-                    <Image
-                        src={bgWorld}
-                        alt="world"
-                        draggable="false"
+                <div className="relative flex items-center justify-center select-none">
+                    <motion.div
+                        variants={animateScale}
                         className="max-w-360 mx-auto bg-center bg-cover object-cover bg-no-repeat -z-50"
-                    />
-                    <Image
-                        src={bgLayer}
-                        alt="gradient layer"
-                        draggable="false"
-                        className="w-full mx-auto absolute bottom-10 md:bottom-0 left-0 -z-40"
-                    />
+                    >
+                        <Image src={bgWorld} alt="world" draggable="false" />
+                    </motion.div>
+                    {/* <motion.div
+                        variants={animateScale}
+                        className="w-full mx-auto absolute bottom-10 md:bottom-30 left-0 -z-40"
+                    >
+                        <Image
+                            src={bgLayer}
+                            alt="gradient layer"
+                            draggable="false"
+                            className="w-full h-auto brightness-75"
+                        />
+                    </motion.div> */}
 
                     <div
                         ref={containerRef}
@@ -170,21 +214,22 @@ export default function TestimonialsSection() {
                         >
                             {/* cards */}
                             {testimonials.map((testimonial, i) => {
-                                const { id, src, clientName, clientDisk, clientComment } =
+                                const { id, src, clientName, clientDesc, clientComment } =
                                     testimonial;
                                 return (
-                                    <div
+                                    <motion.div
                                         key={i}
-                                        className={`text-custom-black w-70 h-70 md:w-100 md:h-100 ${i % 2 === 0 ? 'bg-custom-primary -rotate-6 -mt-2' : 'bg-custom-white rotate-6'} rounded-md p-9 flex flex-col items-start justify-between shrink-0 select-none my-10 hover:z-30 active:z-30 relative`}
+                                        variants={item}
+                                        className={`text-custom-black w-66 h-66 md:w-80 lg:w-100 md:h-80 lg:h-100 ${i % 2 === 0 ? 'bg-custom-primary -rotate-6 -mt-2' : 'bg-custom-white rotate-6'} rounded-md p-6 lg:p-9 flex flex-col items-start justify-between shrink-0 select-none my-10 hover:z-30 active:z-30 relative`}
                                     >
-                                        <h5 className="text-base md:text-2xl leading-5 md:leading-8 tracking-wide">
+                                        <h5 className="text-base md:text-lg xl:text-2xl leading-5 md:leading-7 xl:leading-8 tracking-wide">
                                             &quot;{clientComment}&quot;
                                         </h5>
 
                                         <div className="flex items-center justify-between w-full">
                                             <div className="space-y-2">
                                                 <p className="text-xs md:text-sm tracking-wider text-custom-dark-gray">
-                                                    {clientDisk}
+                                                    {clientDesc}
                                                 </p>
                                                 <h6 className="text-sm md:text-base font-normal tracking-wide">
                                                     {clientName}
@@ -197,13 +242,13 @@ export default function TestimonialsSection() {
                                                 className={`w-15 h-15 rounded-full border-4 ${i % 2 === 0 ? 'border-custom-white' : 'border-custom-primary'}`}
                                             />
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 );
                             })}
                         </motion.div>
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }

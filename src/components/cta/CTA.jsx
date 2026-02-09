@@ -1,67 +1,68 @@
 'use client';
 
-import Link from 'next/link';
-import React from 'react';
-import { BsArrowUpRight } from 'react-icons/bs';
-import { motion } from 'motion/react';
-
-const container = {
-    hidden: {},
-    show: {
-        transition: {
-            // delayChildren: 0.1,
-            staggerChildren: 1,
-        },
-    },
-};
-
-const item = {
-    hidden: {
-        y: 100,
-        opacity: 0,
-    },
-    show: {
-        y: 0,
-        opacity: 1,
-        transition: { duration: 1 },
-    },
-};
+import { motion, useMotionValue, useSpring } from 'motion/react';
+import MoveBtn from '../moveBtn/MoveBtn';
 
 export default function CTA() {
+    // Mouse positions track korar jonno motion values
+    const mouseX = useMotionValue(300);
+    const mouseY = useMotionValue(220);
+
+    // Movement take smooth korar jonno spring configuration
+    const springConfig = { damping: 25, stiffness: 100 };
+    const springX = useSpring(mouseX, springConfig);
+    const springY = useSpring(mouseY, springConfig);
+
+    const handleMouseMove = (e) => {
+        // Container er bounds ber kora hochhe jeno button ta relative thake
+        const rect = e.currentTarget.getBoundingClientRect();
+
+        // Mouse er position calculate kora (center offset shoho)
+        const x = e.clientX - rect.left - 80; // 80 holo button er half width (approx)
+        const y = e.clientY - rect.top - 80; // 80 holo button er half height (approx)
+
+        mouseX.set(x);
+        mouseY.set(y);
+    };
+
     return (
-        <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            className="w-full max-w-360 mx-auto px-8 sm:px-16 py-10 xl:py-30 relative"
+        <div
+            onMouseMove={handleMouseMove}
+            className="w-full py-10 md:py-14 lg:p-20 relative overflow-hidden grid place-items-center bg-linear-to-r from-custom-primary/10 via-custom-black to-custom-primary/10"
         >
-            <div className="w-full flex flex-col sm:flex-row text-center sm:text-start items-center justify-between gap-5 sm:gap-0">
-                {/* left text */}
-                <motion.div variants={item} className="space-y-3 sm:space-y-6">
-                    <h3 className="font-bold text-3xl lg:text-4xl uppercase leading-8 tracking-wide">
-                        Have Any Project In Mind
-                    </h3>
-                    <p className="font-medium text-sm lg:text-base max-w-110 lg:max-w-140">
-                        Whether you&apos;re envisioning a bold brand identity, a sleek website, or a
-                        complete digital transformation.
-                    </p>
+            {/* Grid background layer */}
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-size-[20px_20px] md:bg-size-[40px_40px] opacity-60" />
+
+            {/* Content */}
+            <div className="relative w-full p-5 sm:px-16 md:py-10 max-w-360 mx-auto flex flex-col items-center justify-center gap-3 md:gap-6">
+                <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-9xl font-semibold capitalize tracking-tight text-center text-custom-light-gray select-none">
+                    DIGITAL <span className="text-custom-primary/90">AGENCY</span>
+                </h1>
+
+                {/* Animated Button Container */}
+                <motion.div
+                    style={{
+                        x: springX,
+                        y: springY,
+                        position: 'absolute',
+                        left: -230,
+                        top: -100,
+                        z: 100,
+                    }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="hidden lg:block"
+                >
+                    <MoveBtn />
                 </motion.div>
-
-                {/* right text */}
-
-                <Link href={'/'}>
-                    <motion.div
-                        variants={item}
-                        className="bg-custom-primary w-32.5 h-32.5 rounded-full flex flex-col items-center justify-center gap-2 text-custom-black capitalize hover:bg-custom-light-gray transition-colors duration-300 group"
-                    >
-                        <BsArrowUpRight className="text-lg group-hover:rotate-45 duration-300" />
-                        <button className="uppercase  text-base font-semibold cursor-pointer">
-                            let&apos;s talk
-                        </button>
-                    </motion.div>
-                </Link>
+                <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="lg:hidden"
+                >
+                    <MoveBtn />
+                </motion.div>
             </div>
-        </motion.div>
+        </div>
     );
 }

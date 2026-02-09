@@ -53,7 +53,7 @@ export default function AboutPage() {
             }}
             className="w-full bg-custom-black"
         >
-            <div className="w-full max-w-360 mx-auto px-8 sm:px-16 py-10 xl:py-30 flex flex-col lg:flex-row items-start justify-center lg:gap-12 xl:gap-24 relative">
+            <div className="w-full max-w-360 mx-auto px-8 sm:px-16 py-10 xl:py-16 flex flex-col lg:flex-row items-start justify-center lg:gap-12 xl:gap-24 relative">
                 {/* left side */}
                 <motion.div variants={item} className="hidden lg:block">
                     <AboutImage />

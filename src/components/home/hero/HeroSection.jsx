@@ -12,6 +12,7 @@ import { motion, useAnimationControls } from 'motion/react';
 
 export default function HeroSection() {
     const heroH1Control = useAnimationControls();
+    const heroH1ControlDelay = useAnimationControls();
     const heroMiddleTextControl = useAnimationControls();
     const heroLastMarquee = useAnimationControls();
 
@@ -21,6 +22,11 @@ export default function HeroSection() {
                 x: 0,
                 opacity: 1,
                 transition: { duration: 1 },
+            });
+            await heroH1ControlDelay.start({
+                x: 0,
+                opacity: 1,
+                transition: { duration: 1.4 },
             });
             await heroMiddleTextControl.start({
                 x: 0,
@@ -53,7 +59,7 @@ export default function HeroSection() {
                 className="hidden lg:block absolute top-0 right-0 pointer-events-none animate-pulse"
             />
 
-            <div className="w-full h-[80vh] md:h-screen max-w-360 mx-auto px-8 sm:px-16 pb-11 pt-36 lg:pt-30 flex flex-col items-center justify-center gap-6 xl:gap-12 relative">
+            <div className="w-full h-[80vh] md:h-screen max-w-360 mx-auto px-8 sm:px-16 pb-11 pt-36 lg:pt-30 flex flex-col items-center justify-center gap-6 xl:gap-20 relative">
                 <motion.h1
                     initial={{
                         x: 100,
@@ -69,7 +75,7 @@ export default function HeroSection() {
                         speed={50}
                         autoFill
                         pauseOnHover
-                        className="w-full max-w-60 md:max-w-100 text-4xl md:text-6xl lg:text-[90px] xl:text-[140px] xl:leading-10 tracking-[-2px] font-light text-center bg-custom-primary lg:max-w-110 xl:max-w-170 select-none lg:h-28 xl:h-40 rounded-full text-custom-black  overflow-hidden"
+                        className="w-full max-w-60 md:max-w-100 text-4xl md:text-6xl lg:text-[90px] xl:text-[140px] xl:leading-10 tracking-[-2px] font-light text-center bg-custom-primary lg:max-w-110 xl:max-w-170 select-none lg:h-28 xl:h-40 rounded-full text-custom-black overflow-hidden"
                     >
                         <span className="mx-2 lg:mx-5">brands</span>
                     </Marquee>
@@ -85,7 +91,7 @@ export default function HeroSection() {
                     <h1 className="w-full text-4xl md:text-7xl lg:text-[100px] xl:text-[150px] tracking-[-2px] font-light xl:leading-10 flex items-center gap-4 lg:gap-10 text-center -mt-16 sm:mt-0">
                         and digital
                     </h1>
-                    <p className="text-custom-white/70 w-full md:max-w-56 lg:max-w-100 text-xs md:text-lg xl:text-[22px] leading-4 md:leading-5 text-right lg:text-start -mt-4">
+                    <p className="text-custom-white/70 w-full md:max-w-56 lg:max-w-100 text-xs md:text-lg xl:text-[22px] leading-4 md:leading-8 text-right lg:text-start -mt-4">
                         We design exceptional brands, products, web apps, mobile apps,websites for
                         startups and enterprises.
                     </p>

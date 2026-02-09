@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'motion/react';
 
 import { RiArrowRightDoubleFill } from 'react-icons/ri';
@@ -31,43 +31,67 @@ const worksImgs = [
     },
 ];
 
+const container = {
+    hidden: {},
+    show: {
+        delayChildren: 1,
+        staggerChildren: 1,
+    },
+};
+
+const item = {
+    hidden: { scale: 0 },
+    show: {
+        scale: 1,
+        transition: { duration: 0.8, ease: 'easeOut' },
+    },
+};
+
 export default function PortfolioSection() {
+    const scrollRef = useRef(null);
     return (
-        <section className="w-full">
+        <motion.section
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="w-full "
+        >
             <div className="w-full max-w-360 mx-auto px-8 py-10 flex flex-col items-start justify-center relative">
-                {/* under text */}
                 <div className="text-center -z-999">
                     <HeadingBorderText text={'featured'} />
 
-                    <h2 className="uppercase text-[70px] md:text-[130px] lg:text-[192px] font-semibold tracking-tight lg:-mt-16 pointer-events-none">
+                    <motion.h2
+                        variants={item}
+                        className="uppercase text-[70px] md:text-[130px] lg:text-[192px] font-semibold tracking-tight lg:-mt-16 pointer-events-none"
+                    >
                         works
-                    </h2>
+                    </motion.h2>
 
-                    <h3 className="max-w-300 text-[40px] md:text-[80px] lg:text-[136px] font-bold tracking-normal leading-8 md:leading-15 lg:leading-24 text-custom-dark-gray uppercase -z-40">
+                    <motion.h3
+                        variants={item}
+                        className="max-w-300 text-[40px] md:text-[80px] lg:text-[136px] font-bold tracking-normal leading-8 md:leading-15 lg:leading-24 text-custom-dark-gray uppercase -z-40"
+                    >
                         from <br /> concept to creation
-                    </h3>
+                    </motion.h3>
                 </div>
 
-                {/* image */}
-
-                <div className="w-full flex flex-col items-center gap-16 z-999">
+                <div className="w-full flex flex-col items-center gap-16 z-999 lg:-mb-110">
                     {/* card 1 */}
                     {worksImgs.map((work, i) => {
                         const { id, title, subTitle, src } = work;
                         return (
-                            <Link key={i} href={'/'}>
-                                <motion.div
-                                    initial="rest"
-                                    animate="rest"
-                                    whileHover="hover"
-                                    className={`w-full inline-block max-w-180 relative ${
-                                        i === 0
-                                            ? 'lg:left-22 xl:left-76'
-                                            : i === 1
-                                              ? 'lg:right-22 xl:right-76'
-                                              : ''
-                                    } lg:bottom-100 object-cover overflow-hidden rounded-lg`}
-                                >
+                            <motion.div
+                                key={i}
+                                className={`w-full inline-block max-w-180 relative ${
+                                    i === 0
+                                        ? 'lg:left-22 xl:left-76'
+                                        : i === 1
+                                          ? 'lg:right-22 xl:right-76'
+                                          : ''
+                                } lg:bottom-100 object-cover overflow-hidden rounded-lg`}
+                            >
+                                <Link href={'/'}>
                                     {/* image scale */}
                                     <motion.div
                                         variants={{ rest: { scale: 1 }, hover: { scale: 1.1 } }}
@@ -88,7 +112,7 @@ export default function PortfolioSection() {
                                             <motion.div
                                                 variants={{
                                                     rest: { y: 0 },
-                                                    hover: { y: 'calc(-3rem - 0.5rem)' }, // h-12 + gap-2
+                                                    hover: { y: 'calc(-3rem - 0.5rem)' },
                                                 }}
                                                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                                                 className="flex flex-col items-center lg:gap-2"
@@ -114,12 +138,12 @@ export default function PortfolioSection() {
                                             </p>
                                         </div>
                                     </div>
-                                </motion.div>
-                            </Link>
+                                </Link>
+                            </motion.div>
                         );
                     })}
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }
