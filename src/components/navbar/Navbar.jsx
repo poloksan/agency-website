@@ -48,7 +48,7 @@ export default function Navbar() {
                 opacity: 1,
             }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className={`w-full fixed top-0 right-0 left-0 z-9999 border-b-[0.5px] border-custom-white/30 duration-300 transition-colors ease-linear ${isScrolled ? 'bg-custom-black/90 backdrop-blur-md' : 'bg-transparent'}`}
+            className={`w-full fixed top-0 right-0 left-0 z-99999 border-b-[0.5px] border-custom-white/30 duration-300 transition-colors ease-linear ${isScrolled ? 'bg-custom-black/90 backdrop-blur-md' : 'bg-transparent'}`}
         >
             <div className="w-full max-w-360 mx-auto px-8 sm:px-16 py-11 relative">
                 <nav className="w-full flex items-center justify-between">
@@ -56,10 +56,9 @@ export default function Navbar() {
                         <Image
                             src={logo}
                             alt="logo image"
-                            width={150}
-                            height={150}
                             priority
                             draggable="false"
+                            className="w-37.5 h-auto"
                         />
                     </Link>
 

@@ -36,7 +36,7 @@ export default function CTA() {
             {/* Content */}
             <div className="relative w-full p-5 sm:px-16 md:py-10 max-w-360 mx-auto flex flex-col items-center justify-center gap-3 md:gap-6">
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-9xl font-semibold capitalize tracking-tight text-center text-custom-light-gray select-none">
-                    DIGITAL <span className="text-custom-primary/90">AGENCY</span>
+                    let&apos;s <span className="text-custom-primary/90">talk</span>
                 </h1>
 
                 {/* Animated Button Container */}
@@ -45,7 +45,7 @@ export default function CTA() {
                         x: springX,
                         y: springY,
                         position: 'absolute',
-                        left: -230,
+                        left: -120,
                         top: -100,
                         z: 100,
                     }}

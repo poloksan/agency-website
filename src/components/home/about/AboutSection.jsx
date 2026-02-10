@@ -22,7 +22,6 @@ const container = {
     hidden: {},
     show: {
         transition: {
-            delayChildren: 0.1,
             staggerChildren: 1,
         },
     },
@@ -33,7 +32,7 @@ const item = {
     show: {
         y: 0,
         opacity: 1,
-        transition: { duration: 1 },
+        transition: { duration: 0.7 },
     },
 };
 
@@ -49,7 +48,7 @@ export default function AboutPage() {
             whileInView="show"
             viewport={{
                 once: true,
-                amount: 0.2,
+                amount: 0.1,
             }}
             className="w-full bg-custom-black"
         >

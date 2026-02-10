@@ -4,7 +4,6 @@ import HeroSection from '@/components/home/hero/HeroSection';
 import PortfolioSection from '@/components/home/portfolio/Portfolio';
 import ServicesSection from '@/components/home/services/ServicesSection';
 import TestimonialsSection from '@/components/home/testimonials/TestimonialsSection';
-import Image from 'next/image';
 
 export default function Home() {
     return (

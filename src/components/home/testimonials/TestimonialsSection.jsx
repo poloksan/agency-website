@@ -41,7 +41,7 @@ const testimonials = [
         clientName: 'T. Morthy',
         clientDesc: 'Marketing manager, OKG',
         clientComment:
-            ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam animi omnis enim sit commodi sapiente in a dolor, ipsum obcaecati.',
+            'Their agency delivered exceptional quality, professional communication, and outstanding results. Our brand presence improved significantly after working with their team.s',
         src: clientImgOne,
     },
     {
@@ -49,7 +49,7 @@ const testimonials = [
         clientName: 'B, Gordon',
         clientDesc: 'CEO & Founder, Archin studio',
         clientComment:
-            ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam animi omnis enim sit commodi sapiente in a dolor, ipsum obcaecati.',
+            'A reliable digital agency with creative ideas, strong execution, and excellent project management. Highly recommended for growing modern businesses.',
         src: clientImgTwo,
     },
     {
@@ -57,7 +57,7 @@ const testimonials = [
         clientName: 'T. Morthy',
         clientDesc: 'Marketing manager, OKG',
         clientComment:
-            ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam animi omnis enim sit commodi sapiente in a dolor, ipsum obcaecati.',
+            'They transformed our vision into a powerful digital experience. Professional team, fast delivery, and truly impressive service quality.',
         src: clientImgThree,
     },
     {
@@ -65,7 +65,7 @@ const testimonials = [
         clientName: 'B, Gordon',
         clientDesc: 'CEO & Founder, Archin studio',
         clientComment:
-            ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam animi omnis enim sit commodi sapiente in a dolor, ipsum obcaecati.',
+            'Outstanding agency with strategic thinking, clean design, and excellent development support. Our business growth accelerated after collaboration.',
         src: clientImgOne,
     },
     {
@@ -73,7 +73,7 @@ const testimonials = [
         clientName: 'T. Morthy',
         clientDesc: 'Marketing manager, OKG',
         clientComment:
-            ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam animi omnis enim sit commodi sapiente in a dolor, ipsum obcaecati.',
+            'Professional agency service with innovative solutions and smooth communication. A perfect partner for any growing brand.',
         src: clientImgTwo,
     },
     {
@@ -81,7 +81,7 @@ const testimonials = [
         clientName: 'B, Gordon',
         clientDesc: 'CEO & Founder, Archin studio',
         clientComment:
-            ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam animi omnis enim sit commodi sapiente in a dolor, ipsum obcaecati.',
+            'Their expertise, creativity, and commitment helped elevate our brand identity and online presence significantly',
         src: clientImgThree,
     },
 ];
@@ -208,7 +208,7 @@ export default function TestimonialsSection() {
                             className="flex -space-x-10 cursor-grab touch-pan-y"
                             drag="x"
                             dragConstraints={{ left: -maxDrag, right: 0 }}
-                            dragElastic={0.08}
+                            dragElastic={0.6}
                             dragMomentum={true}
                             whileTap={{ cursor: 'grabbing' }}
                         >

@@ -68,24 +68,22 @@ export default function HeroSection() {
         heroMiddleTextControlDelay,
     ]);
     return (
-        <section className="w-full relative bg-linear-to-r from-custom-primary/20 via-custom-black to-custom-primary/20">
-            {/* <Image
+        <section className="w-full relative">
+            <Image
                 src={heroBg}
                 alt="hero background"
                 draggable="false"
                 fill
                 priority
                 className="object-cover -z-999 pointer-events-none"
-            /> */}
+            />
 
-            {/* <Image
+            <Image
                 src={glowBg}
                 alt="glow blob"
                 draggable="false"
-                className="hidden lg:block absolute top-1/2 right-1/2  pointer-events-none animate-pulse"
-            /> */}
-
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-size-[20px_20px] md:bg-size-[40px_40px]" />
+                className="hidden lg:block absolute top-0 right-0  pointer-events-none animate-pulse"
+            />
 
             <div className="w-full h-[80vh] md:h-screen max-w-360 mx-auto px-8 sm:px-16 pb-11 pt-36 lg:pt-30 flex flex-col items-center justify-center gap-6 xl:gap-20 relative">
                 <motion.h1
@@ -103,6 +101,7 @@ export default function HeroSection() {
                             opacity: 0,
                         }}
                         animate={heroH1ControlMarquee}
+                        className="w-full max-w-60 md:max-w-100 lg:max-w-110 xl:max-w-170 bg-custom-primary select-none lg:h-28 xl:h-40 rounded-full text-custom-black overflow-hidden flex flex-col justify-center"
                     >
                         <Marquee
                             direction="right"
@@ -110,7 +109,7 @@ export default function HeroSection() {
                             speed={50}
                             autoFill
                             pauseOnHover
-                            className="w-full max-w-60 md:max-w-100 text-4xl md:text-6xl lg:text-[90px] xl:text-[140px] xl:leading-10 tracking-[-2px] font-light text-center bg-custom-primary lg:max-w-110 xl:max-w-170 select-none lg:h-28 xl:h-40 rounded-full text-custom-black overflow-hidden"
+                            className="w-full h-full text-4xl md:text-6xl lg:text-[90px] xl:text-[140px] xl:leading-10 tracking-[-2px] font-light text-center"
                         >
                             <span className="mx-2 lg:mx-5">brands</span>
                         </Marquee>
