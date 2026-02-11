@@ -1,14 +1,13 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { useEffect } from 'react';
-import Image from 'next/image';
-import heroBg from '@/assets/images/hero-bg-img.jpg';
-import RotateText from '@/components/rotateText/RotateText';
-import glowBg from '@/assets/icons/bg-circle-icon.png';
-
-import Marquee from 'react-fast-marquee';
-import { motion, useAnimationControls } from 'motion/react';
+import React from "react";
+import { useEffect } from "react";
+import Marquee from "react-fast-marquee";
+import { motion, useAnimationControls } from "motion/react";
+import Image from "next/image";
+import heroBg from "@/assets/images/hero-bg-img.jpg";
+import RotateText from "@/components/rotateText/RotateText";
+import glowBg from "@/assets/icons/bg-circle-icon.png";
 
 export default function HeroSection() {
     const heroH1Control = useAnimationControls();
@@ -19,54 +18,28 @@ export default function HeroSection() {
     const heroH1ControlMarquee = useAnimationControls();
     const heroScrollAnimationBtn = useAnimationControls();
 
+    const animateElements = [
+        { control: heroH1Control, duration: 1 },
+        { control: heroH1ControlMarquee, duration: 0.7 },
+        { control: heroH1ControlDelay, duration: 0.7 },
+        { control: heroMiddleTextControl, duration: 0.7 },
+        { control: heroMiddleTextControlDelay, duration: 0.7 },
+        { control: heroLastMarquee, duration: 0.7 },
+        { control: heroScrollAnimationBtn, duration: 0.7 },
+    ];
+
     useEffect(() => {
         const run = async () => {
-            await heroH1Control.start({
-                x: 0,
-                opacity: 1,
-                transition: { duration: 1 },
-            });
-            await heroH1ControlMarquee.start({
-                x: 0,
-                opacity: 1,
-                transition: { duration: 0.7 },
-            });
-            await heroH1ControlDelay.start({
-                x: 0,
-                opacity: 1,
-                transition: { duration: 0.7 },
-            });
-            await heroMiddleTextControl.start({
-                x: 0,
-                opacity: 1,
-                transition: { duration: 0.7 },
-            });
-            await heroMiddleTextControlDelay.start({
-                x: 0,
-                opacity: 1,
-                transition: { duration: 0.7 },
-            });
-            await heroLastMarquee.start({
-                x: 0,
-                opacity: 1,
-                transition: { duration: 0.7 },
-            });
-            await heroScrollAnimationBtn.start({
-                x: 0,
-                opacity: 1,
-                transition: { duration: 0.7 },
-            });
+            for (const element of animateElements) {
+                await element.control.start({
+                    x: 0,
+                    opacity: 1,
+                    transition: { duration: element.duration },
+                });
+            }
         };
         run();
-    }, [
-        heroH1Control,
-        heroH1ControlDelay,
-        heroMiddleTextControl,
-        heroLastMarquee,
-        heroH1ControlMarquee,
-        heroScrollAnimationBtn,
-        heroMiddleTextControlDelay,
-    ]);
+    }, []);
     return (
         <section className="w-full relative">
             <Image
@@ -134,8 +107,8 @@ export default function HeroSection() {
                         animate={heroMiddleTextControlDelay}
                         className="text-custom-white/70 w-full md:max-w-56 lg:max-w-100 text-xs md:text-lg xl:text-[22px] leading-4 md:leading-8 text-right lg:text-start -mt-4"
                     >
-                        We design exceptional brands, products, web apps, mobile apps,websites for
-                        startups and enterprises.
+                        We design exceptional brands, products, web apps, mobile
+                        apps,websites for startups and enterprises.
                     </motion.p>
                 </motion.div>
 
