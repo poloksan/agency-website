@@ -1,33 +1,33 @@
-'use client';
-import React from 'react';
-import { motion } from 'motion/react';
+"use client";
+import React from "react";
+import { motion } from "motion/react";
 
-import { RiArrowRightDoubleFill } from 'react-icons/ri';
-import HeadingBorderText from '@/components/headingBorderText/HeadingBorderText';
-import workOne from '@/assets/images/work-one.png';
-import workTwo from '@/assets/images/work-two.png';
-import workThree from '@/assets/images/work-three.png';
-import Image from 'next/image';
-import Link from 'next/link';
+import { RiArrowRightDoubleFill } from "react-icons/ri";
+import HeadingBorderText from "@/components/headingBorderText/HeadingBorderText";
+import workOne from "@/assets/images/work-one.png";
+import workTwo from "@/assets/images/work-two.png";
+import workThree from "@/assets/images/work-three.png";
+import Image from "next/image";
+import Link from "next/link";
 
 const worksImgs = [
     {
         id: 1,
         src: workOne,
-        title: 'Website Redesign',
-        subTitle: 'design',
+        title: "Website Redesign",
+        subTitle: "design",
     },
     {
         id: 2,
         src: workTwo,
-        title: 'brand identify',
-        subTitle: 'branding',
+        title: "brand identify",
+        subTitle: "branding",
     },
     {
         id: 3,
         src: workThree,
-        title: 'development',
-        subTitle: 'prototype',
+        title: "development",
+        subTitle: "prototype",
     },
 ];
 
@@ -37,7 +37,7 @@ export default function PortfolioSection() {
             <div className="w-full max-w-360 mx-auto px-8 py-10 flex flex-col items-start justify-center relative">
                 {/* under text */}
                 <div className="text-center -z-999">
-                    <HeadingBorderText text={'featured'} />
+                    <HeadingBorderText text={"featured"} />
                     <h2 className="uppercase text-[70px] md:text-[130px] lg:text-[192px] font-semibold tracking-tight lg:-mt-16 pointer-events-none">
                         works
                     </h2>
@@ -51,23 +51,30 @@ export default function PortfolioSection() {
                     {worksImgs.map((work, i) => {
                         const { id, title, subTitle, src } = work;
                         return (
-                            <Link key={i} href={'/'}>
-                                <motion.div
-                                    initial="rest"
-                                    animate="rest"
-                                    whileHover="hover"
-                                    className={`w-full inline-block max-w-180 relative ${
-                                        i === 0
-                                            ? 'lg:left-22 xl:left-76'
-                                            : i === 1
-                                              ? 'lg:right-22 xl:right-76'
-                                              : ''
-                                    } lg:bottom-100 object-cover overflow-hidden rounded-lg`}
-                                >
+                            <motion.div
+                                key={i}
+                                initial="rest"
+                                animate="rest"
+                                whileHover="hover"
+                                className={`w-full inline-block max-w-180 relative ${
+                                    i === 0
+                                        ? "lg:left-22 xl:left-76"
+                                        : i === 1
+                                          ? "lg:right-22 xl:right-76"
+                                          : ""
+                                } lg:bottom-100 object-cover overflow-hidden rounded-lg`}
+                            >
+                                <Link href={"/"}>
                                     {/* image scale */}
                                     <motion.div
-                                        variants={{ rest: { scale: 1 }, hover: { scale: 1.1 } }}
-                                        transition={{ duration: 0.5, ease: 'easeInOut' }}
+                                        variants={{
+                                            rest: { scale: 1 },
+                                            hover: { scale: 1.1 },
+                                        }}
+                                        transition={{
+                                            duration: 0.5,
+                                            ease: "easeInOut",
+                                        }}
                                         className="rounded-lg"
                                     >
                                         <Image
@@ -84,9 +91,14 @@ export default function PortfolioSection() {
                                             <motion.div
                                                 variants={{
                                                     rest: { y: 0 },
-                                                    hover: { y: 'calc(-3rem - 0.5rem)' }, // h-12 + gap-2
+                                                    hover: {
+                                                        y: "calc(-3rem - 0.5rem)",
+                                                    }, // h-12 + gap-2
                                                 }}
-                                                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                                transition={{
+                                                    duration: 0.3,
+                                                    ease: "easeInOut",
+                                                }}
                                                 className="flex flex-col items-center lg:gap-2"
                                             >
                                                 <span className="block h-12 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl lg:text-5xl tracking-[2px]">
@@ -110,8 +122,8 @@ export default function PortfolioSection() {
                                             </p>
                                         </div>
                                     </div>
-                                </motion.div>
-                            </Link>
+                                </Link>
+                            </motion.div>
                         );
                     })}
                 </div>
