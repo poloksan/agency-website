@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import React from 'react';
-import aboutImg from '@/assets/images/about-img.png';
-import arrowIcon from '@/assets/icons/arrow-icon.svg';
+import Image from "next/image";
+import React from "react";
+import aboutImg from "@/assets/images/about-img.png";
+import arrowIcon from "@/assets/icons/arrow-icon.svg";
 
 export default function AboutImage() {
     return (
@@ -18,7 +18,7 @@ export default function AboutImage() {
                     alt="arrow icon"
                     draggable="false"
                     width={20}
-                    className="absolute top-0 -right-5 lg:-right-4"
+                    className="absolute top-0 -right-4.5 lg:-right-4"
                 />
                 <Image
                     src={arrowIcon}
@@ -44,7 +44,13 @@ export default function AboutImage() {
                     className="absolute bottom-0 -left-4 rotate-180"
                 />
             </div>
-            <Image src={aboutImg} alt="about us" width={700} height={700} className="rounded-2xl" />
+            <Image
+                src={aboutImg}
+                alt="about us"
+                width={700}
+                height={700}
+                className="rounded-2xl"
+            />
         </div>
     );
 }
