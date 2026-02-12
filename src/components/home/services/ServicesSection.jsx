@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 import HeadingBorderText from "@/components/headingBorderText/HeadingBorderText";
 import { motion } from "framer-motion";
@@ -21,7 +21,7 @@ const container = {
     hidden: {},
     show: {
         transition: {
-            delayChildren: 1,
+            delayChildren: 0.1,
             staggerChildren: 0.6,
         },
     },

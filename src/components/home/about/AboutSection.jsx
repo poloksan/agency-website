@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { useState } from 'react';
-import { motion } from 'motion/react';
-import AboutImage from '@/components/aboutImage/AboutImage';
+import React from "react";
+import { useState } from "react";
+import { motion } from "motion/react";
+import AboutImage from "@/components/aboutImage/AboutImage";
 
 const accordingData = [
     {
-        title: 'What’s Our mission?',
+        title: "What’s Our mission?",
         description:
-            'How quick is quick? For most design, we’re talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly.',
+            "How quick is quick? For most design, we’re talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly.",
     },
     {
-        title: 'Our Culture & Our Studio',
+        title: "Our Culture & Our Studio",
         description:
-            'How quick is quick? For most design, we’re talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly',
+            "How quick is quick? For most design, we’re talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly",
     },
 ];
 
@@ -22,6 +22,7 @@ const container = {
     hidden: {},
     show: {
         transition: {
+            delayChildren: 0.1,
             staggerChildren: 1,
         },
     },
@@ -32,7 +33,7 @@ const item = {
     show: {
         y: 0,
         opacity: 1,
-        transition: { duration: 0.7 },
+        transition: { duration: 1 },
     },
 };
 
@@ -50,25 +51,24 @@ export default function AboutPage() {
                 once: true,
                 amount: 0.1,
             }}
-            className="w-full bg-custom-black"
         >
-            <div className="w-full max-w-360 mx-auto px-8 sm:px-16 py-10 xl:py-16 flex flex-col lg:flex-row items-start justify-center lg:gap-12 xl:gap-24 relative">
+            <div className="w-full max-w-360 mx-auto px-8 sm:px-16 py-10 md:py-16 xl:py-20 flex flex-col lg:flex-row items-center justify-center lg:gap-12 xl:gap-24 relative">
                 {/* left side */}
                 <motion.div variants={item} className="hidden lg:block">
                     <AboutImage />
                 </motion.div>
 
                 {/* right side */}
-                <motion.div variants={item} className="mt-10 lg:max-w-100 xl:max-w-160">
-                    <motion.div>
+                <motion.div className="w-full lg:mt-10 lg:max-w-100 xl:max-w-160 grid place-items-center">
+                    <motion.div variants={item}>
                         <ul className="list-disc pl-6">
                             <li className="text-base lg:text-xl tracking-wider text-custom-white/80">
                                 Who we are?
                             </li>
                         </ul>
                         <h3 className="text-4xl lg:text-[40px] tracking-normal leading-9 lg:leading-12 font-normal text-custom-white mt-4">
-                            Elevating brands globally with innovative strategies and visionary
-                            design
+                            Elevating brands globally with innovative strategies
+                            and visionary design
                         </h3>
                     </motion.div>
 
@@ -78,6 +78,7 @@ export default function AboutPage() {
 
                     <motion.div
                         variants={item}
+                        viewport={{ amount: 0.1 }}
                         className="flex gap-3 flex-col w-full max-w-130 lg:mt-12"
                     >
                         {accordingData?.map((according, index) => (
@@ -106,7 +107,8 @@ export default function AboutPage() {
                                             height="2"
                                             rx="1"
                                             className={`transform origin-center transition duration-200 ease-out ${
-                                                bgAccording === index && 'rotate-180'
+                                                bgAccording === index &&
+                                                "rotate-180"
                                             }`}
                                         />
                                         <rect
@@ -115,7 +117,8 @@ export default function AboutPage() {
                                             height="2"
                                             rx="1"
                                             className={`transform origin-center rotate-90 transition duration-200 ease-out ${
-                                                bgAccording === index && 'rotate-180'
+                                                bgAccording === index &&
+                                                "rotate-180"
                                             }`}
                                         />
                                     </svg>
@@ -123,8 +126,8 @@ export default function AboutPage() {
                                 <div
                                     className={`grid transition-all duration-500 dark:bg-transparent overflow-hidden ease-in-out ${
                                         bgAccording === index
-                                            ? 'grid-rows-[1fr] opacity-100 px-3 py-3'
-                                            : 'grid-rows-[0fr] opacity-0 px-3'
+                                            ? "grid-rows-[1fr] opacity-100 px-3 py-3"
+                                            : "grid-rows-[0fr] opacity-0 px-3"
                                     }`}
                                 >
                                     <div className="text-custom-dark-gray text-sm lg:text-base overflow-hidden">
