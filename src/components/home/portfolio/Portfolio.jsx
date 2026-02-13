@@ -1,7 +1,6 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "motion/react";
-
 import { RiArrowRightDoubleFill } from "react-icons/ri";
 import HeadingBorderText from "@/components/headingBorderText/HeadingBorderText";
 import workOne from "@/assets/images/work-one.png";
@@ -9,6 +8,9 @@ import workTwo from "@/assets/images/work-two.png";
 import workThree from "@/assets/images/work-three.png";
 import Image from "next/image";
 import Link from "next/link";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const worksImgs = [
     {
@@ -31,23 +33,84 @@ const worksImgs = [
     },
 ];
 
+const container = {
+    hidden: {},
+    show: {
+        transition: {
+            delayChildren: 0.1,
+            staggerChildren: 0.6,
+        },
+    },
+};
+
+const item = {
+    hidden: { scale: 0, opacity: 0 },
+    show: {
+        scale: 1,
+        opacity: 1,
+        transition: {
+            scale: { type: "spring", bounce: 0.5, duration: 2.5 },
+        },
+    },
+};
+
 export default function PortfolioSection() {
+    const sectionRef = useRef(null);
+    const textRef = useRef(null);
+    const cardsRef = useRef(null);
+
+    useGSAP(() => {
+        const section = sectionRef.current;
+        const text = textRef.current;
+        const cards = cardsRef.current;
+
+        if (!section || !text || !cards) return;
+        gsap.from(text, {
+            scale: 0,
+            opacity: 0,
+            duration: 1,
+        });
+    });
+
+    useEffect(() => {
+        const section = sectionRef.current;
+        const text = textRef.current;
+        const cards = cardsRef.current;
+        console.log(cards);
+    });
+
     return (
-        <section className="w-full">
-            <div className="w-full max-w-360 mx-auto px-8 py-10 flex flex-col items-start justify-center relative">
+        <motion.section
+            ref={sectionRef}
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="w-full max-w-360 mx-auto px-8 py-10 "
+        >
+            <div className="w-full flex flex-col items-start justify-center relative">
                 {/* under text */}
-                <div className="text-center -z-999">
+                <div ref={textRef} className="text-center -z-999">
                     <HeadingBorderText text={"featured"} />
-                    <h2 className="uppercase text-[70px] md:text-[130px] lg:text-[192px] font-semibold tracking-tight lg:-mt-16 pointer-events-none">
+                    <motion.h2
+                        variants={item}
+                        className="uppercase text-[70px] md:text-[130px] lg:text-[192px] font-semibold tracking-tight lg:-mt-16 pointer-events-none"
+                    >
                         works
-                    </h2>
-                    <h3 className="max-w-300 text-[40px] md:text-[80px] lg:text-[136px] font-bold tracking-normal leading-8 md:leading-15 lg:leading-24 text-custom-dark-gray uppercase -z-40">
+                    </motion.h2>
+                    <motion.h3
+                        variants={item}
+                        className="max-w-300 text-[40px] md:text-[80px] lg:text-[136px] font-bold tracking-normal leading-8 md:leading-15 lg:leading-24 text-custom-dark-gray uppercase -z-40"
+                    >
                         from <br /> concept to creation
-                    </h3>
+                    </motion.h3>
                 </div>
 
                 {/* cards */}
-                <div className="w-full flex flex-col items-center gap-16 z-999 -mb-10 lg:-mb-110">
+                <div
+                    ref={cardsRef}
+                    className="w-full flex flex-col items-center gap-16 z-999 -mb-10 lg:-mb-110"
+                >
                     {worksImgs.map((work, i) => {
                         const { id, title, subTitle, src } = work;
                         return (
@@ -58,9 +121,9 @@ export default function PortfolioSection() {
                                 whileHover="hover"
                                 className={`w-full inline-block max-w-180 relative ${
                                     i === 0
-                                        ? "lg:left-22 xl:left-76"
+                                        ? "lg:left-22 xl:left-65"
                                         : i === 1
-                                          ? "lg:right-22 xl:right-76"
+                                          ? "lg:right-22 xl:right-65"
                                           : ""
                                 } lg:bottom-100 object-cover overflow-hidden rounded-lg`}
                             >
@@ -128,6 +191,6 @@ export default function PortfolioSection() {
                     })}
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }

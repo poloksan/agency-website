@@ -64,7 +64,7 @@ export default function ServicesSection() {
                     scroll: "body",
                     start: "top 5%",
                     end: "bottom -100%",
-                    scrub: 2,
+                    scrub: true,
                     pin: true,
                 },
             });
