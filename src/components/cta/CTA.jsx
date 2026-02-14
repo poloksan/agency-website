@@ -4,22 +4,18 @@ import { motion, useMotionValue, useSpring } from 'motion/react';
 import MoveBtn from '../moveBtn/MoveBtn';
 
 export default function CTA() {
-    // Mouse positions track korar jonno motion values
     const mouseX = useMotionValue(300);
     const mouseY = useMotionValue(220);
 
-    // Movement take smooth korar jonno spring configuration
     const springConfig = { damping: 25, stiffness: 100 };
     const springX = useSpring(mouseX, springConfig);
     const springY = useSpring(mouseY, springConfig);
 
     const handleMouseMove = (e) => {
-        // Container er bounds ber kora hochhe jeno button ta relative thake
         const rect = e.currentTarget.getBoundingClientRect();
 
-        // Mouse er position calculate kora (center offset shoho)
-        const x = e.clientX - rect.left - 200; // 200 holo button er half width (approx)
-        const y = e.clientY - rect.top - 80; // 200 holo button er half height (approx)
+        const x = e.clientX - rect.left - 200;
+        const y = e.clientY - rect.top - 80;
 
         mouseX.set(x);
         mouseY.set(y);
@@ -35,7 +31,7 @@ export default function CTA() {
 
             {/* Content */}
             <div className="relative w-full p-5 sm:px-16 md:py-10 max-w-360 mx-auto flex flex-col items-center justify-center gap-3 md:gap-6">
-                <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-9xl font-semibold capitalize tracking-tight text-center text-custom-light-gray select-none">
+                <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold uppercase tracking-tight text-center text-custom-light-gray select-none">
                     Let&apos;s Create <br />
                     <span className="text-custom-primary/90">Something Impactful.</span>
                 </h1>

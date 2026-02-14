@@ -10,7 +10,7 @@ export default function MoveBtn() {
         >
             <BsArrowUpRight className="text-lg xl:text-2xl group-hover:rotate-45 duration-500" />
             <button type="button" className="cursor-pointer">
-                Let&apos;s Start
+                Let&apos;s Talk
             </button>
         </Link>
     );
