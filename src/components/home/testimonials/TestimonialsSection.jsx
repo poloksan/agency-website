@@ -90,7 +90,7 @@ const container = {
     hidden: {},
     show: {
         transition: {
-            delayChildren: 1,
+            delayChildren: 0.2,
             staggerChildren: 0.5,
         },
     },
@@ -101,7 +101,7 @@ const item = {
     show: {
         y: 0,
         opacity: 1,
-        transition: { duration: 0.8, visualDuration: 0.8 },
+        transition: { duration: 0.5, visualDuration: 0.5 },
     },
 };
 
@@ -109,7 +109,7 @@ const animateScale = {
     hidden: { scale: 0 },
     show: {
         scale: 1,
-        transition: { duration: 0.8, visualDuration: 0.8 },
+        transition: { duration: 0.5, visualDuration: 0.5 },
     },
 };
 
@@ -180,7 +180,7 @@ export default function TestimonialsSection() {
                 </div>
 
                 {/* card section */}
-                <div className="relative flex items-center justify-center select-none">
+                <div className="relative flex items-center justify-center select-none lg:-mt-20">
                     <motion.div
                         variants={animateScale}
                         className="max-w-360 mx-auto bg-center bg-cover object-cover bg-no-repeat -z-50"

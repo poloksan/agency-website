@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import React from "react";
-import { useState } from "react";
-import { motion } from "motion/react";
-import AboutImage from "@/components/aboutImage/AboutImage";
+import React from 'react';
+import { useState } from 'react';
+import { motion } from 'motion/react';
+import AboutImage from '@/components/aboutImage/AboutImage';
 
 const accordingData = [
     {
-        title: "What’s Our mission?",
+        title: 'What’s Our mission?',
         description:
-            "How quick is quick? For most design, we’re talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly.",
+            'How quick is quick? For most design, we’re talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly.',
     },
     {
-        title: "Our Culture & Our Studio",
+        title: 'Our Culture & Our Studio',
         description:
-            "How quick is quick? For most design, we’re talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly",
+            'How quick is quick? For most design, we’re talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly',
     },
 ];
 
@@ -33,7 +33,7 @@ const item = {
     show: {
         y: 0,
         opacity: 1,
-        transition: { duration: 1 },
+        transition: { duration: 0.5 },
     },
 };
 
@@ -67,8 +67,8 @@ export default function AboutPage() {
                             </li>
                         </ul>
                         <h3 className="text-4xl lg:text-[40px] tracking-normal leading-9 lg:leading-12 font-normal text-custom-white mt-4">
-                            Elevating brands globally with innovative strategies
-                            and visionary design
+                            Elevating brands globally with innovative strategies and visionary
+                            design
                         </h3>
                     </motion.div>
 
@@ -78,7 +78,6 @@ export default function AboutPage() {
 
                     <motion.div
                         variants={item}
-                        viewport={{ amount: 0.1 }}
                         className="flex gap-3 flex-col w-full max-w-130 lg:mt-12"
                     >
                         {accordingData?.map((according, index) => (
@@ -107,8 +106,7 @@ export default function AboutPage() {
                                             height="2"
                                             rx="1"
                                             className={`transform origin-center transition duration-200 ease-out ${
-                                                bgAccording === index &&
-                                                "rotate-180"
+                                                bgAccording === index && 'rotate-180'
                                             }`}
                                         />
                                         <rect
@@ -117,8 +115,7 @@ export default function AboutPage() {
                                             height="2"
                                             rx="1"
                                             className={`transform origin-center rotate-90 transition duration-200 ease-out ${
-                                                bgAccording === index &&
-                                                "rotate-180"
+                                                bgAccording === index && 'rotate-180'
                                             }`}
                                         />
                                     </svg>
@@ -126,8 +123,8 @@ export default function AboutPage() {
                                 <div
                                     className={`grid transition-all duration-500 dark:bg-transparent overflow-hidden ease-in-out ${
                                         bgAccording === index
-                                            ? "grid-rows-[1fr] opacity-100 px-3 py-3"
-                                            : "grid-rows-[0fr] opacity-0 px-3"
+                                            ? 'grid-rows-[1fr] opacity-100 px-3 py-3'
+                                            : 'grid-rows-[0fr] opacity-0 px-3'
                                     }`}
                                 >
                                     <div className="text-custom-dark-gray text-sm lg:text-base overflow-hidden">

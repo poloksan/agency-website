@@ -32,7 +32,7 @@ const item = {
     show: {
         y: 0,
         opacity: 1,
-        transition: { duration: 0.6 },
+        transition: { duration: 0.5 },
     },
 };
 
@@ -62,9 +62,9 @@ export default function ServicesSection() {
                 scrollTrigger: {
                     trigger: section,
                     scroll: 'body',
-                    start: 'top 5%',
+                    start: 'top 15%',
                     end: 'bottom -100%',
-                    scrub: true,
+                    scrub: 1,
                     pin: true,
                 },
             });
@@ -111,7 +111,7 @@ export default function ServicesSection() {
                     className="max-w-360 mx-auto flex flex-col lg:flex-row items-center justify-center md:justify-start gap-5 lg:gap-10"
                 >
                     {services.map((service, i) => (
-                        <motion.div key={i} variants={item} className="relative">
+                        <motion.div key={i} className="relative">
                             {/* gsap scale target wrapper */}
                             <div className="gsap-scale-target relative group">
                                 {/* under card */}

@@ -2,6 +2,8 @@ import { Archivo } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/footer/Footer';
+import Loader from '@/components/loader/Loader';
+import CTA from '@/components/cta/CTA';
 
 const archivo = Archivo({
     variable: '--font-archivo',
@@ -17,9 +19,12 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={`${archivo.className}   antialiased`}>
-                <Navbar />
-                {children}
-                <Footer />
+                <Loader>
+                    <Navbar />
+                    {children}
+                    <CTA />
+                    <Footer />
+                </Loader>
             </body>
         </html>
     );
