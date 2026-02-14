@@ -120,7 +120,7 @@ export default function Footer() {
                 </div>
 
                 {/* Divider */}
-                <div className="h-px w-full bg-custom-primary/80" />
+                <motion.div variants={item} className="h-px w-full bg-custom-primary/80" />
 
                 {/* Bottom */}
                 <motion.div
