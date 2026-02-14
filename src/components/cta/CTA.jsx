@@ -18,8 +18,8 @@ export default function CTA() {
         const rect = e.currentTarget.getBoundingClientRect();
 
         // Mouse er position calculate kora (center offset shoho)
-        const x = e.clientX - rect.left - 80; // 80 holo button er half width (approx)
-        const y = e.clientY - rect.top - 80; // 80 holo button er half height (approx)
+        const x = e.clientX - rect.left - 200; // 200 holo button er half width (approx)
+        const y = e.clientY - rect.top - 80; // 200 holo button er half height (approx)
 
         mouseX.set(x);
         mouseY.set(y);
@@ -36,7 +36,8 @@ export default function CTA() {
             {/* Content */}
             <div className="relative w-full p-5 sm:px-16 md:py-10 max-w-360 mx-auto flex flex-col items-center justify-center gap-3 md:gap-6">
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-9xl font-semibold capitalize tracking-tight text-center text-custom-light-gray select-none">
-                    let&apos;s <span className="text-custom-primary/90">talk</span>
+                    Let&apos;s Create <br />
+                    <span className="text-custom-primary/90">Something Impactful.</span>
                 </h1>
 
                 {/* Animated Button Container */}
