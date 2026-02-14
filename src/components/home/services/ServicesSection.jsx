@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import React, { useRef } from "react";
-import Link from "next/link";
-import HeadingBorderText from "@/components/headingBorderText/HeadingBorderText";
-import { motion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import React, { useRef } from 'react';
+import Link from 'next/link';
+import HeadingBorderText from '@/components/headingBorderText/HeadingBorderText';
+import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
-    { title: "design", subTitle: "Lorem ipsum dolor sit." },
-    { title: "marketing", subTitle: "Lorem ipsum dolor sit." },
-    { title: "prototype", subTitle: "Lorem ipsum dolor sit." },
-    { title: "branding", subTitle: "Lorem ipsum dolor sit." },
+    { title: 'design', subTitle: 'Lorem ipsum dolor sit.' },
+    { title: 'marketing', subTitle: 'Lorem ipsum dolor sit.' },
+    { title: 'prototype', subTitle: 'Lorem ipsum dolor sit.' },
+    { title: 'branding', subTitle: 'Lorem ipsum dolor sit.' },
 ];
 
 const container = {
@@ -42,7 +42,7 @@ const animationScale = {
         opacity: 1,
         scale: 1,
         transition: {
-            scale: { type: "spring", bounce: 0.5, duration: 2.5 },
+            scale: { type: 'spring', bounce: 0.5, duration: 2.5 },
         },
     },
 };
@@ -56,14 +56,14 @@ export default function ServicesSection() {
         const card = cardRef.current;
         if (!section || !card) return;
         const mm = gsap.matchMedia();
-        mm.add("(min-width: 1024px)", () => {
+        mm.add('(min-width: 1024px)', () => {
             gsap.to(card, {
-                transform: "translateX(-30%)",
+                transform: 'translateX(-30%)',
                 scrollTrigger: {
                     trigger: section,
-                    scroll: "body",
-                    start: "top 5%",
-                    end: "bottom -100%",
+                    scroll: 'body',
+                    start: 'top 5%',
+                    end: 'bottom -100%',
                     scrub: true,
                     pin: true,
                 },
@@ -99,9 +99,8 @@ export default function ServicesSection() {
                             variants={animationScale}
                             className="w-full max-w-80 lg:max-w-95 text-sm lg:text-xl text-custom-white/70 leading-5 lg:leading-8 text-center sm:text-center md:text-end"
                         >
-                            From branding to funding, we provide the tools &
-                            strategies startups need to succeed in a competitive
-                            market.
+                            From branding to funding, we provide the tools & strategies startups
+                            need to succeed in a competitive market.
                         </motion.p>
                     </motion.div>
                 </div>
@@ -109,14 +108,10 @@ export default function ServicesSection() {
                 {/* cards */}
                 <div
                     ref={cardRef}
-                    className="flex flex-col lg:flex-row items-center justify-center md:justify-start gap-5 lg:gap-10"
+                    className="max-w-360 mx-auto flex flex-col lg:flex-row items-center justify-center md:justify-start gap-5 lg:gap-10"
                 >
                     {services.map((service, i) => (
-                        <motion.div
-                            key={i}
-                            variants={item}
-                            className="relative"
-                        >
+                        <motion.div key={i} variants={item} className="relative">
                             {/* gsap scale target wrapper */}
                             <div className="gsap-scale-target relative group">
                                 {/* under card */}
@@ -126,9 +121,7 @@ export default function ServicesSection() {
                                         <h4 className="text-4xl lg:text-5xl font-semibold">
                                             {service.title}
                                         </h4>
-                                        <h6 className="text-base lg:text-lg">
-                                            {service.subTitle}
-                                        </h6>
+                                        <h6 className="text-base lg:text-lg">{service.subTitle}</h6>
                                     </div>
                                 </div>
 
