@@ -99,7 +99,6 @@ export default function PortfolioSection() {
             className="w-full max-w-360 mx-auto px-8 py-26 lg:py-36"
         >
             <div className="flex flex-col items-center gap-4">
-                <HeadingBorderText text={'featured'} />
                 <PageHeading bigText={'works'} smallText={'we drive engagement & get results.'} />
             </div>
             <div className="w-full flex flex-col items-start justify-center relative">

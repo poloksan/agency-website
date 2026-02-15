@@ -43,8 +43,7 @@ export default function Contact() {
             viewport={{ once: true, amount: 0.2 }}
             className="relative w-full max-w-360 mx-auto flex flex-col gap-8 py-26 sm:py-32"
         >
-            <div className="flex flex-col items-center gap-2 mt-5">
-                <HeadingBorderText text={'get in touch'} />
+            <div className="flex flex-col items-center gap-2">
                 <PageHeading bigText={'contact'} smallText={'request a free consultation'} />
             </div>
 

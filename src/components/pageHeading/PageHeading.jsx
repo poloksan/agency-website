@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { MdOutlineDoubleArrow } from 'react-icons/md';
 import { motion } from 'motion/react';
@@ -24,7 +25,7 @@ export default function PageHeading({ bigText, smallText }) {
         >
             <motion.h2
                 variants={item}
-                className="uppercase text-[70px] md:text-[130px] lg:text-[140px] font-semibold tracking-tight leading-none pointer-events-none relative"
+                className="uppercase text-[60px] md:text-[130px] lg:text-[140px] font-semibold tracking-tight leading-none pointer-events-none relative"
             >
                 {bigText}
                 <MdOutlineDoubleArrow className="text-xl lg:text-4xl text-custom-primary -rotate-20 absolute top-0 -right-5 lg:-right-10" />
