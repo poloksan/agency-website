@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import PageHeading from '@/components/pageHeading/PageHeading';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,21 +96,18 @@ export default function PortfolioSection() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
-            className="w-full max-w-360 mx-auto px-8 py-10 lg:py-20"
+            className="w-full max-w-360 mx-auto px-8 py-26 lg:py-36"
         >
+            <div className="flex flex-col items-center gap-4">
+                <HeadingBorderText text={'featured'} />
+                <PageHeading bigText={'works'} smallText={'we drive engagement & get results.'} />
+            </div>
             <div className="w-full flex flex-col items-start justify-center relative">
                 {/* heading text */}
-                <div ref={textRef} className="text-center -z-999 ">
-                    <HeadingBorderText text={'featured'} />
-                    <motion.h2
-                        variants={item}
-                        className="uppercase text-[70px] md:text-[130px] lg:text-[192px] font-semibold tracking-tight lg:-mt-12 pointer-events-none"
-                    >
-                        works
-                    </motion.h2>
+                <div ref={textRef} className="w-full max-w-300 mx-auto text-center -z-999 ">
                     <motion.h3
                         variants={item}
-                        className="max-w-300 text-[40px] md:text-[80px] lg:text-[136px] font-bold tracking-normal leading-8 md:leading-15 lg:leading-24 text-custom-dark-gray uppercase -z-40"
+                        className="text-center text-[40px] md:text-[80px] lg:text-[136px] font-bold tracking-normal leading-8 md:leading-15 lg:leading-24 text-custom-dark-gray uppercase -z-40"
                     >
                         from <br /> concept to creation
                     </motion.h3>
@@ -117,7 +115,7 @@ export default function PortfolioSection() {
 
                 <div
                     ref={containerRef}
-                    className="w-full flex flex-col items-center gap-24 z-999 mb-50"
+                    className="w-full flex flex-col items-center gap-10 lg:gap-24 z-999 "
                 >
                     {worksImgs.map((work, i) => {
                         const { title, subTitle, src } = work;
@@ -128,13 +126,13 @@ export default function PortfolioSection() {
                                 initial="rest"
                                 animate="rest"
                                 whileHover="hover"
-                                className={`project-card max-w-160 h-160 relative ${
+                                className={`project-card max-w-160 lg:h-160 relative ${
                                     i === 0
                                         ? 'lg:left-22 xl:left-65'
                                         : i === 1
                                           ? 'lg:right-22 xl:right-65'
                                           : ''
-                                } object-cover overflow-hidden rounded-lg `}
+                                } object-cover overflow-hidden rounded-lg`}
                             >
                                 <Link href={'/'}>
                                     <motion.div

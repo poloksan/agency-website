@@ -99,7 +99,7 @@ export default function PortfolioSection() {
         >
             <div className="w-full flex flex-col items-start justify-center relative">
                 {/* heading text */}
-                <div ref={textRef} className="text-center -z-999 ">
+                <div ref={textRef} className="w-full max-w-300 mx-auto text-center -z-999">
                     <HeadingBorderText text={'featured'} />
                     <motion.h2
                         variants={item}

@@ -13,7 +13,7 @@ export default function HeadingBorderText({ text }) {
                 duration: 1,
                 scale: { type: 'spring', visualDuration: 0.8, bounce: 0.5 },
             }}
-            className="border-2 border-custom-primary/50 inline-block px-6 py-2 rounded-full text-custom-light-gray text-sm md:text-base lg:text-xl uppercase select-none shadow-amber-400"
+            className="border-2 border-custom-primary/50 inline-block px-6 py-2 rounded-full text-custom-light-gray text-[10px] sm:text-xs uppercase select-none shadow-amber-400"
         >
             {text}
         </motion.h5>

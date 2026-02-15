@@ -1,40 +1,84 @@
-// components/Contact.jsx
+'use client';
+
+import HeadingBorderText from '@/components/headingBorderText/HeadingBorderText';
+import PageHeading from '@/components/pageHeading/PageHeading';
+import Link from 'next/link';
 import React from 'react';
+import { motion } from 'motion/react';
+
+const container = {
+    hidden: {},
+    show: { transition: { delayChildren: 1 } },
+};
+
+// Left group এর container
+const leftContainer = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.6 } },
+};
+
+// Right group এর container
+const rightContainer = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.6 } },
+};
+
+const item = {
+    hidden: { y: -20, opacity: 0 },
+    show: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 0.8,
+        },
+    },
+};
 
 export default function Contact() {
     return (
-        <section className="relative overflow-hidden bg-[#151515] text-white">
-            {/* subtle background glow */}
-            <div className="pointer-events-none absolute inset-0">
-                <div className="absolute -left-40 -top-40 h-130 w-130 rounded-full bg-white/5 blur-3xl" />
-                <div className="absolute -right-40 -bottom-40 h-130 w-130 rounded-full bg-white/5 blur-3xl" />
+        <motion.section
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="relative w-full max-w-360 mx-auto flex flex-col gap-8 py-26 sm:py-32"
+        >
+            <div className="flex flex-col items-center gap-2 mt-5">
+                <HeadingBorderText text={'get in touch'} />
+                <PageHeading bigText={'contact'} smallText={'request a free consultation'} />
             </div>
 
-            {/* small corner dots */}
-            <span className="pointer-events-none absolute left-6 top-6 h-2 w-2 rounded-full bg-white/80" />
-            <span className="pointer-events-none absolute right-6 top-6 h-2 w-2 rounded-full bg-white/80" />
-
-            <div className="relative mx-auto max-w-6xl px-6 py-20 lg:py-24">
+            <div className="relative">
                 <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
                     {/* LEFT */}
-                    <div>
-                        <h2 className="text-5xl font-light leading-[1.05] tracking-tight lg:text-6xl">
-                            <span className="block">LET&apos;S MAKE YOUR</span>
-                            <span className="block">
-                                <span className="font-semibold">BRAND</span>{' '}
-                                <span className="text-white/80">BRILLIANT!</span>
+                    <motion.div variants={leftContainer} className="grid gap-8">
+                        <motion.h2
+                            variants={item}
+                            className="text-4xl font-light leading-[1.20] tracking-tight lg:text-[57px]"
+                        >
+                            <span className="font-normal">LET&apos;S MAKE YOUR BRAND</span>{' '}
+                            <span>
+                                <span className="text-custom-white/70 font-extralight">
+                                    BRILLIANT!
+                                </span>
                             </span>
-                        </h2>
+                        </motion.h2>
 
-                        <p className="mt-6 max-w-md text-sm leading-6 text-white/70">
+                        <motion.p
+                            variants={item}
+                            className="max-w-md text-base leading-6 text-custom-white/70"
+                        >
                             If you would like to work with us or just want to get in touch,
                             we&apos;d love to hear from you!
-                        </p>
+                        </motion.p>
 
-                        <div className="mt-12 grid max-w-md grid-cols-2 gap-10">
+                        <motion.div
+                            variants={item}
+                            className="mt-6 grid max-w-md grid-cols-2 gap-10"
+                        >
                             <div>
-                                <p className="text-base font-semibold">Address</p>
-                                <p className="mt-4 text-sm leading-6 text-white/70">
+                                <p className="text-xl font-medium">Address</p>
+                                <p className="mt-4 text-sm leading-6 text-custom-white/70">
                                     Besòs 1, 08174 Sant Cugat del
                                     <br />
                                     Vallès, Barcelona
@@ -42,95 +86,120 @@ export default function Contact() {
                             </div>
 
                             <div>
-                                <p className="text-base font-semibold">Email</p>
-                                <a
+                                <p className="text-xl font-medium">Email</p>
+                                <Link
                                     href="mailto:support@uithemez.com"
-                                    className="mt-4 inline-block text-sm text-white/70 hover:text-white"
+                                    className="mt-4 inline-block text-sm text-custom-white/70 hover:text-white"
                                 >
                                     Support@uithemez.com
-                                </a>
+                                </Link>
                             </div>
-                        </div>
+                        </motion.div>
 
-                        <a
-                            href="tel:+18408412569"
-                            className="mt-12 inline-block text-3xl font-semibold text-emerald-400 underline decoration-emerald-400 underline-offset-8"
+                        <motion.div variants={item} className="inline-block">
+                            <Link
+                                href="tel:+18408412569"
+                                className="inline-block text-3xl font-semibold text-custom-primary/90 underline underline-offset-8"
+                            >
+                                +1 840 841 25 69
+                            </Link>
+                        </motion.div>
+
+                        <motion.div
+                            variants={item}
+                            className="mt-8 flex flex-wrap gap-10 text-sm  text-white/80"
                         >
-                            +1 840 841 25 69
-                        </a>
-
-                        <div className="mt-16 flex flex-wrap gap-10 text-sm text-white/85">
-                            <a href="#" className="hover:text-white">
+                            <Link
+                                href={'https://www.facebook.com/'}
+                                className="hover:text-white hover:scale-125 duration-300"
+                            >
                                 Facebook
-                            </a>
-                            <a href="#" className="hover:text-white">
+                            </Link>
+                            <Link
+                                href={'https://x.com/'}
+                                className="hover:text-custom-white hover:scale-125 duration-300"
+                            >
                                 Twitter
-                            </a>
-                            <a href="#" className="hover:text-white">
+                            </Link>
+                            <Link
+                                href={'https://linkedin.com/'}
+                                className="hover:text-custom-white hover:scale-125 duration-300"
+                            >
                                 LinkedIn
-                            </a>
-                            <a href="#" className="hover:text-white">
+                            </Link>
+                            <Link
+                                href={'https://www.instagram.com/'}
+                                className="hover:text-custom-white hover:scale-125 duration-300"
+                            >
                                 Instagram
-                            </a>
-                        </div>
-                    </div>
+                            </Link>
+                        </motion.div>
+                    </motion.div>
 
                     {/* RIGHT */}
-                    <div className="lg:pt-2">
-                        <h3 className="text-4xl font-semibold tracking-tight">
-                            SEND <span className="font-light text-white/80">A</span> MESSAGE
-                        </h3>
+                    <motion.div
+                        variants={rightContainer}
+                        className="lg:pt-2 flex flex-col lg:gap-16"
+                    >
+                        <motion.h3
+                            variants={item}
+                            className="text-5xl font-normal tracking-tight uppercase"
+                        >
+                            send a{' '}
+                            <span className="font-extralight text-custom-white/70">message</span>
+                        </motion.h3>
 
-                        <form className="mt-10">
-                            <div className="grid gap-10 lg:grid-cols-2">
-                                <Field label="Name">
+                        <form>
+                            <motion.div variants={item} className="grid gap-10 lg:grid-cols-2">
+                                <Field>
                                     <input
                                         type="text"
                                         className="w-full bg-transparent pb-3 text-white outline-none placeholder:text-white/30"
-                                        placeholder=""
+                                        placeholder="Name"
                                     />
                                 </Field>
 
-                                <Field label="Email">
+                                <Field>
                                     <input
                                         type="email"
-                                        className="w-full bg-transparent pb-3 text-white outline-none placeholder:text-white/30"
-                                        placeholder=""
+                                        className="w-full bg-transparent pb-3 text-white/50 outline-none placeholder:text-white/30"
+                                        placeholder="Email"
                                     />
                                 </Field>
-                            </div>
+                            </motion.div>
 
-                            <div className="mt-10">
-                                <Field label="Subject">
+                            <motion.div variants={item} className="mt-10">
+                                <Field>
                                     <input
                                         type="text"
-                                        className="w-full bg-transparent pb-3 text-white outline-none placeholder:text-white/30"
-                                        placeholder=""
+                                        className="w-full bg-transparent pb-3 text-custom-white outline-none placeholder:text-custom-white/30"
+                                        placeholder="Subject"
                                     />
                                 </Field>
-                            </div>
+                            </motion.div>
 
-                            <div className="mt-10">
-                                <Field label="Message">
+                            <motion.div variants={item} className="mt-10">
+                                <Field>
                                     <textarea
                                         rows={5}
-                                        className="w-full resize-none bg-transparent pb-3 text-white outline-none placeholder:text-white/30"
-                                        placeholder=""
+                                        className="w-full resize-none bg-transparent pb-3 text-custom-white outline-none placeholder:text-custom-white/30"
+                                        placeholder="Message"
                                     />
                                 </Field>
-                            </div>
+                            </motion.div>
 
-                            <button
+                            <motion.button
+                                variants={item}
                                 type="submit"
-                                className="mt-12 w-full rounded-full border border-white/70 py-4 text-sm font-medium text-white transition hover:bg-white hover:text-black"
+                                className="mt-12 w-full rounded-full border border-custom-white py-4 text-base font-medium text-custom-white transition hover:border-custom-primary hover:bg-custom-primary hover:text-black cursor-pointer duration-500"
                             >
                                 Let&apos;s Talk
-                            </button>
+                            </motion.button>
                         </form>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }
 

@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import React from "react";
-import { useEffect } from "react";
-import Marquee from "react-fast-marquee";
-import { motion, useAnimationControls } from "motion/react";
-import Image from "next/image";
-import heroBg from "@/assets/images/hero-bg-img.jpg";
-import RotateText from "@/components/rotateText/RotateText";
-import glowBg from "@/assets/icons/bg-circle-icon.png";
+import React from 'react';
+import { useEffect } from 'react';
+import Marquee from 'react-fast-marquee';
+import { motion, useAnimationControls } from 'motion/react';
+import Image from 'next/image';
+import heroBg from '@/assets/images/hero-bg-img.jpg';
+import RotateText from '@/components/rotateText/RotateText';
+import glowBg from '@/assets/icons/bg-circle-icon.png';
 
 export default function HeroSection() {
     const heroH1Control = useAnimationControls();
@@ -19,7 +19,7 @@ export default function HeroSection() {
     const heroScrollAnimationBtn = useAnimationControls();
 
     const animateElements = [
-        { control: heroH1Control, duration: 1 },
+        { control: heroH1Control, duration: 0.7 },
         { control: heroH1ControlMarquee, duration: 0.7 },
         { control: heroH1ControlDelay, duration: 0.7 },
         { control: heroMiddleTextControl, duration: 0.7 },
@@ -107,8 +107,8 @@ export default function HeroSection() {
                         animate={heroMiddleTextControlDelay}
                         className="text-custom-white/70 w-full md:max-w-56 lg:max-w-100 text-xs sm:text-sm md:text-lg xl:text-[22px] leading-4 md:leading-8 text-right lg:text-start -mt-4"
                     >
-                        We design exceptional brands, products, web apps, mobile
-                        apps,websites for startups and enterprises.
+                        We design exceptional brands, products, web apps, mobile apps,websites for
+                        startups and enterprises.
                     </motion.p>
                 </motion.div>
                 <motion.div
