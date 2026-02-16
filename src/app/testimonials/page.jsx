@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function Testimonials() {
     return (
-        <section className="py-16">
+        <section className="py-16 sm:py-28">
             <TestimonialsSection />
         </section>
     );

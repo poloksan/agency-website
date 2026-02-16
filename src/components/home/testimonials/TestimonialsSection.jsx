@@ -139,7 +139,7 @@ export default function TestimonialsSection() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="w-full pt-10 pb-5 lg:pb-10 lg:pt-20"
+            className="w-full pt-10 pb-5 lg:pb-10 lg:pt-20 "
         >
             <div className="space-y-20 md:space-y-20 lg:space-y-28">
                 {/* heading */}
