@@ -65,7 +65,6 @@ export default function PortfolioSection() {
                         rotateY: 75,
                         y: 150,
                         scale: 0.9,
-                        pin: true,
                     },
                     {
                         rotateX: 0,

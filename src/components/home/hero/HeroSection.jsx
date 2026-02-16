@@ -55,6 +55,8 @@ export default function HeroSection() {
                 src={glowBg}
                 alt="glow blob"
                 draggable="false"
+                loading="eager"
+                priority
                 className="hidden lg:block absolute top-0 right-0  pointer-events-none animate-pulse"
             />
 
