@@ -10,7 +10,6 @@ import aboutPageImg from '@/assets/images/about-page-img.png';
 import Link from 'next/link';
 import Marquee from 'react-fast-marquee';
 import { motion } from 'motion/react';
-
 import logoOne from '@/assets/images/about-logo-one.png';
 import logoTwo from '@/assets/images/about-logo-two.png';
 import logoThree from '@/assets/images/about-logo-three.png';
@@ -62,59 +61,58 @@ const counterNumbers = [
     { numberText: '15+', smallText: 'Years of Completed' },
 ];
 
-const container = {
-    hidden: {},
-    show: {
-        transition: {
-            // delayChildren: 1,
-            staggerChildren: 0.3,
-        },
-    },
+// ── Reusable viewport config ──────────────────────────────────────────────────
+const vp = { once: true, amount: 0.5 };
+
+// ── Variants ──────────────────────────────────────────────────────────────────
+const fadeUp = {
+    hidden: { y: 40, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { duration: 0.5 } },
 };
 
-const animateElement = {
-    hidden: { y: 20, opacity: 0 },
-    show: {
-        y: 0,
-        opacity: 1,
-        transition: { duration: 0.5 },
-    },
-};
-
-const animateLeft = {
+const fadeLeft = {
     hidden: { x: -40, opacity: 0 },
     show: { x: 0, opacity: 1, transition: { duration: 0.6 } },
 };
-const animateRight = {
+
+const fadeRight = {
     hidden: { x: 40, opacity: 0 },
     show: { x: 0, opacity: 1, transition: { duration: 0.6 } },
+};
+
+// staggered list container — used only where we want stagger
+const staggerContainer = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.15 } },
 };
 
 export default function About() {
     return (
         <>
-            <motion.section
-                variants={container}
-                initial="hidden"
-                whileInView="show"
-                viewport={{
-                    once: true,
-                    amount: 0.2,
-                }}
-                className="relative z-20 w-full pt-26 lg:pt-30"
-            >
+            {/* ── No whileInView on the outer section — it's just a layout wrapper now ── */}
+            <section className="relative z-20 w-full pt-26 lg:pt-30">
                 <div className="w-full max-w-360 mx-auto px-8 sm:px-16">
-                    {/* heading */}
-                    <div className="w-full flex flex-col items-center space-y-5 max-w-360 mx-auto lg:mb-8">
+                    {/* Heading */}
+                    <motion.div
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={vp}
+                        className="w-full flex flex-col items-center space-y-5 max-w-360 mx-auto lg:mb-8"
+                    >
                         <PageHeading
                             bigText={'about us'}
                             smallText={'We transform your ideas into stunning visuals.'}
                         />
-                    </div>
-                    {/* story */}
+                    </motion.div>
+
+                    {/* Story */}
                     <article className="flex flex-col lg:flex-row items-start lg:gap-30">
                         <motion.header
-                            variants={animateElement}
+                            variants={fadeUp}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={vp}
                             className="uppercase w-30 h-6 lg:w-60 lg:h-8 grid place-items-center bg-custom-primary rounded-full text-custom-black font-medium text-sm tracking-wide leading-none"
                         >
                             Our Story
@@ -122,7 +120,10 @@ export default function About() {
 
                         <div className="flex flex-col items-start gap-5 lg:gap-10">
                             <motion.h2
-                                variants={animateElement}
+                                variants={fadeUp}
+                                initial="hidden"
+                                whileInView="show"
+                                viewport={vp}
                                 className="font-semibold text-2xl lg:text-[42px] leading-7 lg:leading-12 tracking-tight uppercase mt-3 lg:mt-0"
                             >
                                 We help ambitious brands scale with customized marketing strategies.
@@ -131,7 +132,10 @@ export default function About() {
 
                             <div className="w-full flex flex-col lg:flex-row items-center gap-5 overflow-hidden">
                                 <motion.figure
-                                    variants={animateLeft}
+                                    variants={fadeLeft}
+                                    initial="hidden"
+                                    whileInView="show"
+                                    viewport={vp}
                                     className="rounded-2xl overflow-hidden max-w-105 lg:h-105"
                                 >
                                     <Image
@@ -142,7 +146,10 @@ export default function About() {
                                 </motion.figure>
 
                                 <motion.aside
-                                    variants={animateRight}
+                                    variants={fadeRight}
+                                    initial="hidden"
+                                    whileInView="show"
+                                    viewport={vp}
                                     className="w-full lg:max-w-[58%] flex flex-col items-start gap-4"
                                 >
                                     <h3 className="uppercase font-semibold tracking-tight text-2xl lg:text-3xl">
@@ -158,22 +165,28 @@ export default function About() {
                                         tell a story.
                                     </p>
 
-                                    <ul className="flex flex-col items-start gap-0.5 sm:gap-1">
-                                        {choices.map((choice, i) => {
-                                            return (
-                                                <motion.li
-                                                    key={i}
-                                                    variants={animateElement}
-                                                    className="flex items-start sm:items-center gap-2 text-custom-white/70"
-                                                >
-                                                    <IoCheckmarkCircle className="text-base sm:text-lg text-custom-primary" />
-                                                    <span className="text-sm sm:text-base">
-                                                        {choice.text}
-                                                    </span>
-                                                </motion.li>
-                                            );
-                                        })}
-                                    </ul>
+                                    {/* Choices list — staggered when it scrolls into view */}
+                                    <motion.ul
+                                        variants={staggerContainer}
+                                        initial="hidden"
+                                        whileInView="show"
+                                        viewport={vp}
+                                        className="flex flex-col items-start gap-0.5 sm:gap-1"
+                                    >
+                                        {choices.map((choice, i) => (
+                                            <motion.li
+                                                key={i}
+                                                variants={fadeUp}
+                                                className="flex items-start sm:items-center gap-2 text-custom-white/70"
+                                            >
+                                                <IoCheckmarkCircle className="text-base sm:text-lg text-custom-primary" />
+                                                <span className="text-sm sm:text-base">
+                                                    {choice.text}
+                                                </span>
+                                            </motion.li>
+                                        ))}
+                                    </motion.ul>
+
                                     <Link href={'/'}>
                                         <button
                                             type="button"
@@ -190,14 +203,20 @@ export default function About() {
                         </div>
                     </article>
 
-                    {/* numbers */}
-                    <div className="mt-10 lg:mt-20 flex flex-wrap lg:flex-row items-center justify-center gap-5">
+                    {/* Counter numbers — staggered */}
+                    <motion.div
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={vp}
+                        className="mt-10 lg:mt-20 flex flex-wrap lg:flex-row items-center justify-center gap-5"
+                    >
                         {counterNumbers.map((num, i) => {
                             const { numberText, smallText } = num;
                             return (
                                 <motion.div
                                     key={i}
-                                    variants={animateElement}
+                                    variants={fadeUp}
                                     className="bg-custom-white text-black w-50 h-30 md:w-60 md:h-40 lg:w-70 lg:h-50 rounded-xl text-center flex flex-col items-center justify-center"
                                 >
                                     <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tighter">
@@ -207,10 +226,14 @@ export default function About() {
                                 </motion.div>
                             );
                         })}
-                    </div>
+                    </motion.div>
 
+                    {/* Marquee */}
                     <motion.div
-                        variants={animateElement}
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={vp}
                         className="mt-10 sm:mt-20 flex flex-col items-center gap-5"
                     >
                         <h3 className="font-bold text-2xl md:text-3xl uppercase">
@@ -226,30 +249,38 @@ export default function About() {
                             pauseOnHover
                             className="flex items-center gap-4"
                         >
-                            {[...images, ...images].map((img, i) => {
-                                return (
-                                    <Image key={i} src={img.src} alt={img.alt} draggable="false" />
-                                );
-                            })}
+                            {[...images, ...images].map((img, i) => (
+                                <Image key={i} src={img.src} alt={img.alt} draggable="false" />
+                            ))}
                         </Marquee>
                     </motion.div>
 
+                    {/* Mission / Vision */}
                     <div className="mt-10 lg:mt-20 lg:space-y-10">
                         <motion.h1
-                            variants={animateElement}
+                            variants={fadeUp}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={vp}
                             className="font-bold max-w-300 uppercase text-2xl lg:text-5xl tracking-wide leading-7 lg:leading-14"
                         >
                             &apos;&apos;An award-winning venture capital and investment firm based
                             in Los Angeles, established in 2015&apos;&apos;
                         </motion.h1>
 
-                        <ul>
+                        {/* Staggered list */}
+                        <motion.ul
+                            variants={staggerContainer}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={vp}
+                        >
                             {missionVision.map((item, i) => {
                                 const { title, description } = item;
                                 return (
                                     <motion.li
                                         key={i}
-                                        variants={animateElement}
+                                        variants={fadeUp}
                                         className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-0 border-b py-4 md:py-8 border-custom-primary/60"
                                     >
                                         <h4 className="font-semibold text-xl lg:text-[26px] tracking-tight w-full max-w-40 lg:max-w-60 xl:max-w-90 uppercase shrink-0">
@@ -261,10 +292,10 @@ export default function About() {
                                     </motion.li>
                                 );
                             })}
-                        </ul>
+                        </motion.ul>
                     </div>
                 </div>
-            </motion.section>
+            </section>
 
             <TestimonialsSection />
         </>

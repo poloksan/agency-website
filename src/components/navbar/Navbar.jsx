@@ -34,7 +34,7 @@ export default function Navbar() {
 
         window.addEventListener('scroll', handleScrollEffect);
 
-        return () => window.addEventListener('scroll', handleScrollEffect);
+        return () => window.removeEventListener('scroll', handleScrollEffect);
     }, []);
 
     return (
@@ -43,11 +43,11 @@ export default function Navbar() {
                 y: -100,
                 opacity: 0,
             }}
-            whileInView={{
+            animate={{
                 y: 0,
                 opacity: 1,
             }}
-            viewport={{ once: true }}
+            // viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.2 }}
             className={`w-full fixed top-0 right-0 left-0 z-99999 border-b-[0.5px] border-custom-white/30 duration-300 transition-colors ease-linear ${isScrolled ? 'bg-custom-black/90 backdrop-blur-md' : 'bg-transparent'}`}
         >
@@ -128,7 +128,7 @@ export default function Navbar() {
 
                     {/* Mobile Menu */}
                     <div className="lg:hidden flex items-center gap-8">
-                        <button className="text-2xl" onClick={() => setMenu(!menu)}>
+                        <button type="button" className="text-2xl" onClick={() => setMenu(!menu)}>
                             {menu ? <CgClose /> : <HiOutlineMenuAlt3 />}
                         </button>
 

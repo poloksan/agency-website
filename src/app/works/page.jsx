@@ -21,19 +21,12 @@ const worksImgs = [
     { id: 3, src: workThree, title: 'development', subTitle: 'prototype' },
 ];
 
-const container = {
-    hidden: {},
-    show: { transition: { delayChildren: 0.1, staggerChildren: 0.6 } },
+const fadeUp = {
+    hidden: { y: 30, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { duration: 0.6 } },
 };
 
-const item = {
-    hidden: { scale: 0, opacity: 0 },
-    show: {
-        scale: 1,
-        opacity: 1,
-        transition: { scale: { type: 'spring', bounce: 0.5, duration: 2.5 } },
-    },
-};
+const vp = { once: true, amount: 0.2 };
 
 export default function PortfolioSection() {
     const sectionRef = useRef(null);
@@ -89,22 +82,25 @@ export default function PortfolioSection() {
     }, []);
 
     return (
-        <motion.section
-            ref={sectionRef}
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            className="w-full max-w-360 mx-auto px-8 sm:px-16 py-26 lg:py-36"
-        >
-            <div className="flex flex-col items-center gap-4">
+        <section ref={sectionRef} className="w-full max-w-360 mx-auto px-8 sm:px-16 py-26 lg:py-36">
+            <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={vp}
+                className="flex flex-col items-center gap-4"
+            >
                 <PageHeading bigText={'works'} smallText={'we drive engagement & get results.'} />
-            </div>
+            </motion.div>
+
             <div className="w-full flex flex-col items-start justify-center relative">
                 {/* heading text */}
-                <div ref={textRef} className="w-full max-w-300 mx-auto text-center -z-999 ">
+                <div ref={textRef} className="w-full max-w-300 mx-auto text-center -z-999">
                     <motion.h3
-                        variants={item}
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={vp}
                         className="text-center text-[40px] md:text-[80px] lg:text-[120px] xl:text-[136px] font-bold tracking-normal leading-8 md:leading-15 lg:leading-22 xl:leading-24 text-custom-dark-gray uppercase -z-40"
                     >
                         from <br /> concept to creation
@@ -113,7 +109,7 @@ export default function PortfolioSection() {
 
                 <div
                     ref={containerRef}
-                    className="w-full flex flex-col items-center gap-10 lg:gap-24 z-999 "
+                    className="w-full flex flex-col items-center gap-10 lg:gap-24 z-999"
                 >
                     {worksImgs.map((work, i) => {
                         const { title, subTitle, src } = work;
@@ -181,6 +177,6 @@ export default function PortfolioSection() {
                     })}
                 </div>
             </div>
-        </motion.section>
+        </section>
     );
 }
