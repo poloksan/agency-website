@@ -33,7 +33,7 @@ const item = {
     show: {
         y: 0,
         opacity: 1,
-        transition: { duration: 0.3 },
+        transition: { duration: 0.6 },
     },
 };
 
@@ -98,7 +98,11 @@ export default function ServicesSection() {
                     className="grid grid-cols-1 xl:grid-cols-2 justify-center gap-10 lg:gap-20 lg:mt-12"
                 >
                     {services.map((service, i) => (
-                        <div key={i} className="relative flex flex-col items-center">
+                        <motion.div
+                            variants={item}
+                            key={i}
+                            className="relative flex flex-col items-center"
+                        >
                             <div className="gsap-scale-target group">
                                 <Link href={'/'} className="inline-block relative">
                                     {/* under card */}
@@ -137,7 +141,7 @@ export default function ServicesSection() {
                                     </div>
                                 </Link>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

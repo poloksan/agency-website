@@ -62,24 +62,48 @@ const counterNumbers = [
     { numberText: '15+', smallText: 'Years of Completed' },
 ];
 
-const containerSection = {
+const container = {
     hidden: {},
     show: {
-        delayChildren: 1,
-        staggerChildren: 0.3,
+        transition: {
+            // delayChildren: 1,
+            staggerChildren: 0.3,
+        },
     },
 };
 
 const animateElement = {
-    hidden: { y: 40, opacity: 0 },
-    show: { y: 0, opacity: 1, transition: { duration: 0.6 } },
+    hidden: { y: 20, opacity: 0 },
+    show: {
+        y: 0,
+        opacity: 1,
+        transition: { duration: 0.5 },
+    },
+};
+
+const animateLeft = {
+    hidden: { x: -40, opacity: 0 },
+    show: { x: 0, opacity: 1, transition: { duration: 0.6 } },
+};
+const animateRight = {
+    hidden: { x: 40, opacity: 0 },
+    show: { x: 0, opacity: 1, transition: { duration: 0.6 } },
 };
 
 export default function About() {
     return (
         <>
-            <section className="relative z-20 w-full overflow-x-hidden pt-26 lg:pt-30">
-                <div className="w-full max-w-360 mx-auto px-4 sm:px-16">
+            <motion.section
+                variants={container}
+                initial="hidden"
+                whileInView="show"
+                viewport={{
+                    once: true,
+                    amount: 0.2,
+                }}
+                className="relative z-20 w-full pt-26 lg:pt-30"
+            >
+                <div className="w-full max-w-360 mx-auto px-8 sm:px-16">
                     {/* heading */}
                     <div className="w-full flex flex-col items-center space-y-5 max-w-360 mx-auto lg:mb-8">
                         <PageHeading
@@ -89,32 +113,43 @@ export default function About() {
                     </div>
                     {/* story */}
                     <article className="flex flex-col lg:flex-row items-start lg:gap-30">
-                        <header className="uppercase lg:w-60 lg:h-8 grid place-items-center bg-custom-primary rounded-full text-custom-black font-medium text-sm tracking-wide leading-none">
+                        <motion.header
+                            variants={animateElement}
+                            className="uppercase w-30 h-6 lg:w-60 lg:h-8 grid place-items-center bg-custom-primary rounded-full text-custom-black font-medium text-sm tracking-wide leading-none"
+                        >
                             Our Story
-                        </header>
+                        </motion.header>
 
-                        <div className="flex flex-col items-start lg:gap-10">
-                            <h2 className="font-semibold lg:text-[42px] leading-12 tracking-tight uppercase">
+                        <div className="flex flex-col items-start gap-5 lg:gap-10">
+                            <motion.h2
+                                variants={animateElement}
+                                className="font-semibold text-2xl lg:text-[42px] leading-7 lg:leading-12 tracking-tight uppercase mt-3 lg:mt-0"
+                            >
                                 We help ambitious brands scale with customized marketing strategies.
                                 by merging creative ideas, data—driven insights,
-                            </h2>
+                            </motion.h2>
 
-                            <div className="flex items-center gap-5">
-                                <figure className="rounded-2xl overflow-hidden">
+                            <div className="w-full flex flex-col lg:flex-row items-center gap-5 overflow-hidden">
+                                <motion.figure
+                                    variants={animateLeft}
+                                    className="rounded-2xl overflow-hidden max-w-105 lg:h-105"
+                                >
                                     <Image
                                         src={aboutPageImg}
                                         alt="about us image"
-                                        width={420}
-                                        height={420}
+                                        loading="eager"
                                     />
-                                </figure>
+                                </motion.figure>
 
-                                <aside className="max-w-[58%] flex flex-col items-start gap-4">
-                                    <h3 className="uppercase font-semibold tracking-tight text-3xl">
+                                <motion.aside
+                                    variants={animateRight}
+                                    className="w-full lg:max-w-[58%] flex flex-col items-start gap-4"
+                                >
+                                    <h3 className="uppercase font-semibold tracking-tight text-2xl lg:text-3xl">
                                         why choose stratum
                                     </h3>
 
-                                    <p className="text-custom-white/70 text-sm sm:text-base leading-6">
+                                    <p className="text-custom-white/70 text-sm sm:text-base leading-5 sm:leading-6">
                                         A curated selection of projects where strategy, creativity,
                                         and digital craftsmanship align. Every project reflects our
                                         commitment to thoughtful design, meaningful experiences, and
@@ -123,25 +158,26 @@ export default function About() {
                                         tell a story.
                                     </p>
 
-                                    <ul className="flex flex-col items-start gap-1">
+                                    <ul className="flex flex-col items-start gap-0.5 sm:gap-1">
                                         {choices.map((choice, i) => {
                                             return (
-                                                <li
+                                                <motion.li
                                                     key={i}
-                                                    className="flex items-center gap-2 text-custom-white/70"
+                                                    variants={animateElement}
+                                                    className="flex items-start sm:items-center gap-2 text-custom-white/70"
                                                 >
-                                                    <IoCheckmarkCircle className="text-lg text-custom-primary" />
+                                                    <IoCheckmarkCircle className="text-base sm:text-lg text-custom-primary" />
                                                     <span className="text-sm sm:text-base">
                                                         {choice.text}
                                                     </span>
-                                                </li>
+                                                </motion.li>
                                             );
                                         })}
                                     </ul>
                                     <Link href={'/'}>
                                         <button
                                             type="button"
-                                            className="bg-custom-dark-gray px-7 py-3 flex items-center gap-2 capitalize lg:text-base leading-7 tracking-wider rounded-xl border-2 border-custom-dark-gray cursor-pointer hover:bg-transparent duration-300 group transition-all"
+                                            className="bg-custom-dark-gray px-5 py-2 sm:px-7 sm:py-3 flex items-center gap-2 capitalize text-sm lg:text-base leading-7 tracking-wider rounded-xl border-2 border-custom-dark-gray cursor-pointer hover:bg-transparent duration-300 group transition-all"
                                         >
                                             get a demo
                                             <span>
@@ -149,31 +185,35 @@ export default function About() {
                                             </span>
                                         </button>
                                     </Link>
-                                </aside>
+                                </motion.aside>
                             </div>
                         </div>
                     </article>
 
                     {/* numbers */}
-                    <div className="lg:mt-20 flex flex-col lg:flex-row items-center justify-between gap-5">
+                    <div className="mt-10 lg:mt-20 flex flex-wrap lg:flex-row items-center justify-center gap-5">
                         {counterNumbers.map((num, i) => {
                             const { numberText, smallText } = num;
                             return (
-                                <div
+                                <motion.div
                                     key={i}
-                                    className="inline-block bg-custom-white text-black lg:px-16 lg:py-12 rounded-xl text-center"
+                                    variants={animateElement}
+                                    className="bg-custom-white text-black w-50 h-30 md:w-60 md:h-40 lg:w-70 lg:h-50 rounded-xl text-center flex flex-col items-center justify-center"
                                 >
-                                    <h1 className="text-7xl font-bold tracking-tighter">
+                                    <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tighter">
                                         {numberText}
                                     </h1>
-                                    <p className="capitalize lg:text-lg">{smallText}</p>
-                                </div>
+                                    <p className="capitalize text-sm lg:text-lg">{smallText}</p>
+                                </motion.div>
                             );
                         })}
                     </div>
 
-                    <div className="mt-20 flex flex-col items-center gap-5">
-                        <h3 className="font-bold text-3xl uppercase">
+                    <motion.div
+                        variants={animateElement}
+                        className="mt-10 sm:mt-20 flex flex-col items-center gap-5"
+                    >
+                        <h3 className="font-bold text-2xl md:text-3xl uppercase">
                             Trusted by <span className="text-custom-primary">100+</span> Leading
                             Enterprises
                         </h3>
@@ -192,35 +232,39 @@ export default function About() {
                                 );
                             })}
                         </Marquee>
-                    </div>
+                    </motion.div>
 
-                    <div className="lg:mt-20 lg:space-y-10">
-                        <h1 className="font-bold max-w-300 uppercase lg:text-5xl tracking-wide lg:leading-14">
-                            An award-winning venture capital and investment firm based in Los
-                            Angeles, established in 2015
-                        </h1>
+                    <div className="mt-10 lg:mt-20 lg:space-y-10">
+                        <motion.h1
+                            variants={animateElement}
+                            className="font-bold max-w-300 uppercase text-2xl lg:text-5xl tracking-wide leading-7 lg:leading-14"
+                        >
+                            &apos;&apos;An award-winning venture capital and investment firm based
+                            in Los Angeles, established in 2015&apos;&apos;
+                        </motion.h1>
 
                         <ul>
                             {missionVision.map((item, i) => {
                                 const { title, description } = item;
                                 return (
-                                    <li
+                                    <motion.li
                                         key={i}
-                                        className="flex items-center border-b py-8 border-custom-primary/60"
+                                        variants={animateElement}
+                                        className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-0 border-b py-4 md:py-8 border-custom-primary/60"
                                     >
-                                        <h4 className="font-semibold lg:text-[26px] tracking-tight w-full max-w-90 uppercase">
+                                        <h4 className="font-semibold text-xl lg:text-[26px] tracking-tight w-full max-w-40 lg:max-w-60 xl:max-w-90 uppercase shrink-0">
                                             {title}
                                         </h4>
-                                        <p className="text-base leading-7 text-custom-white/70">
+                                        <p className="text-sm lg:text-base leading-5 md:leading-7 text-custom-white/70">
                                             {description}
                                         </p>
-                                    </li>
+                                    </motion.li>
                                 );
                             })}
                         </ul>
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
             <TestimonialsSection />
         </>
