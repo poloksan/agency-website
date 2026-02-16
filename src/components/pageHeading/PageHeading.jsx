@@ -32,7 +32,7 @@ export default function PageHeading({ bigText, smallText }) {
             </motion.h2>
             <motion.p
                 variants={item}
-                className="w-full max-w-80 text-center lg:text-right uppercase font-medium text-xs lg:text-4xl text-custom-white/80"
+                className="w-full max-w-80 text-center lg:text-right uppercase font-medium text-xs sm:text-base lg:text-2xl xl:text-4xl text-custom-white/80"
             >
                 {smallText}
             </motion.p>

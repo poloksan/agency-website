@@ -41,19 +41,19 @@ export default function Contact() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
-            className="relative w-full max-w-360 mx-auto flex flex-col gap-8 py-26 sm:py-32"
+            className="relative w-full max-w-360 mx-auto flex flex-col gap-4 lg:gap-8 px-8 sm:px-16 py-26 sm:py-32"
         >
-            <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col items-center">
                 <PageHeading bigText={'contact'} smallText={'request a free consultation'} />
             </div>
 
             <div className="relative">
                 <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
                     {/* LEFT */}
-                    <motion.div variants={leftContainer} className="grid gap-8">
+                    <motion.div variants={leftContainer} className="space-y-2 lg:space-y-8">
                         <motion.h2
                             variants={item}
-                            className="text-4xl font-light leading-[1.20] tracking-tight lg:text-[57px]"
+                            className="text-3xl sm:text-[32px] lg:text-4xl xl:text-[57px] font-light leading-[1.20] tracking-tight "
                         >
                             <span className="font-normal">LET&apos;S MAKE YOUR BRAND</span>{' '}
                             <span>
@@ -65,7 +65,7 @@ export default function Contact() {
 
                         <motion.p
                             variants={item}
-                            className="max-w-md text-base leading-6 text-custom-white/70"
+                            className="max-w-md text-sm sm:text-base leading-6 text-custom-white/70"
                         >
                             If you would like to work with us or just want to get in touch,
                             we&apos;d love to hear from you!
@@ -73,11 +73,11 @@ export default function Contact() {
 
                         <motion.div
                             variants={item}
-                            className="mt-6 grid max-w-md grid-cols-2 gap-10"
+                            className="mt-6 grid max-w-md grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 lg:gap-10"
                         >
                             <div>
                                 <p className="text-xl font-medium">Address</p>
-                                <p className="mt-4 text-sm leading-6 text-custom-white/70">
+                                <p className="mt-1 lg:mt-4 text-sm leading-6 text-custom-white/70">
                                     Besòs 1, 08174 Sant Cugat del
                                     <br />
                                     Vallès, Barcelona
@@ -88,7 +88,7 @@ export default function Contact() {
                                 <p className="text-xl font-medium">Email</p>
                                 <Link
                                     href="mailto:support@uithemez.com"
-                                    className="mt-4 inline-block text-sm text-custom-white/70 hover:text-white"
+                                    className="mt-1 lg:mt-4 inline-block text-sm text-custom-white/70 hover:text-custom-white"
                                 >
                                     Support@uithemez.com
                                 </Link>
@@ -98,7 +98,7 @@ export default function Contact() {
                         <motion.div variants={item} className="inline-block">
                             <Link
                                 href="tel:+18408412569"
-                                className="inline-block text-3xl font-semibold text-custom-primary/90 underline underline-offset-8"
+                                className="inline-block text-2xl lg:text-3xl font-semibold text-custom-primary/90 underline underline-offset-8"
                             >
                                 +1 840 841 25 69
                             </Link>
@@ -106,11 +106,11 @@ export default function Contact() {
 
                         <motion.div
                             variants={item}
-                            className="mt-8 flex flex-wrap gap-10 text-sm  text-white/80"
+                            className="mt-6 lg:mt-8 flex flex-wrap gap-4 lg:gap-10 text-sm  text-custom-white/80"
                         >
                             <Link
                                 href={'https://www.facebook.com/'}
-                                className="hover:text-white hover:scale-125 duration-300"
+                                className="hover:text-custom-white hover:scale-125 duration-300"
                             >
                                 Facebook
                             </Link>
@@ -142,14 +142,17 @@ export default function Contact() {
                     >
                         <motion.h3
                             variants={item}
-                            className="text-5xl font-normal tracking-tight uppercase"
+                            className="text-3xl sm:text-[32px] lg:text-4xl xl:text-5xl font-normal tracking-tight uppercase"
                         >
                             send a{' '}
                             <span className="font-extralight text-custom-white/70">message</span>
                         </motion.h3>
 
                         <form>
-                            <motion.div variants={item} className="grid gap-10 lg:grid-cols-2">
+                            <motion.div
+                                variants={item}
+                                className="grid gap-4 lg:gap-10 lg:grid-cols-2"
+                            >
                                 <Field>
                                     <input
                                         type="text"
@@ -167,7 +170,7 @@ export default function Contact() {
                                 </Field>
                             </motion.div>
 
-                            <motion.div variants={item} className="mt-10">
+                            <motion.div variants={item} className="mt-6 lg:mt-10">
                                 <Field>
                                     <input
                                         type="text"
@@ -177,7 +180,7 @@ export default function Contact() {
                                 </Field>
                             </motion.div>
 
-                            <motion.div variants={item} className="mt-10">
+                            <motion.div variants={item} className="mt-6 lg:mt-10">
                                 <Field>
                                     <textarea
                                         rows={5}
