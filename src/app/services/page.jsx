@@ -13,16 +13,11 @@ const services = [
     { title: 'branding', subTitle: 'Lorem ipsum dolor sit.' },
 ];
 
-const vp = { once: true, amount: 0.6 };
+const vp = { once: true, amount: 0.3 };
 
 const fadeUp = {
     hidden: { y: 50, opacity: 0 },
     show: { y: 0, opacity: 1, transition: { duration: 0.6 } },
-};
-
-const staggerContainer = {
-    hidden: {},
-    show: { transition: { staggerChildren: 0.2 } },
 };
 
 export default function ServicesSection() {
@@ -43,18 +38,15 @@ export default function ServicesSection() {
                     />
                 </motion.div>
 
-                {/* cards — staggered */}
-                <motion.div
-                    variants={staggerContainer}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={vp}
-                    className="grid grid-cols-1 xl:grid-cols-2 justify-center gap-10 lg:gap-20 lg:mt-12"
-                >
+                {/* cards */}
+                <div className="grid grid-cols-1 xl:grid-cols-2 justify-center gap-10 lg:gap-20 lg:mt-12">
                     {services.map((service, i) => (
                         <motion.div
                             key={i}
                             variants={fadeUp}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={vp}
                             className="relative flex flex-col items-center"
                         >
                             <div className="gsap-scale-target group">
@@ -87,7 +79,7 @@ export default function ServicesSection() {
                             </div>
                         </motion.div>
                     ))}
-                </motion.div>
+                </div>
             </div>
         </section>
     );

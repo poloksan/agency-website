@@ -134,6 +134,7 @@ export default function Navbar() {
 
                         <Link
                             href={'/'}
+                            onClick={() => setMenu(false)}
                             className="inline-block uppercase text-2xl font-light leading-3.5 tracking-[2px] relative"
                         >
                             <PiShoppingCartSimpleFill />
@@ -155,6 +156,7 @@ export default function Navbar() {
                             <li key={i}>
                                 <Link
                                     href={item.href}
+                                    onClick={() => setMenu(false)}
                                     className="inline-block uppercase text-3xl sm:text-6xl  font-light leading-13 sm:leading-16 tracking-[2px] sm:tracking-wider"
                                 >
                                     {item.label}

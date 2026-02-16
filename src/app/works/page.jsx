@@ -22,8 +22,12 @@ const worksImgs = [
 ];
 
 const fadeUp = {
-    hidden: { y: 30, opacity: 0 },
-    show: { y: 0, opacity: 1, transition: { duration: 0.6 } },
+    hidden: { scale: 0, opacity: 0 },
+    show: {
+        scale: 1,
+        opacity: 1,
+        transition: { scale: { type: 'spring', bounce: 0.5, duration: 2.5 } },
+    },
 };
 
 const vp = { once: true, amount: 0.2 };
@@ -120,7 +124,7 @@ export default function PortfolioSection() {
                                 initial="rest"
                                 animate="rest"
                                 whileHover="hover"
-                                className={`project-card max-w-160 lg:h-160 relative ${
+                                className={`project-card max-w-160 h-120 lg:h-160 relative ${
                                     i === 0
                                         ? 'lg:left-22 xl:left-65'
                                         : i === 1
@@ -152,10 +156,10 @@ export default function PortfolioSection() {
                                                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                                                 className="flex flex-col items-center lg:gap-2"
                                             >
-                                                <span className="block h-12 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl lg:text-5xl tracking-[2px]">
+                                                <span className="block h-12 sm:h-16 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl sm:text-3xl lg:text-5xl tracking-[2px]">
                                                     {title}
                                                 </span>
-                                                <span className="block h-12 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl lg:text-5xl tracking-[2px]">
+                                                <span className="block h-12 sm:h-16 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl sm:text-3xl lg:text-5xl tracking-[2px]">
                                                     {title}
                                                 </span>
                                             </motion.div>
