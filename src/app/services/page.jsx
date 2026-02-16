@@ -22,8 +22,8 @@ const fadeUp = {
 
 export default function ServicesSection() {
     return (
-        <section className="relative z-20 w-full overflow-x-hidden px-4 py-26">
-            <div className="w-full flex flex-col gap-8 max-w-360 mx-auto sm:px-16">
+        <section className="relative z-20 w-full overflow-x-hidden">
+            <div className="w-full flex flex-col gap-8 max-w-360 mx-auto px-4 py-26 sm:py-36 sm:px-16 lg:py-40">
                 {/* heading */}
                 <motion.div
                     variants={fadeUp}
@@ -39,7 +39,7 @@ export default function ServicesSection() {
                 </motion.div>
 
                 {/* cards */}
-                <div className="grid grid-cols-1 xl:grid-cols-2 justify-center gap-10 lg:gap-20 lg:mt-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 justify-center gap-10 lg:gap-20 lg:mt-12">
                     {services.map((service, i) => (
                         <motion.div
                             key={i}

@@ -85,8 +85,6 @@ export default function ServicesSection() {
             <div className="w-full flex flex-col gap-8 px-4">
                 {/* heading */}
                 <div className="w-full flex flex-col items-center space-y-5 max-w-360 mx-auto sm:px-16">
-                    <HeadingBorderText text="services" />
-
                     <motion.div className="w-full flex flex-col md:flex-row items-center justify-center sm:justify-between gap-5">
                         <motion.h1
                             variants={animationScale}

@@ -61,23 +61,23 @@ const counterNumbers = [
     { numberText: '15+', smallText: 'Years of Completed' },
 ];
 
-// ── Reusable viewport config ──────────────────────────────────────────────────
+//  Reusable viewport config
 const vp = { once: true, amount: 0.5 };
 
-// ── Variants ──────────────────────────────────────────────────────────────────
+//  Variants
 const fadeUp = {
-    hidden: { y: 40, opacity: 0 },
-    show: { y: 0, opacity: 1, transition: { duration: 0.5 } },
+    hidden: { y: 80, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { duration: 0.8 } },
 };
 
 const fadeLeft = {
     hidden: { x: -40, opacity: 0 },
-    show: { x: 0, opacity: 1, transition: { duration: 0.6 } },
+    show: { x: 0, opacity: 1, transition: { duration: 0.8 } },
 };
 
 const fadeRight = {
     hidden: { x: 40, opacity: 0 },
-    show: { x: 0, opacity: 1, transition: { duration: 0.6 } },
+    show: { x: 0, opacity: 1, transition: { duration: 0.8 } },
 };
 
 // staggered list container — used only where we want stagger
@@ -90,8 +90,8 @@ export default function About() {
     return (
         <>
             {/* ── No whileInView on the outer section — it's just a layout wrapper now ── */}
-            <section className="relative z-20 w-full pt-26 lg:pt-30">
-                <div className="w-full max-w-360 mx-auto px-8 sm:px-16">
+            <section className="relative">
+                <div className="w-full max-w-360 mx-auto px-8 sm:px-16 pt-26 sm:pt-36 lg:pt-40">
                     {/* Heading */}
                     <motion.div
                         variants={fadeUp}
@@ -107,18 +107,18 @@ export default function About() {
                     </motion.div>
 
                     {/* Story */}
-                    <article className="flex flex-col lg:flex-row items-start lg:gap-30">
+                    <article className="flex flex-col xl:flex-row items-start lg:gap-5 xl:gap-30 mt-8 lg:mt-26">
                         <motion.header
                             variants={fadeUp}
                             initial="hidden"
                             whileInView="show"
                             viewport={vp}
-                            className="uppercase w-30 h-6 lg:w-60 lg:h-8 grid place-items-center bg-custom-primary rounded-full text-custom-black font-medium text-sm tracking-wide leading-none"
+                            className="uppercase shrink-0 w-30 h-6 lg:h-8 grid place-items-center bg-custom-primary rounded-full text-custom-black font-medium text-sm tracking-wide leading-none"
                         >
                             Our Story
                         </motion.header>
 
-                        <div className="flex flex-col items-start gap-5 lg:gap-10">
+                        <div className="flex flex-col items-start gap-8 lg:gap-20">
                             <motion.h2
                                 variants={fadeUp}
                                 initial="hidden"
@@ -130,13 +130,13 @@ export default function About() {
                                 by merging creative ideas, data—driven insights,
                             </motion.h2>
 
-                            <div className="w-full flex flex-col lg:flex-row items-center gap-5 overflow-hidden">
+                            <div className="w-full flex flex-col lg:flex-row items-center sm:items-start xl:items-center gap-12 xl:gap-14 overflow-hidden">
                                 <motion.figure
                                     variants={fadeLeft}
                                     initial="hidden"
                                     whileInView="show"
                                     viewport={vp}
-                                    className="rounded-2xl overflow-hidden max-w-105 lg:h-105"
+                                    className="rounded-2xl overflow-hidden max-w-115 lg:h-115 shrink-0"
                                 >
                                     <Image
                                         src={aboutPageImg}
@@ -150,7 +150,7 @@ export default function About() {
                                     initial="hidden"
                                     whileInView="show"
                                     viewport={vp}
-                                    className="w-full lg:max-w-[58%] flex flex-col items-start gap-4"
+                                    className="w-full lg:max-w-[48%] flex flex-col items-start gap-5"
                                 >
                                     <h3 className="uppercase font-semibold tracking-tight text-2xl lg:text-3xl">
                                         why choose stratum
@@ -209,7 +209,7 @@ export default function About() {
                         initial="hidden"
                         whileInView="show"
                         viewport={vp}
-                        className="mt-10 lg:mt-20 flex flex-wrap lg:flex-row items-center justify-center gap-5"
+                        className="mt-14 sm:mt-20 xl:my-26 flex flex-wrap lg:flex-row items-start md:justify-start lg:justify-center gap-5 xl:gap-10"
                     >
                         {counterNumbers.map((num, i) => {
                             const { numberText, smallText } = num;
@@ -217,7 +217,7 @@ export default function About() {
                                 <motion.div
                                     key={i}
                                     variants={fadeUp}
-                                    className="bg-custom-white text-black w-50 h-30 md:w-60 md:h-40 lg:w-70 lg:h-50 rounded-xl text-center flex flex-col items-center justify-center"
+                                    className="bg-custom-white text-black w-50 h-30 md:w-60 md:h-40 lg:w-70 lg:h-50 rounded-xl text-center flex flex-col items-center justify-center xl:my-16"
                                 >
                                     <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tighter">
                                         {numberText}
@@ -234,7 +234,7 @@ export default function About() {
                         initial="hidden"
                         whileInView="show"
                         viewport={vp}
-                        className="mt-10 sm:mt-20 flex flex-col items-center gap-5"
+                        className="mt-14 sm:mt-20 xl:my-26  flex flex-col items-center gap-3"
                     >
                         <h3 className="font-bold text-2xl md:text-3xl uppercase">
                             Trusted by <span className="text-custom-primary">100+</span> Leading
@@ -256,7 +256,7 @@ export default function About() {
                     </motion.div>
 
                     {/* Mission / Vision */}
-                    <div className="mt-10 lg:mt-20 lg:space-y-10">
+                    <div className="mt-14 sm:mt-20 xl:my-26 space-y-5 sm:space-y-0 lg:space-y-10">
                         <motion.h1
                             variants={fadeUp}
                             initial="hidden"
@@ -281,7 +281,7 @@ export default function About() {
                                     <motion.li
                                         key={i}
                                         variants={fadeUp}
-                                        className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-0 border-b py-4 md:py-8 border-custom-primary/60"
+                                        className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-0 border-b py-4 md:py-8 border-custom-primary/60"
                                     >
                                         <h4 className="font-semibold text-xl lg:text-[26px] tracking-tight w-full max-w-40 lg:max-w-60 xl:max-w-90 uppercase shrink-0">
                                             {title}

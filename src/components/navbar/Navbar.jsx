@@ -5,7 +5,6 @@ import React, { useState, useEffect } from 'react';
 import { PiShoppingCartSimpleFill } from 'react-icons/pi';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 import { CgClose } from 'react-icons/cg';
-
 import logo from '../../../public/logo.png';
 import Link from 'next/link';
 import { motion } from 'motion/react';
@@ -147,7 +146,7 @@ export default function Navbar() {
             </div>
 
             <div
-                className={`bg-custom-black w-full h-screen absolute -top-300 left-0 lg:hidden ${menu ? 'opacity-100 top-20' : ' opacity-0 pointer-events-none'} z-9999 transform transition-all duration-500`}
+                className={`bg-custom-black w-full h-screen absolute lg:hidden pt-30 sm:pt-20 ${menu ? 'opacity-100 top-20' : ' opacity-0 -top-300 left-0 pointer-events-none'} z-9999 transform transition-all duration-500`}
             >
                 {/* mobile menu */}
                 <ul className="flex flex-col text-center items-center md:gap-8 lg:gap-8">

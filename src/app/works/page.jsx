@@ -86,7 +86,10 @@ export default function PortfolioSection() {
     }, []);
 
     return (
-        <section ref={sectionRef} className="w-full max-w-360 mx-auto px-8 sm:px-16 py-26 lg:py-36">
+        <section
+            ref={sectionRef}
+            className="w-full max-w-360 mx-auto px-8 sm:px-16 py-26 sm:py-36 lg:py-42"
+        >
             <motion.div
                 variants={fadeUp}
                 initial="hidden"

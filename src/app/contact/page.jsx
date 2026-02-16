@@ -41,7 +41,7 @@ export default function Contact() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
-            className="relative w-full max-w-360 mx-auto flex flex-col gap-4 lg:gap-8 px-8 sm:px-16 py-26 sm:py-32"
+            className="relative w-full max-w-360 mx-auto flex flex-col gap-4 lg:gap-8 px-8 sm:px-16 py-26 sm:py-36 lg:py-42"
         >
             <div className="flex flex-col items-center">
                 <PageHeading bigText={'contact'} smallText={'request a free consultation'} />

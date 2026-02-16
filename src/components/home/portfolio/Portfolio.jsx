@@ -99,7 +99,6 @@ export default function PortfolioSection() {
             <div className="w-full flex flex-col items-start justify-center relative">
                 {/* heading text */}
                 <div ref={textRef} className="w-full max-w-300 mx-auto text-center -z-999">
-                    <HeadingBorderText text={'featured'} />
                     <motion.h2
                         variants={item}
                         className="uppercase text-[70px] md:text-[130px] lg:text-[192px] font-semibold tracking-tight lg:-mt-12 pointer-events-none"
@@ -116,7 +115,7 @@ export default function PortfolioSection() {
 
                 <div
                     ref={containerRef}
-                    className="w-full flex flex-col items-center gap-24 z-999 lg:mb-50"
+                    className="w-full flex flex-col items-center gap-16 xl:gap-24 z-999 sm:mb-20 lg:mb-50"
                 >
                     {worksImgs.map((work, i) => {
                         const { title, subTitle, src } = work;
@@ -127,7 +126,7 @@ export default function PortfolioSection() {
                                 initial="rest"
                                 animate="rest"
                                 whileHover="hover"
-                                className={`project-card max-w-160 h-140 lg:h-160 relative ${
+                                className={`project-card max-w-100 sm:max-w-120 lg:max-w-160 h-140 sm:h-150 relative ${
                                     i === 0
                                         ? 'lg:left-22 xl:left-65'
                                         : i === 1
@@ -158,10 +157,10 @@ export default function PortfolioSection() {
                                                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                                                 className="flex flex-col items-center lg:gap-2"
                                             >
-                                                <span className="block h-12 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl lg:text-5xl tracking-[2px]">
+                                                <span className="block h-12 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl sm:text-4xl lg:text-5xl tracking-[2px]">
                                                     {title}
                                                 </span>
-                                                <span className="block h-12 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl lg:text-5xl tracking-[2px]">
+                                                <span className="block h-12 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl sm:text-4xl lg:text-5xl tracking-[2px]">
                                                     {title}
                                                 </span>
                                             </motion.div>

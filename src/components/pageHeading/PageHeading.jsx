@@ -25,14 +25,14 @@ export default function PageHeading({ bigText, smallText }) {
         >
             <motion.h2
                 variants={item}
-                className="uppercase text-[60px] md:text-[120px] lg:text-[130px] xl:text-[140px] font-semibold tracking-tight leading-none pointer-events-none relative"
+                className="uppercase text-[60px] md:text-[90px] lg:text-[100px] xl:text-[140px] font-semibold tracking-tight leading-none pointer-events-none relative"
             >
                 {bigText}
                 <MdOutlineDoubleArrow className="text-xl lg:text-4xl text-custom-primary -rotate-20 absolute top-0 -right-5 lg:-right-10" />
             </motion.h2>
             <motion.p
                 variants={item}
-                className="w-full max-w-80 text-center lg:text-right uppercase font-medium text-xs sm:text-base lg:text-2xl xl:text-4xl text-custom-white/80"
+                className="w-full max-w-80 xl:max-w-110 text-center lg:text-right uppercase font-medium text-xs sm:text-base lg:text-xl xl:text-4xl text-custom-white/80"
             >
                 {smallText}
             </motion.p>

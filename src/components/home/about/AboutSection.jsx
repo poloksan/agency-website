@@ -78,12 +78,12 @@ export default function AboutPage() {
 
                     <motion.div
                         variants={item}
-                        className="flex gap-3 flex-col w-full max-w-130 lg:mt-12"
+                        className="flex gap-3 flex-col w-full lg:max-w-130 mt-6 lg:mt-12"
                     >
                         {accordingData?.map((according, index) => (
                             <article
                                 key={index}
-                                className="border-b border-custom-white/20 lg:mx-8 py-8"
+                                className="w-full border-b border-custom-white/20 lg:mx-8 py-7 sm:py-8"
                             >
                                 <div
                                     className={`flex gap-2 cursor-pointer items-center justify-between w-full  `}
