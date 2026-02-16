@@ -66,7 +66,6 @@ export default function PortfolioSection() {
                         rotateY: 75,
                         y: 150,
                         scale: 0.9,
-                        pin: true,
                     },
                     {
                         rotateX: 0,
@@ -96,7 +95,7 @@ export default function PortfolioSection() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
-            className="w-full max-w-360 mx-auto px-8 py-26 lg:py-36"
+            className="w-full max-w-360 mx-auto px-8 sm:px-16 py-26 lg:py-36"
         >
             <div className="flex flex-col items-center gap-4">
                 <PageHeading bigText={'works'} smallText={'we drive engagement & get results.'} />
@@ -106,7 +105,7 @@ export default function PortfolioSection() {
                 <div ref={textRef} className="w-full max-w-300 mx-auto text-center -z-999 ">
                     <motion.h3
                         variants={item}
-                        className="text-center text-[40px] md:text-[80px] lg:text-[136px] font-bold tracking-normal leading-8 md:leading-15 lg:leading-24 text-custom-dark-gray uppercase -z-40"
+                        className="text-center text-[40px] md:text-[80px] lg:text-[120px] xl:text-[136px] font-bold tracking-normal leading-8 md:leading-15 lg:leading-22 xl:leading-24 text-custom-dark-gray uppercase -z-40"
                     >
                         from <br /> concept to creation
                     </motion.h3>
@@ -141,6 +140,7 @@ export default function PortfolioSection() {
                                     >
                                         <Image
                                             src={src}
+                                            loading="eager"
                                             alt="portfolio work"
                                             className="object-cover bg-center bg-cover rounded-lg brightness-90 w-full h-full"
                                         />
