@@ -54,24 +54,47 @@ export default function ServicesSection() {
     useGSAP(() => {
         const section = containerRef.current;
         const card = cardRef.current;
+
         if (!section || !card) return;
+
         const mm = gsap.matchMedia();
-        mm.add('(min-width: 1024px)', () => {
+
+        mm.add('(min-width: 1024px) and (max-width: 1279px)', () => {
             gsap.to(card, {
-                transform: 'translateX(-30%)',
+                x: '-55%',
+                ease: 'none',
                 scrollTrigger: {
                     trigger: section,
-                    scroll: 'body',
-                    start: 'top 15%',
-                    end: 'bottom -100%',
+                    scroller: 'body',
+                    start: 'top 10%',
+                    end: 'bottom -80%',
                     scrub: 1,
                     pin: true,
+                    markers: false,
                 },
             });
         });
 
-        return () => mm.revert();
-    });
+        mm.add('(min-width: 1280px)', () => {
+            gsap.to(card, {
+                x: '-30%',
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: section,
+                    scroller: 'body',
+                    start: 'top 10%',
+                    end: 'bottom -80%',
+                    scrub: 1,
+                    pin: true,
+                    markers: false,
+                },
+            });
+        });
+
+        return () => {
+            mm.revert();
+        };
+    }, []);
 
     return (
         <motion.section
@@ -88,7 +111,7 @@ export default function ServicesSection() {
                     <motion.div className="w-full flex flex-col md:flex-row items-center justify-center sm:justify-between gap-5">
                         <motion.h1
                             variants={animationScale}
-                            className="w-full max-w-130 text-4xl md:text-[40px] lg:text-7xl font-bold leading-12 lg:leading-20 tracking-tight text-center md:text-start"
+                            className="w-full max-w-130 text-4xl md:text-[40px] lg:text-6xl xl:text-7xl font-bold leading-10 sm:leading-12 lg:leading-16 xl:leading-20 tracking-tight text-center md:text-start"
                         >
                             Transform Creative Design
                         </motion.h1>
@@ -106,7 +129,7 @@ export default function ServicesSection() {
                 {/* cards */}
                 <div
                     ref={cardRef}
-                    className="max-w-360 mx-auto flex flex-col lg:flex-row items-center justify-center md:justify-start gap-5 lg:gap-10"
+                    className="max-w-360 mx-auto grid grid-cols-1 md:grid-cols-2 lg:flex gap-5 md:gap-8"
                 >
                     {services.map((service, i) => (
                         <motion.div key={i} className="relative">

@@ -62,7 +62,7 @@ const counterNumbers = [
 ];
 
 //  Reusable viewport config
-const vp = { once: true, amount: 0.5 };
+const vp = { once: true, amount: 0.3 };
 
 //  Variants
 const fadeUp = {
@@ -185,19 +185,20 @@ export default function About() {
                                                 </span>
                                             </motion.li>
                                         ))}
+                                        <Link href={'/'}>
+                                            <motion.button
+                                                variants={fadeUp}
+                                                viewport={vp}
+                                                type="button"
+                                                className="bg-custom-dark-gray px-5 py-2 sm:px-7 sm:py-3 flex items-center gap-2 capitalize text-sm lg:text-base leading-7 tracking-wider rounded-xl border-2 border-custom-dark-gray cursor-pointer hover:bg-transparent duration-300 group transition-all"
+                                            >
+                                                get a demo
+                                                <span>
+                                                    <FiArrowUpRight className="text-xl font-bold group-hover:rotate-45 duration-300" />
+                                                </span>
+                                            </motion.button>
+                                        </Link>
                                     </motion.ul>
-
-                                    <Link href={'/'}>
-                                        <button
-                                            type="button"
-                                            className="bg-custom-dark-gray px-5 py-2 sm:px-7 sm:py-3 flex items-center gap-2 capitalize text-sm lg:text-base leading-7 tracking-wider rounded-xl border-2 border-custom-dark-gray cursor-pointer hover:bg-transparent duration-300 group transition-all"
-                                        >
-                                            get a demo
-                                            <span>
-                                                <FiArrowUpRight className="text-xl font-bold group-hover:rotate-45 duration-300" />
-                                            </span>
-                                        </button>
-                                    </Link>
                                 </motion.aside>
                             </div>
                         </div>
@@ -209,7 +210,7 @@ export default function About() {
                         initial="hidden"
                         whileInView="show"
                         viewport={vp}
-                        className="mt-14 sm:mt-20 xl:my-26 flex flex-wrap lg:flex-row items-start md:justify-start lg:justify-center gap-5 xl:gap-10"
+                        className="mt-14 sm:mt-20 xl:my-26 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-10 justify-items-stretch"
                     >
                         {counterNumbers.map((num, i) => {
                             const { numberText, smallText } = num;
@@ -217,6 +218,9 @@ export default function About() {
                                 <motion.div
                                     key={i}
                                     variants={fadeUp}
+                                    initial="hidden"
+                                    whileInView="show"
+                                    viewport={vp}
                                     className="bg-custom-white text-black w-50 h-30 md:w-60 md:h-40 lg:w-70 lg:h-50 rounded-xl text-center flex flex-col items-center justify-center xl:my-16"
                                 >
                                     <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tighter">
@@ -236,10 +240,16 @@ export default function About() {
                         viewport={vp}
                         className="mt-14 sm:mt-20 xl:my-26  flex flex-col items-center gap-3"
                     >
-                        <h3 className="font-bold text-2xl md:text-3xl uppercase">
+                        <motion.h3
+                            variants={fadeUp}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={vp}
+                            className="font-bold text-2xl md:text-3xl uppercase"
+                        >
                             Trusted by <span className="text-custom-primary">100+</span> Leading
                             Enterprises
-                        </h3>
+                        </motion.h3>
 
                         <Marquee
                             direction="right"
@@ -281,6 +291,9 @@ export default function About() {
                                     <motion.li
                                         key={i}
                                         variants={fadeUp}
+                                        initial="hidden"
+                                        whileInView="show"
+                                        viewport={vp}
                                         className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-0 border-b py-4 md:py-8 border-custom-primary/60"
                                     >
                                         <h4 className="font-semibold text-xl lg:text-[26px] tracking-tight w-full max-w-40 lg:max-w-60 xl:max-w-90 uppercase shrink-0">

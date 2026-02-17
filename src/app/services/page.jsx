@@ -16,8 +16,8 @@ const services = [
 const vp = { once: true, amount: 0.3 };
 
 const fadeUp = {
-    hidden: { y: 50, opacity: 0 },
-    show: { y: 0, opacity: 1, transition: { duration: 0.6 } },
+    hidden: { y: 80, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { duration: 0.8 } },
 };
 
 export default function ServicesSection() {

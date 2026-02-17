@@ -43,24 +43,33 @@ export default function AboutPage() {
     const handleBgAccording = (index) =>
         setBgAccording((prevIndex) => (prevIndex === index ? null : index));
     return (
-        <motion.section
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{
-                once: true,
-                amount: 0.1,
-            }}
-        >
+        <motion.section variants={container}>
             <div className="w-full max-w-360 mx-auto px-8 sm:px-16 py-10 md:py-16 xl:py-20 flex flex-col lg:flex-row items-center justify-center lg:gap-12 xl:gap-24 relative">
                 {/* left side */}
-                <motion.div variants={item} className="hidden lg:block">
+                <motion.div
+                    variants={item}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{
+                        once: true,
+                        amount: 0.1,
+                    }}
+                    className="hidden lg:block"
+                >
                     <AboutImage />
                 </motion.div>
 
                 {/* right side */}
-                <motion.div className="w-full lg:mt-10 lg:max-w-100 xl:max-w-160 grid place-items-center">
-                    <motion.div variants={item}>
+                <div className="w-full lg:mt-10 lg:max-w-100 xl:max-w-160 grid place-items-center">
+                    <motion.div
+                        variants={item}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{
+                            once: true,
+                            amount: 0.1,
+                        }}
+                    >
                         <ul className="list-disc pl-6">
                             <li className="text-base lg:text-xl tracking-wider text-custom-white/80">
                                 Who we are?
@@ -72,17 +81,30 @@ export default function AboutPage() {
                         </h3>
                     </motion.div>
 
-                    <motion.div variants={item} className="lg:hidden mt-8">
+                    <motion.div
+                        variants={item}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{
+                            once: true,
+                            amount: 0.1,
+                        }}
+                        className="lg:hidden mt-8"
+                    >
                         <AboutImage />
                     </motion.div>
 
-                    <motion.div
-                        variants={item}
-                        className="flex gap-3 flex-col w-full lg:max-w-130 mt-6 lg:mt-12"
-                    >
+                    <motion.div className="flex gap-3 flex-col w-full lg:max-w-130 mt-6 xl:mt-12">
                         {accordingData?.map((according, index) => (
-                            <article
+                            <motion.article
                                 key={index}
+                                variants={item}
+                                initial="hidden"
+                                whileInView="show"
+                                viewport={{
+                                    once: true,
+                                    amount: 0.1,
+                                }}
                                 className="w-full border-b border-custom-white/20 lg:mx-8 py-7 sm:py-8"
                             >
                                 <div
@@ -131,10 +153,10 @@ export default function AboutPage() {
                                         {according.description}
                                     </div>
                                 </div>
-                            </article>
+                            </motion.article>
                         ))}
                     </motion.div>
-                </motion.div>
+                </div>
             </div>
         </motion.section>
     );

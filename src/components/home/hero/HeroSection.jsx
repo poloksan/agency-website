@@ -107,7 +107,7 @@ export default function HeroSection() {
                             opacity: 0,
                         }}
                         animate={heroMiddleTextControlDelay}
-                        className="text-custom-white/70 w-full md:max-w-56 lg:max-w-100 text-xs sm:text-sm md:text-lg xl:text-[22px] leading-4 md:leading-8 text-right lg:text-start -mt-4"
+                        className="text-custom-white/70 w-full md:max-w-56 lg:max-w-100 text-xs sm:text-sm md:text-lg xl:text-[22px] leading-4 md:leading-6 text-right lg:text-start -mt-4"
                     >
                         We design exceptional brands, products, web apps, mobile apps,websites for
                         startups and enterprises.
