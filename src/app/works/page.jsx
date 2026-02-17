@@ -116,7 +116,7 @@ export default function PortfolioSection() {
 
                 <div
                     ref={containerRef}
-                    className="w-full flex flex-col items-center gap-10 md:gap-24 z-999"
+                    className="w-full flex flex-col items-center gap-10 md:gap-24 lg:gap-24 z-999"
                 >
                     {worksImgs.map((work, i) => {
                         const { title, subTitle, src } = work;
@@ -127,7 +127,7 @@ export default function PortfolioSection() {
                                 initial="rest"
                                 animate="rest"
                                 whileHover="hover"
-                                className={`project-card max-w-160 h-120 md:w-120 md:h-150 lg:max-w-160 lg:h-160 relative ${
+                                className={`project-card max-w-160 h-120 md:max-w-120 md:h-150 lg:max-w-160 lg:h-160 relative ${
                                     i === 0
                                         ? 'lg:left-22 xl:left-65'
                                         : i === 1

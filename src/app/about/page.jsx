@@ -190,7 +190,7 @@ export default function About() {
                                                 variants={fadeUp}
                                                 viewport={vp}
                                                 type="button"
-                                                className="bg-custom-dark-gray px-5 py-2 sm:px-7 sm:py-3 flex items-center gap-2 capitalize text-sm lg:text-base leading-7 tracking-wider rounded-xl border-2 border-custom-dark-gray cursor-pointer hover:bg-transparent duration-300 group transition-all"
+                                                className="mt-4 bg-custom-dark-gray px-5 py-2 sm:px-7 sm:py-3 flex items-center gap-2 capitalize text-sm lg:text-base leading-7 tracking-wider rounded-xl border-2 border-custom-dark-gray cursor-pointer hover:bg-transparent duration-300 group transition-all"
                                             >
                                                 get a demo
                                                 <span>
