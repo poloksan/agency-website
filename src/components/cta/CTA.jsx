@@ -22,7 +22,8 @@ export default function CTA() {
     };
 
     return (
-        <div
+        <section
+            id="#"
             onMouseMove={handleMouseMove}
             className="w-full py-10 md:py-14 lg:p-20 relative overflow-hidden grid place-items-center bg-linear-to-r from-custom-primary/10 via-custom-black to-custom-primary/10"
         >
@@ -60,6 +61,6 @@ export default function CTA() {
                     <MoveBtn />
                 </motion.div>
             </div>
-        </div>
+        </section>
     );
 }

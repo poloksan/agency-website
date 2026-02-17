@@ -257,7 +257,7 @@ export default function About() {
                             speed={50}
                             autoFill
                             pauseOnHover
-                            className="flex items-center gap-4"
+                            className="flex items-center gap-1 sm:gap-4"
                         >
                             {[...images, ...images].map((img, i) => (
                                 <Image key={i} src={img.src} alt={img.alt} draggable="false" />

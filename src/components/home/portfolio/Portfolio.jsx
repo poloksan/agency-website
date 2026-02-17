@@ -157,10 +157,10 @@ export default function PortfolioSection() {
                                                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                                                 className="flex flex-col items-center lg:gap-2"
                                             >
-                                                <span className="block h-12 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl sm:text-4xl lg:text-5xl tracking-[2px]">
+                                                <span className="block h-12 sm:h-16 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl sm:text-4xl lg:text-5xl tracking-[2px]">
                                                     {title}
                                                 </span>
-                                                <span className="block h-12 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl sm:text-4xl lg:text-5xl tracking-[2px]">
+                                                <span className="block h-12 sm:h-16 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl sm:text-4xl lg:text-5xl tracking-[2px]">
                                                     {title}
                                                 </span>
                                             </motion.div>

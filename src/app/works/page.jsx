@@ -88,7 +88,7 @@ export default function PortfolioSection() {
     return (
         <section
             ref={sectionRef}
-            className="w-full max-w-360 mx-auto px-8 sm:px-16 py-26 sm:py-36 lg:py-42"
+            className="w-full max-w-360 mx-auto px-2 sm:px-16 py-26 sm:py-36 lg:py-42 overflow-x-hidden"
         >
             <motion.div
                 variants={fadeUp}
@@ -116,7 +116,7 @@ export default function PortfolioSection() {
 
                 <div
                     ref={containerRef}
-                    className="w-full flex flex-col items-center gap-10 md:gap-24 lg:gap-24 z-999"
+                    className="w-full flex flex-col items-center gap-10 md:gap-24 lg:gap-24 z-999 px-9"
                 >
                     {worksImgs.map((work, i) => {
                         const { title, subTitle, src } = work;
@@ -133,7 +133,7 @@ export default function PortfolioSection() {
                                         : i === 1
                                           ? 'lg:right-22 xl:right-65'
                                           : ''
-                                } object-cover overflow-hidden rounded-lg`}
+                                } object-cover overflow-x-hidden rounded-lg`}
                             >
                                 <Link href={'/'}>
                                     <motion.div
@@ -159,7 +159,7 @@ export default function PortfolioSection() {
                                                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                                                 className="flex flex-col items-center"
                                             >
-                                                <span className="block h-12 sm:h-16 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl sm:text-3xl lg:text-5xl tracking-[2px]">
+                                                <span className="block h-14 sm:h-16 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl sm:text-3xl lg:text-5xl tracking-[2px]">
                                                     {title}
                                                 </span>
                                                 <span className="block h-12 sm:h-16 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl sm:text-3xl lg:text-5xl tracking-[2px]">

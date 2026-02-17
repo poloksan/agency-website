@@ -91,7 +91,7 @@ const container = {
     show: {
         transition: {
             delayChildren: 0.2,
-            staggerChildren: 0.25,
+            staggerChildren: 0.3,
         },
     },
 };
@@ -183,6 +183,9 @@ export default function TestimonialsSection() {
                 <div className="relative flex items-center justify-center select-none lg:-mt-14">
                     <motion.div
                         variants={animateScale}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true }}
                         className="max-w-360 mx-auto bg-center bg-cover object-cover bg-no-repeat -z-50"
                     >
                         <Image src={bgWorld} alt="world" draggable="false" />
@@ -211,6 +214,10 @@ export default function TestimonialsSection() {
                             dragElastic={0.6}
                             dragMomentum={true}
                             whileTap={{ cursor: 'grabbing' }}
+                            variants={container}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true }}
                         >
                             {/* cards */}
                             {testimonials.map((testimonial, i) => {
