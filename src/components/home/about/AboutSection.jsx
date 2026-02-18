@@ -54,7 +54,7 @@ export default function AboutPage() {
                         once: true,
                         amount: 0.1,
                     }}
-                    className="hidden lg:block"
+                    className="hidden lg:block w-full"
                 >
                     <AboutImage />
                 </motion.div>

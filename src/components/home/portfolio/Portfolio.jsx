@@ -72,9 +72,10 @@ export default function PortfolioSection() {
                         opacity: 1,
                         y: 0,
                         scale: 1,
+                        duration: 0.8,
                         scrollTrigger: {
                             trigger: card,
-                            start: 'top 95%',
+                            start: 'bottom 95%',
                             end: 'top 60%',
                             scrub: 1,
                             toggleActions: 'play reverse play reverse',
@@ -148,19 +149,19 @@ export default function PortfolioSection() {
                                     </motion.div>
 
                                     <div className="w-full text-center absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                                        <motion.h2 className="relative h-10 md:h-12 overflow-hidden cursor-pointer">
+                                        <motion.h2 className="relative h-10 md:h-14 overflow-hidden cursor-pointer">
                                             <motion.div
                                                 variants={{
                                                     rest: { y: 0 },
                                                     hover: { y: 'calc(-3rem - 0.5rem)' },
                                                 }}
                                                 transition={{ duration: 0.3, ease: 'easeInOut' }}
-                                                className="flex flex-col items-center lg:gap-2"
+                                                className="flex flex-col items-center "
                                             >
-                                                <span className="block h-12 sm:h-16 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl sm:text-4xl lg:text-5xl tracking-[2px]">
+                                                <span className="block h-12 sm:h-16 w-full text-center uppercase font-bold text-2xl sm:text-4xl lg:text-5xl tracking-[2px]">
                                                     {title}
                                                 </span>
-                                                <span className="block h-12 sm:h-16 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl sm:text-4xl lg:text-5xl tracking-[2px]">
+                                                <span className="block h-12 sm:h-16 w-full text-center uppercase font-bold text-2xl sm:text-4xl lg:text-5xl tracking-[2px]">
                                                     {title}
                                                 </span>
                                             </motion.div>

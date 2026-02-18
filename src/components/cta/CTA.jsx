@@ -4,8 +4,8 @@ import { motion, useMotionValue, useSpring } from 'motion/react';
 import MoveBtn from '../moveBtn/MoveBtn';
 
 export default function CTA() {
-    const mouseX = useMotionValue(300);
-    const mouseY = useMotionValue(220);
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
 
     const springConfig = { damping: 25, stiffness: 100 };
     const springX = useSpring(mouseX, springConfig);

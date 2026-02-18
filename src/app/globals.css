@@ -23,6 +23,7 @@
 body {
     background: var(--color-custom-black);
     color: var(--color-custom-white);
+    overflow-x: hidden;
 }
 
 .rfm-marquee {

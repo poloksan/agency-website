@@ -70,9 +70,10 @@ export default function PortfolioSection() {
                         opacity: 1,
                         y: 0,
                         scale: 1,
+                        duration: 2,
                         scrollTrigger: {
                             trigger: card,
-                            start: 'top 95%',
+                            start: 'bottom 100%',
                             end: 'top 60%',
                             scrub: 1,
                             toggleActions: 'play reverse play reverse',
@@ -116,7 +117,7 @@ export default function PortfolioSection() {
 
                 <div
                     ref={containerRef}
-                    className="w-full flex flex-col items-center gap-10 md:gap-24 lg:gap-24 z-999 px-9"
+                    className="w-full flex flex-col items-center gap-10 md:gap-24 lg:gap-24 z-999 px-6 sm:px-9"
                 >
                     {worksImgs.map((work, i) => {
                         const { title, subTitle, src } = work;
@@ -133,7 +134,7 @@ export default function PortfolioSection() {
                                         : i === 1
                                           ? 'lg:right-22 xl:right-65'
                                           : ''
-                                } object-cover overflow-x-hidden rounded-lg`}
+                                } object-cover overflow-hidden rounded-lg`}
                             >
                                 <Link href={'/'}>
                                     <motion.div
