@@ -1,6 +1,5 @@
 'use client';
 import React, { useRef } from 'react';
-import { motion } from 'motion/react';
 import { RiArrowRightDoubleFill } from 'react-icons/ri';
 import HeadingBorderText from '@/components/headingBorderText/HeadingBorderText';
 import workOne from '@/assets/images/work-one.png';
@@ -21,21 +20,22 @@ const worksImgs = [
     { id: 3, src: workThree, title: 'development', subTitle: 'prototype' },
 ];
 
-const fadeUp = {
-    hidden: { scale: 0, opacity: 0 },
-    show: {
-        scale: 1,
-        opacity: 1,
-        transition: { scale: { type: 'spring', bounce: 0.5, duration: 2.5 } },
-    },
-};
-
-const vp = { once: true, amount: 0.2 };
-
 export default function PortfolioSection() {
     const sectionRef = useRef(null);
     const containerRef = useRef(null);
     const textRef = useRef(null);
+
+    // heading wrapper ref
+    const pageHeadingRef = useRef(null);
+
+    // "from concept to creation" heading ref
+    const conceptHeadingRef = useRef(null);
+
+    // card image scale hover এর জন্য ref array
+    const cardImgRef = useRef([]);
+
+    // card title slide hover এর জন্য ref array
+    const cardTitleInnerRef = useRef([]);
 
     useGSAP(() => {
         const section = sectionRef.current;
@@ -43,6 +43,9 @@ export default function PortfolioSection() {
         const cards = gsap.utils.toArray('.project-card');
 
         const ctx = gsap.context(() => {
+            // ─────────────────────────────────────────────────
+            // 1️⃣ আগের pin + card flip animation (unchanged)
+            // ─────────────────────────────────────────────────
             ScrollTrigger.create({
                 trigger: text,
                 start: 'top 20%',
@@ -58,12 +61,7 @@ export default function PortfolioSection() {
             cards.forEach((card) => {
                 gsap.fromTo(
                     card,
-                    {
-                        rotateX: 75,
-                        rotateY: 75,
-                        y: 150,
-                        scale: 0.9,
-                    },
+                    { rotateX: 75, rotateY: 75, y: 150, scale: 0.9 },
                     {
                         rotateX: 0,
                         rotateY: 0,
@@ -81,6 +79,68 @@ export default function PortfolioSection() {
                     },
                 );
             });
+
+            // ─────────────────────────────────────────────────
+            // 2️⃣ PageHeading wrapper — fadeUp (scale:0 → scale:1)
+            //    motion এ: scale:0, opacity:0 → spring bounce:0.5, duration:2.5
+            //    whileInView + once:true, amount:0.2
+            // ─────────────────────────────────────────────────
+
+            // ─────────────────────────────────────────────────
+            // 3️⃣ "from concept to creation" heading — same fadeUp
+            // ─────────────────────────────────────────────────
+            gsap.fromTo(
+                conceptHeadingRef.current,
+                { scale: 0, opacity: 0 },
+                {
+                    scale: 1,
+                    opacity: 1,
+                    duration: 2.5,
+                    ease: 'elastic.out(1, 0.5)',
+                    scrollTrigger: {
+                        trigger: conceptHeadingRef.current,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none',
+                    },
+                },
+            );
+
+            // ─────────────────────────────────────────────────
+            // 4️⃣ Card image hover — scale 1 → 1.1
+            //    motion এ: whileHover → scale:1.1, duration:0.5
+            // ─────────────────────────────────────────────────
+            cardImgRef.current.forEach((imgEl) => {
+                if (!imgEl) return;
+                const card = imgEl.closest('.project-card');
+
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(imgEl, { scale: 1.1, duration: 0.5, ease: 'power2.inOut' });
+                });
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(imgEl, { scale: 1, duration: 0.5, ease: 'power2.inOut' });
+                });
+            });
+
+            // ─────────────────────────────────────────────────
+            // 5️⃣ Card title slide hover
+            //    motion এ: whileHover → y:'calc(-3rem - 0.5rem)', duration:0.3
+            //    hover করলে উপরের span উপরে যাবে, নিচের span উঠে আসবে
+            // ─────────────────────────────────────────────────
+            cardTitleInnerRef.current.forEach((innerEl) => {
+                if (!innerEl) return;
+                const card = innerEl.closest('.project-card');
+
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(innerEl, {
+                        y: 'calc(-3rem - 0.5rem)',
+                        duration: 0.3,
+                        ease: 'power2.inOut',
+                    });
+                });
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(innerEl, { y: 0, duration: 0.3, ease: 'power2.inOut' });
+                });
+            });
         }, section);
 
         return () => ctx.revert();
@@ -91,28 +151,21 @@ export default function PortfolioSection() {
             ref={sectionRef}
             className="w-full max-w-360 mx-auto px-2 sm:px-16 py-26 sm:py-36 lg:py-42 overflow-x-hidden"
         >
-            <motion.div
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={vp}
-                className="flex flex-col items-center gap-4"
-            >
+            {/* 2️⃣ PageHeading — scale animate */}
+            <div className="flex flex-col items-center gap-4">
                 <PageHeading bigText={'works'} smallText={'we drive engagement & get results.'} />
-            </motion.div>
+            </div>
 
             <div className="w-full flex flex-col items-start justify-center relative">
                 {/* heading text */}
                 <div ref={textRef} className="w-full max-w-300 mx-auto text-center -z-999">
-                    <motion.h3
-                        variants={fadeUp}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={vp}
-                        className="text-center text-[40px] md:text-[80px] lg:text-[120px] xl:text-[136px] font-bold tracking-normal leading-8 md:leading-15 lg:leading-22 xl:leading-24 text-custom-dark-gray uppercase -z-40"
+                    {/* 3️⃣ "from concept to creation" heading */}
+                    <h3
+                        ref={conceptHeadingRef}
+                        className="text-center text-[40px] md:text-[80px] lg:text-[120px] xl:text-[136px] font-bold tracking-normal leading-8 md:leading-15 lg:leading-22 xl:leading-24 text-custom-dark-gray uppercase -z-40 lg:mt-20"
                     >
                         from <br /> concept to creation
-                    </motion.h3>
+                    </h3>
                 </div>
 
                 <div
@@ -123,11 +176,8 @@ export default function PortfolioSection() {
                         const { title, subTitle, src } = work;
 
                         return (
-                            <motion.div
+                            <div
                                 key={work.id}
-                                initial="rest"
-                                animate="rest"
-                                whileHover="hover"
                                 className={`project-card max-w-160 h-120 md:max-w-120 md:h-150 lg:max-w-160 lg:h-160 relative ${
                                     i === 0
                                         ? 'lg:left-22 xl:left-65'
@@ -137,9 +187,9 @@ export default function PortfolioSection() {
                                 } object-cover overflow-hidden rounded-lg`}
                             >
                                 <Link href={'/'}>
-                                    <motion.div
-                                        variants={{ rest: { scale: 1 }, hover: { scale: 1.1 } }}
-                                        transition={{ duration: 0.5, ease: 'easeInOut' }}
+                                    {/* 4️⃣ image wrapper — hover এ scale হবে */}
+                                    <div
+                                        ref={(el) => (cardImgRef.current[i] = el)}
                                         className="rounded-lg w-full h-full"
                                     >
                                         <Image
@@ -148,26 +198,25 @@ export default function PortfolioSection() {
                                             alt="portfolio work"
                                             className="object-cover bg-center bg-cover rounded-lg brightness-90 w-full h-full"
                                         />
-                                    </motion.div>
+                                    </div>
 
                                     <div className="w-full text-center absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                                        <motion.h2 className="relative h-10 md:h-12 overflow-hidden cursor-pointer">
-                                            <motion.div
-                                                variants={{
-                                                    rest: { y: 0 },
-                                                    hover: { y: 'calc(-3rem - 0.5rem)' },
-                                                }}
-                                                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                        {/* 5️⃣ title slide — overflow hidden container */}
+                                        <h2 className="relative h-10 md:h-12 overflow-hidden cursor-pointer">
+                                            <div
+                                                ref={(el) => (cardTitleInnerRef.current[i] = el)}
                                                 className="flex flex-col items-center"
                                             >
+                                                {/* উপরের span — hover এ উপরে চলে যাবে */}
                                                 <span className="block h-14 sm:h-16 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl sm:text-3xl lg:text-5xl tracking-[2px]">
                                                     {title}
                                                 </span>
+                                                {/* নিচের span — hover এ উপরে উঠে আসবে */}
                                                 <span className="block h-12 sm:h-16 leading-8 lg:leading-12 w-full text-center uppercase font-bold text-2xl sm:text-3xl lg:text-5xl tracking-[2px]">
                                                     {title}
                                                 </span>
-                                            </motion.div>
-                                        </motion.h2>
+                                            </div>
+                                        </h2>
 
                                         <div className="lg:mt-2 flex items-center justify-center gap-4 text-xs md:text-sm uppercase">
                                             <h6 className="bg-custom-black/80 px-4 py-1 font-bold rounded-full">
@@ -180,7 +229,7 @@ export default function PortfolioSection() {
                                         </div>
                                     </div>
                                 </Link>
-                            </motion.div>
+                            </div>
                         );
                     })}
                 </div>

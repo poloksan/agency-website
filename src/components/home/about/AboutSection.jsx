@@ -1,75 +1,132 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { useState } from 'react';
-import { motion } from 'motion/react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import AboutImage from '@/components/aboutImage/AboutImage';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const accordingData = [
     {
-        title: 'What’s Our mission?',
+        title: "What's Our mission?",
         description:
-            'How quick is quick? For most design, we’re talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly.',
+            "How quick is quick? For most design, we're talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly.",
     },
     {
         title: 'Our Culture & Our Studio',
         description:
-            'How quick is quick? For most design, we’re talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly',
+            "How quick is quick? For most design, we're talking 2-3 business days. We balance speed with quality,ensuring you get top-north design swiftly",
     },
 ];
-
-const container = {
-    hidden: {},
-    show: {
-        transition: {
-            delayChildren: 0.1,
-            staggerChildren: 0.3,
-        },
-    },
-};
-
-const item = {
-    hidden: { y: 100, opacity: 0 },
-    show: {
-        y: 0,
-        opacity: 1,
-        transition: { duration: 0.5 },
-    },
-};
 
 export default function AboutPage() {
     const [bgAccording, setBgAccording] = useState(null);
 
+    // Refs
+    const leftImageRef = useRef(null);
+    const rightTextRef = useRef(null);
+    const mobileImageRef = useRef(null);
+    const accordionWrapRef = useRef(null);
+    const accordionItemsRef = useRef([]);
+
     const handleBgAccording = (index) =>
         setBgAccording((prevIndex) => (prevIndex === index ? null : index));
+
+    useGSAP(() => {
+        const scrollConfig = {
+            start: '',
+        };
+
+        if (leftImageRef.current) {
+            gsap.fromTo(
+                leftImageRef.current,
+                { y: 100, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: leftImageRef.current,
+                        ...scrollConfig,
+                    },
+                },
+            );
+        }
+
+        if (rightTextRef.current) {
+            gsap.fromTo(
+                rightTextRef.current,
+                { y: 100, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: rightTextRef.current,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none',
+                    },
+                },
+            );
+        }
+
+        // 3️⃣ Mobile image
+        if (mobileImageRef.current) {
+            gsap.fromTo(
+                mobileImageRef.current,
+                { y: 100, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: mobileImageRef.current,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none',
+                    },
+                },
+            );
+        }
+
+        if (accordionItemsRef.current.length > 0) {
+            gsap.fromTo(
+                accordionItemsRef.current,
+                { y: 100, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: 'power2.out',
+                    stagger: 0.3,
+                    delay: 0.1,
+                    scrollTrigger: {
+                        trigger: accordionWrapRef.current,
+                        start: 'top 70%',
+                        toggleActions: 'play none none none',
+                    },
+                },
+            );
+        }
+    }, []);
+
     return (
-        <motion.section variants={container}>
+        <section>
             <div className="w-full max-w-360 mx-auto px-8 sm:px-16 py-10 md:py-16 xl:py-20 flex flex-col lg:flex-row items-center justify-center lg:gap-12 xl:gap-24 relative">
-                {/* left side */}
-                <motion.div
-                    variants={item}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{
-                        once: true,
-                        amount: 0.1,
-                    }}
-                    className="hidden lg:block w-full"
-                >
+                {/* left side — desktop image */}
+                <div ref={leftImageRef} className="hidden lg:block w-full">
                     <AboutImage />
-                </motion.div>
+                </div>
 
                 {/* right side */}
                 <div className="w-full lg:mt-10 lg:max-w-100 xl:max-w-160 grid place-items-center">
-                    <motion.div
-                        variants={item}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={{
-                            once: true,
-                            amount: 0.1,
-                        }}
-                    >
+                    {/*  heading */}
+                    <div ref={rightTextRef}>
                         <ul className="list-disc pl-6">
                             <li className="text-base lg:text-xl tracking-wider text-custom-white/80">
                                 Who we are?
@@ -79,41 +136,29 @@ export default function AboutPage() {
                             Elevating brands globally with innovative strategies and visionary
                             design
                         </h3>
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                        variants={item}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={{
-                            once: true,
-                            amount: 0.1,
-                        }}
-                        className="lg:hidden mt-8"
-                    >
+                    {/* mobile image */}
+                    <div ref={mobileImageRef} className="lg:hidden mt-8">
                         <AboutImage />
-                    </motion.div>
+                    </div>
 
-                    <motion.div className="flex gap-3 flex-col w-full lg:max-w-130 mt-6 xl:mt-12">
+                    {/* accordion wrapper */}
+                    <div
+                        ref={accordionWrapRef}
+                        className="flex gap-3 flex-col w-full lg:max-w-130 mt-6 xl:mt-12"
+                    >
                         {accordingData?.map((according, index) => (
-                            <motion.article
+                            <article
                                 key={index}
-                                variants={item}
-                                initial="hidden"
-                                whileInView="show"
-                                viewport={{
-                                    once: true,
-                                    amount: 0.1,
-                                }}
+                                ref={(el) => (accordionItemsRef.current[index] = el)}
                                 className="w-full border-b border-custom-white/20 lg:mx-8 py-7 sm:py-8"
                             >
                                 <div
-                                    className={`flex gap-2 cursor-pointer items-center justify-between w-full  `}
+                                    className="flex gap-2 cursor-pointer items-center justify-between w-full"
                                     onClick={() => handleBgAccording(index)}
                                 >
-                                    <h2
-                                        className={`text-custom-white font-bold text-xl lg:text-2xl`}
-                                    >
+                                    <h2 className="text-custom-white font-bold text-xl lg:text-2xl">
                                         {according.title}
                                     </h2>
                                     <svg
@@ -153,11 +198,11 @@ export default function AboutPage() {
                                         {according.description}
                                     </div>
                                 </div>
-                            </motion.article>
+                            </article>
                         ))}
-                    </motion.div>
+                    </div>
                 </div>
             </div>
-        </motion.section>
+        </section>
     );
 }

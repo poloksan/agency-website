@@ -4,6 +4,7 @@ import Navbar from '@/components/navbar/Navbar';
 import Footer from '@/components/footer/Footer';
 import Loader from '@/components/loader/Loader';
 import CTA from '@/components/cta/CTA';
+import SmoothScroll from '@/components/SmoothScroll/SmoothScroll';
 
 const archivo = Archivo({
     variable: '--font-archivo',
@@ -20,10 +21,12 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body className={`${archivo.className}   antialiased`}>
                 <Loader>
-                    <Navbar />
-                    {children}
-                    <CTA />
-                    <Footer />
+                    <SmoothScroll>
+                        <Navbar />
+                        {children}
+                        <CTA />
+                        <Footer />
+                    </SmoothScroll>
                 </Loader>
             </body>
         </html>
