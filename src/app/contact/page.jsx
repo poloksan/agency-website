@@ -54,31 +54,31 @@ export default function Contact() {
                 .fromTo(
                     leftH2Ref.current,
                     { y: 80, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+                    { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' },
                 )
                 // 2️⃣ Description — stagger:0.15 পরে
                 .fromTo(
                     leftDescRef.current,
                     { y: 80, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+                    { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' },
                 )
                 // 3️⃣ Address & Email grid
                 .fromTo(
                     leftAddressRef.current,
                     { y: 80, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+                    { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' },
                 )
                 // 4️⃣ Phone number
                 .fromTo(
                     leftPhoneRef.current,
                     { y: 80, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+                    { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' },
                 )
                 // 5️⃣ Social links
                 .fromTo(
                     leftSocialRef.current,
                     { y: 80, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+                    { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' },
                 );
 
             // ─────────────────────────────────────────────────
@@ -93,31 +93,31 @@ export default function Contact() {
                 .fromTo(
                     rightH3Ref.current,
                     { y: 80, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+                    { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' },
                 )
                 // 2️⃣ Name & Email row
                 .fromTo(
                     formNameEmailRef.current,
                     { y: 80, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+                    { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' },
                 )
                 // 3️⃣ Subject field
                 .fromTo(
                     formSubjectRef.current,
                     { y: 80, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+                    { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' },
                 )
                 // 4️⃣ Message field
                 .fromTo(
                     formMessageRef.current,
                     { y: 80, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+                    { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' },
                 )
                 // 5️⃣ Submit button
                 .fromTo(
                     formBtnRef.current,
                     { y: 80, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
+                    { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' },
                 );
         }, sectionRef);
 
@@ -198,24 +198,28 @@ export default function Contact() {
                         >
                             <Link
                                 href={'https://www.facebook.com/'}
+                                target="_blank"
                                 className="hover:text-custom-white hover:scale-125 duration-300"
                             >
                                 Facebook
                             </Link>
                             <Link
                                 href={'https://x.com/'}
+                                target="_blank"
                                 className="hover:text-custom-white hover:scale-125 duration-300"
                             >
                                 Twitter
                             </Link>
                             <Link
                                 href={'https://linkedin.com/'}
+                                target="_blank"
                                 className="hover:text-custom-white hover:scale-125 duration-300"
                             >
                                 LinkedIn
                             </Link>
                             <Link
                                 href={'https://www.instagram.com/'}
+                                target="_blank"
                                 className="hover:text-custom-white hover:scale-125 duration-300"
                             >
                                 Instagram

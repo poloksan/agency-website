@@ -29,7 +29,7 @@ export default function HeroSection() {
             { opacity: 0 },
         );
 
-        const tl = gsap.timeline({ defaults: { duration: 0.5 } });
+        const tl = gsap.timeline({ defaults: { opacity: 0, duration: 0.4 } });
 
         tl.fromTo(heroH1Ref.current, { x: 100, opacity: 0 }, { x: 0, opacity: 1 })
             .fromTo(heroH1MarqueeRef.current, { x: 100, opacity: 0 }, { x: 0, opacity: 1 })
@@ -70,6 +70,7 @@ export default function HeroSection() {
                 {/* ── 1️⃣ "Creating" + brands marquee wrapper ── */}
                 <h1
                     ref={heroH1Ref}
+                    style={{ opacity: 0 }}
                     className="w-full tracking-[-2px] font-light text-3xl sm:text-6xl md:text-7xl lg:text-[100px] xl:text-[150px] xl:leading-10 flex lg:flex-row items-center justify-between gap-4 md:gap-8 xl:gap-10 text-center"
                 >
                     Creating
@@ -94,6 +95,7 @@ export default function HeroSection() {
                 {/* ── 3️⃣ "and digital" + description ── */}
                 <div
                     ref={heroMiddleTextRef}
+                    style={{ opacity: 0 }}
                     className="w-full flex items-center justify-between -mb-3"
                 >
                     <h1 className="w-full text-3xl sm:text-6xl md:text-7xl lg:text-[100px] xl:text-[150px] tracking-[-2px] font-light xl:leading-10 flex items-center gap-4 lg:gap-10 text-center -mt-16 sm:-mt-10 md:-mt-16 lg:-mt-10">
@@ -103,6 +105,7 @@ export default function HeroSection() {
                     {/* ── 4️⃣ description paragraph ── */}
                     <p
                         ref={heroMiddleTextDelayRef}
+                        style={{ opacity: 0 }}
                         className="text-custom-white/70 w-full md:max-w-56 lg:max-w-100 text-xs sm:text-sm md:text-lg xl:text-[22px] leading-4 md:leading-6 text-right lg:text-start -mt-4"
                     >
                         We design exceptional brands, products, web apps, mobile apps, websites for
@@ -113,12 +116,14 @@ export default function HeroSection() {
                 {/* ── 5️⃣ solutions marquee + scroll button ── */}
                 <div
                     ref={heroLastMarqueeRef}
+                    style={{ opacity: 0 }}
                     className="w-full flex flex-col lg:flex-row items-center justify-end gap-14"
                 >
                     <div className="flex items-center lg:gap-8 xl:gap-15">
                         <Marquee
                             loop={0}
                             speed={45}
+                            // style={{ opacity: 0 }}
                             autoFill
                             pauseOnHover
                             className="w-full max-w-60 sm:max-w-80 md:max-w-100 text-3xl sm:text-6xl md:text-7xl lg:text-[90px] xl:text-[140px] xl:leading-10 tracking-[-2px] font-light text-center bg-custom-primary lg:max-w-110 xl:max-w-170 select-none lg:h-28 xl:h-40 rounded-full text-custom-black overflow-hidden"
@@ -128,7 +133,7 @@ export default function HeroSection() {
                     </div>
 
                     {/* ── 6️⃣ scroll button ── */}
-                    <div ref={heroScrollBtnRef}>
+                    <div ref={heroScrollBtnRef} style={{ opacity: 0 }}>
                         <RotateText />
                     </div>
                 </div>
