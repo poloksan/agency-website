@@ -48,7 +48,7 @@ export default function PortfolioSection() {
             // ─────────────────────────────────────────────────
             ScrollTrigger.create({
                 trigger: text,
-                start: 'top 20%',
+                start: 'top 10%',
                 end: () => {
                     const lastCard = cards[cards.length - 1];
                     const lastCardBottom = lastCard.getBoundingClientRect().bottom + window.scrollY;
