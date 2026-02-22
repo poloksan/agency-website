@@ -15,7 +15,7 @@ export default function PageLoader({ children }) {
         };
 
         if (document.readyState === 'complete') finish();
-        else window.addEventListener('load', finish, { once: true });
+        else window.addEventListener('load', finish, );
     }, []);
 
     if (done) return children;

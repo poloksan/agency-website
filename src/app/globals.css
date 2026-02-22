@@ -55,7 +55,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -63,7 +63,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: color-mix(in srgb, var(--custom-primary) 90%, transparent);
+    background: color-mix(in srgb, var(--custom-primary) 80%, transparent);
     border-radius: 999px;
 }
 

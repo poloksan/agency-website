@@ -11,12 +11,10 @@ gsap.registerPlugin(ScrollTrigger);
 export default function SmoothScroll({ children }) {
     useEffect(() => {
         const lenis = new Lenis({
-            duration: 1.2, // scroll এর speed — বড় হলে slower, smooth
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // smooth curve
-            smoothWheel: true, // mouse wheel smooth করে
+            duration: 1.2,
+            smoothWheel: true,
         });
 
-        // GSAP ScrollTrigger এর সাথে sync করো
         lenis.on('scroll', ScrollTrigger.update);
 
         gsap.ticker.add((time) => {
