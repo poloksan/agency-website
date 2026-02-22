@@ -143,7 +143,7 @@ export default function About() {
             // ─────────────────────────────────────────
             gsap.fromTo(
                 figureRef.current,
-                { x: -40, opacity: 0 },
+                { x: -80, opacity: 0 },
                 {
                     x: 0,
                     opacity: 1,
@@ -159,7 +159,7 @@ export default function About() {
             // ─────────────────────────────────────────
             gsap.fromTo(
                 asideRef.current,
-                { x: 40, opacity: 0 },
+                { x: 80, opacity: 0 },
                 {
                     x: 0,
                     opacity: 1,
