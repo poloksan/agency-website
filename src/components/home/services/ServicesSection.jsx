@@ -31,9 +31,9 @@ export default function ServicesSection() {
 
         const mm = gsap.matchMedia();
 
-        mm.add('(min-width: 1024px) and (max-width: 1279px)', () => {
+        mm.add('(min-width: 1280px)', () => {
             gsap.to(card, {
-                x: '-55%',
+                x: '-30%',
                 ease: 'none',
                 scrollTrigger: {
                     trigger: section,
@@ -47,9 +47,9 @@ export default function ServicesSection() {
             });
         });
 
-        mm.add('(min-width: 1280px)', () => {
+        mm.add('(min-width: 1024px) and (max-width: 1279px)', () => {
             gsap.to(card, {
-                x: '-30%',
+                x: '-55%',
                 ease: 'none',
                 scrollTrigger: {
                     trigger: section,
@@ -89,24 +89,6 @@ export default function ServicesSection() {
                 ease: 'elastic.out(1, 0.5)',
                 scrollTrigger: {
                     trigger: paragraphRef.current,
-                    start: 'top 80%',
-                    toggleActions: 'play none none none',
-                },
-            },
-        );
-
-        gsap.fromTo(
-            serviceCardsRef.current,
-            { y: 50, opacity: 0 },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 0.5,
-                ease: 'power2.out',
-                stagger: 0.3,
-                delay: 0.1,
-                scrollTrigger: {
-                    trigger: cardRef.current,
                     start: 'top 80%',
                     toggleActions: 'play none none none',
                 },
@@ -167,7 +149,7 @@ export default function ServicesSection() {
                                 </div>
 
                                 {/* over card */}
-                                <div className="w-full h-full rounded-md absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-custom-black bg-custom-primary lg:opacity-0 lg:scale-0 origin-bottom-left group-hover:scale-100 group-hover:opacity-100 duration-600 transition-all">
+                                <div className="w-full h-full rounded-md absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-custom-black bg-custom-primary lg:opacity-0 lg:scale-0 origin-bottom-left group-hover:scale-100 group-hover:opacity-100 duration-600 transition-all overflow-hidden">
                                     <div className="h-30 w-30 bg-custom-primary/50 rounded-full blur-[90px] absolute -top-12 -right-12 animate-pulse" />
                                     <div className="absolute top-4 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-8 space-y-2 md:space-y-5 pointer-events-none uppercase">
                                         <h4 className="text-3xl sm:text-4xl lg:text-5xl font-semibold">
