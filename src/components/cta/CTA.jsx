@@ -29,8 +29,8 @@ export default function CTA() {
         const handleMouseMove = (e) => {
             const rect = section.getBoundingClientRect();
 
-            const x = e.clientX - rect.left - 200; // motion এর মতো same offset
-            const y = e.clientY - rect.top - 80;
+            const x = e.clientX - rect.left / 2; // motion এর মতো same offset
+            const y = e.clientY - rect.top / 2;
 
             gsap.to(desktopBtn, {
                 x,
